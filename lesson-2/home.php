@@ -81,7 +81,7 @@ for($i=1;$i<9;$i++){
     echo $i.'<br';
 }
 
-echo '<img src="./photo.jpg" >';
+echo '<img src="photo.jpg" >';
 
 echo '<input placeholder="text">';
 
