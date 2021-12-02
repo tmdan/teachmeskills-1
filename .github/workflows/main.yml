@@ -5,11 +5,17 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
+
+      - name: Extract branch name on push
+        if: github.event_name != 'pull_request'
         shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
-      - name: Test
-        run: echo "${BRANCH_NAME}"
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - name: Extract branch name on pull request
+        if: github.event_name == 'pull_request'
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
+
       - uses: actions/checkout@v1
       - name: 🚚 Get latest code
         uses: sebastianpopp/git-ftp-action@releases/v3
@@ -17,6 +23,7 @@ jobs:
           url: ${{ secrets.FTP_SERVER }}/ascheulov
           user: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
+
       - uses: actions/checkout@v1
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
