@@ -5,6 +5,7 @@ error_reporting (E_ALL);
 
 // Задача 1 курсивный текст
 
+
 $text1 = '<i>'."курсивный".'</i>'.'<br>';
 
 echo $text1;
