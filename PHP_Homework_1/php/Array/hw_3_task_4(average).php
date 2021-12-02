@@ -6,7 +6,7 @@ function factorWithWhile($num){
     $i = 1;
     $fact = null;
     while($i<=$num){
-        $fac*=$i;
+        $fact*=$i;
         $i++;
     }
     return $fact;
