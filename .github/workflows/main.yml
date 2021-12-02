@@ -5,19 +5,8 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-
-      - name: Extract branch name on push
-        if: github.event_name != 'pull_request'
-        shell: bash
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-
-      - name: Extract branch name on pull request
-        if: github.event_name == 'pull_request'
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      - name: Set env.BRANCH
+        run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)" >> $GITHUB_ENV
 
       - uses: actions/checkout@v1
       - name: 🚚 Get latest code
