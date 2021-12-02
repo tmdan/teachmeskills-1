@@ -16,7 +16,8 @@ jobs:
       - name: Extract branch name on pull request
         if: github.event_name == 'pull_request'
         run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
       - uses: actions/checkout@v1
       - name: 🚚 Get latest code
