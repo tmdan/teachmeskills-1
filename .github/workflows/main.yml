@@ -5,11 +5,16 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+      - name: Test
+        run: echo "${BRANCH_NAME}"
       - uses: actions/checkout@v1
       - name: 🚚 Get latest code
         uses: sebastianpopp/git-ftp-action@releases/v3
         with:
-          url: ${{ secrets.FTP_SERVER }}
+          url: ${{ secrets.FTP_SERVER }}/ascheulov
           user: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
       - uses: actions/checkout@v1
