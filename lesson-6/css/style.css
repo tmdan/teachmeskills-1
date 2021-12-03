@@ -1,0 +1,10 @@
+* {
+    margin: 10px auto;
+}
+.err {
+    color:red;
+    font-size:16px;
+}
+INPUT {
+    margin-bottom: 10px;
+}
