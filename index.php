@@ -15,24 +15,30 @@
 
     <li>2 занятие - Типы данных, операции
         <ul>
-            <li><a href="lesson-2ariable.php">Практика по работе с
+            <li><a href="./lesson-2/variable.php">Практика по работе с
                     переменными и операциями
                     в PHP</a></li>
-            <li><a href="lesson-2tml_tags.php">Работа с HTML тегами в
+            <li><a href="./lesson-2/html_tags.php">Работа с HTML тегами в
                     PHP
                 </a></li>
         </ul>
     </li>
-
-
-
     <li>3 занятие
         <ul>
-            <li><a href="lesson-3ask1.php">Задача 1</a></li>
-            <li><a href="lesson-3ask2.php">Задача 2</a></li>
-            <li><a href="lesson-3ask3.php">Задача 3</a></li>
+            <li><a href="./lesson-3/task1.php">Задача 1</a></li>
+            <li><a href="./lesson-3/task2.php">Задача 2</a></li>
+            <li><a href="./lesson-3/task3.php">Задача 3</a></li>
         </ul>
     </li>
+    <li>3 занятие
+        <ul>
+            <li><a href="./lesson-4/task1.php">Задача 1</a></li>
+            <li><a href="./lesson-4/task2.php">Задача 2</a></li>
+            <li><a href="./lesson-4/task3.php">Задача 3</a></li>
+            <li><a href="./lesson-4/task4.php">Задача 3</a></li>
+        </ul>
+    </li>
+
 
 
 </ul>
