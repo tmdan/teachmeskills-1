@@ -26,4 +26,5 @@ if ($z > 0) {
 
 $y = (2*pow(M_E,-3 *$x) - 4 * $x) / (log(abs($x)) + $x);
 echo "<i>y = <i>" .($y);
+echo "<i>y = <i>" .($y);
 ?>
