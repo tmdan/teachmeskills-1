@@ -6,4 +6,5 @@ $flipped = array_flip($arr);
 echo array_sum($flipped);
 echo "<br>";
 echo $a = array_sum($arr)/array_sum($flipped);
+echo $a = array_sum($arr)/array_sum($flipped);
 ?>
