@@ -31,7 +31,12 @@
             <li><a href="IfElseHWndex.php">If else HW</a></li>
         </ul>
     </li>
-
+    <li>5 занятие
+        <ul>
+            <li><a href="cyclesHomeWorkndex.php">####</a></li>
+            <li><a href="IfElseHWndex.php">####</a></li>
+        </ul>
+    </li>
 
 </ul>
 
