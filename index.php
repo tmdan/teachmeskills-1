@@ -37,9 +37,9 @@
                 <li class="lessons_task"><a href="lesson-4/ticket170_red.php">Задача по циклам - Вложенные циклы для сложных строк </a></li>
             </ul>
         </li>
-        <li class="lessons">5 занятие -
+        <li class="lessons">6 занятие - Авторизация, сессия
             <ul>
-                <li class="lessons_task"><a href="#">...</a></li>
+                <li class="lessons_task"><a href="lesson-6/index.php">Введите ваши данные</a></li>
                 <li class="lessons_task"><a href="#">...</a></li>
                 <li class="lessons_task"><a href="#">...</a></li>
             </ul>
