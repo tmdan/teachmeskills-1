@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.header {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 36px;
+    color: dimgrey;
+}
+
+.authorization-wrapper {
+    margin: 20px auto 0 auto;
+    width: 50%;
+    border: darkgrey 2px solid;
+}
+
+.authorization-subtitle{
+    margin-top: 20px;
+}
+
+.warning-text{
+    color: red;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+.form-element {
+    text-align: left;
+    padding-top: 5px;
+    margin-top: 15px;
+}
+
+.button-login{
+    margin: 10px 0 20px 0;
+}
+
+.wrapper{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.personal-area-wrapper{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.name-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.user-date {
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    border: darkgrey 1px solid;
+}
+
+.user-date:nth-child(1-2){
+    margin-top: 0;
+}
+
+.personal-area-data-subtitle{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.personal-area-data-subtitle:first-child{
+    margin-top: 0;
+}
+
+.button-log-off {
+    margin: 10px 0;
+}
