@@ -12,7 +12,7 @@
     <?php
     session_start();
     if (!isset($_SESSION["session_username"])):
-        header("location:index.php");
+        header("location:http://n336298b.beget.tech/piletski/lesson-6/index.php");
     else:
     ?>
     <div>
@@ -23,7 +23,7 @@
         <p>Логин - <?php echo $_SESSION["login"]?></p>
         <p>Пароль - <?php echo $_SESSION["password"]?></p>
         <img src='<?php echo "./" . $_SESSION["file"] ?>' alt="uploaded image" class="wrapper-img">
-        <form action="logout.php">
+        <form action="http://n336298b.beget.tech/piletski/lesson-6/logout.php">
             <input  type="submit" value="Выйти">
         </form>
     </div>
