@@ -49,7 +49,7 @@
             $_SESSION["email"] = $_POST["email"];
             $_SESSION["login"] = $_POST["login"];
             $_SESSION["password"] = $_POST["password"];
-            header("Location: http://n336298b.beget.tech/piletski/lesson-6/intropage.php");
+            header("Location: intropage.php");
         } else {
             echo "Неправильно введены данные" . "<br>";
         }
