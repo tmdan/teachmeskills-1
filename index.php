@@ -22,8 +22,11 @@
             <li><a href="./HW_Array/index.php">Array in PHP</a></li>
             <li><a href="./HW_If-Else/index.php">If Else in PHP</a></li>
             <li><a href="./HW_Cycles/index.php">Cycles in PHP</a></li>
-            <li><a href="./HW_Session-1/index.php">Session in PHP task-1</a></li>
-            <li><a href="./HW_Session-1/test1.php">Session in PHP task-2</a></li>
+            <li class="sessions">Session
+                <li class="session"><a href="./HW_Session-1/index.php">Session in PHP task-1</a></li>
+                <li class="session"><a href="./HW_Session-1/test1.php">Session in PHP task-2</a></li>
+                <li class="session"><a href="./HW_Session-1/unset.php">Session in PHP task-3</a></li>
+            </li>
         </ul>
     </div>
 </section>
