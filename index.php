@@ -26,6 +26,8 @@
                 <li class="session"><a href="./HW_Session-1/index.php">Session in PHP task-1</a></li>
                 <li class="session"><a href="./HW_Session-1/test1.php">Session in PHP task-2</a></li>
                 <li class="session"><a href="./HW_Session-1/unset.php">Session in PHP task-3</a></li>
+                <li class="session"><a href="./HW_Session-1/logout.php">Session in PHP task-4</a></li>
+                <li class="session"><a href="./HW_Session-1/sessionArray.php">Session in PHP task-5</a></li>
             </li>
         </ul>
     </div>
