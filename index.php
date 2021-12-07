@@ -1,45 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Emelyanov</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Емельянов Никита</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<h1>Личная страница Емельянова Никиты!</h1>
-
-<ul>
-
-    <li>Работа с HTML тегами
+<section>
+    <div class="header">
+        <h1>Личная страница Емельянов Никиты.</h1>
+    </div>
+    <div class="main">
+        <h2>HomeWork task.</h2>
         <ul>
-            <li><a href="lesson-2tmlTeg.php">HW HTML</a></li>
-            <li><a href="lesson-2/boolean_values.php">Логические значения в PHP</a></li>
+            <li><a href="./HW_HTML-Tegs/htmlTeg.php">HTML Tegs</a></li>
+            <li><a href="./HW_BooleanValue/boolean.php">Boolean Values</a></li>
+            <li><a href="./HW_Null/null.php">NULL in PHP</a></li>
+            <li><a href="./HW_Array/index.php">Array in PHP</a></li>
+            <li><a href="./HW_If-Else/index.php">If Else in PHP</a></li>
+            <li><a href="./HW_Cycles/index.php">Cycles in PHP</a></li>
+            <li><a href="./HW_Session-1/index.php">Session in PHP</a></li>
         </ul>
-    </li>
-    <li>3 занятие
-        <ul>
-            <li><a href="NullPHPull.php">Null в php</a></li>
-            <li><a href="arrHomeWorkndex.php">HM arr</a></li>
-        </ul>
-    </li>
-    <li>4 занятие
-        <ul>
-            <li><a href="cyclesHomeWorkndex.php">cyclesHMWork</a></li>
-            <li><a href="IfElseHWndex.php">If else HW</a></li>
-        </ul>
-    </li>
-    <li>5 занятие
-        <ul>
-            <li><a href="cyclesHomeWorkndex.php">####</a></li>
-            <li><a href="IfElseHWndex.php">####</a></li>
-        </ul>
-    </li>
+    </div>
+</section>
+<section class="footer">
 
-</ul>
-
-
+</section>
 </body>
 </html>
