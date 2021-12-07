@@ -19,3 +19,4 @@ echo 'Перезагруска страницы '.$_SESSION['counter'];
 $time_connect = time() - $_SESSION['time'];
 echo '<br> Сессия начата ' .$time_connect . ' секунд назад';
 echo '<br>';
+
