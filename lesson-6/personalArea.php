@@ -59,7 +59,7 @@
 </html>
 
 <?php
-if (array_key_exists('log_off', $_POST)){
+if (array_key_exists('log_off', $_POST) || empty($_SESSION['login'] && $_SESSION['password'])){
     unlink($_SESSION['uploadfile']);
     session_destroy();
     header("Location: index.php");
