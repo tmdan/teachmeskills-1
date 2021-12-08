@@ -89,8 +89,8 @@
             <li> Домашние задания </li>
 
             <ul>
-                <li><a href="#">....</a></li>
-                <li><a href="#">....</a></li>
+                <li><a href="lesson-7/personal-account/index.php">Авторизация и личный кабинет</a></li>
+                <li><a href="lesson-7/recursion-average-level.php">Рекурсия - средний уровень</a></li>
                 <li><a href="#">....</a></li>
                 <li><a href="#">....</a></li>
                 <li><a href="#">....</a></li>
