@@ -10,7 +10,7 @@ function foo($n) {
         return $n;
     } else {
         echo $n % 10;
-        return $n % 10 + foo((int)($n / 10));
+        return foo((int)($n / 10));
     }
 };
 
