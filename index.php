@@ -40,8 +40,12 @@
         <li class="lessons">6 занятие - Авторизация, сессия
             <ul>
                 <li class="lessons_task"><a href="lesson-6/index.php">Введите ваши данные</a></li>
-                <li class="lessons_task"><a href="#">...</a></li>
-                <li class="lessons_task"><a href="#">...</a></li>
+            </ul>
+        </li>
+        <li class="lessons">7 занятие - Рекурсия
+            <ul>
+                <li class="lessons_task"><a href="lesson-7/ticket232_yellow.php">Сумма цифр натурального числа</a></li>
+                <li class="lessons_task"><a href="lesson-7/ticket221_red.php">Цифры натурального числа в обратном порядке</a></li>
             </ul>
         </li>
     </ul>

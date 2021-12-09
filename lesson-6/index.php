@@ -45,6 +45,10 @@
         <div class="wrapper-log">
             <form method="post" action="login.php">
                 <p style="font-size:24px"><b>Вход</b></p>
+                <?php
+                if (isset($_POST["login"]) && empty($_POST["login"])):?>
+                <p class="err">Пожалуйста, заполните Login<p>
+                    <?php endif?>
                 <input type="text" name="login" placeholder="Укажите логин"><br>
                 <?php
                 if (isset($_POST["password"]) && empty($_POST["password"])):?>
