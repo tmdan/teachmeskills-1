@@ -9,9 +9,9 @@
 </head>
 <body>
     <p>Your own area area</p>
-    <p><?php $name=$_POST['name'];
+    <p><?php $name=$_SESSION['login'];
             echo "Your name is $name"?></p>
-    <p><?php $surname=$_POST['surname'];
+    <p><?php $surname=$_SESSION['login'];
         echo "Your surname is $surname"?></p>
 
     <?php
@@ -30,10 +30,10 @@ foreach($_POST as $value) {
     if (empty($value)) {
         header("Location: register.php");
     } else {
-        $login = $_POST['login'];
-        $pass = $_POST['pass'];
+        $_SESSION['login'] = $_POST['login'];
+        $_SESSION['pass'] = $_POST['pass'];
 
-        setcookie("login", $login);
-        setcookie("pass", $pass);
+        setcookie("login", $_SESSION['login']);
+        setcookie("pass", $_SESSION['pass']);
     }
 }
