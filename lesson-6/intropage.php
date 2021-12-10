@@ -22,7 +22,7 @@
         <p>Email - <?php echo $_SESSION["email"]?></p>
         <p>Логин - <?php echo $_SESSION["login"]?></p>
         <p>Пароль - <?php echo $_SESSION["password"]?></p>
-        <p>PHPSESSID - <?php echo $_COOKIE["user-auth"]?></p>
+        <p>PHPSESSID - <?php echo $_COOKIE["PHPSESSID"];?></p>
         <img src='<?php echo "./" . $_SESSION["file"] ?>' alt="uploaded image" class="wrapper-img">
         <form action="logout.php">
             <input  type="submit" value="Выйти">
