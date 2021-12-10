@@ -10,18 +10,29 @@
 //третий ящик и что отдавать, и конечно продумать условия выхода из рекурсии. Подсказка надо
 //работать с остатком от деления на 10
 
-$a = explode(".",149);
-$b = strlen(149)-1;
-$num=$a[0][$b];
-$arr=[];
-array_push($arr,$a[0][$b-1],$a[0][$b-2],$a[0][$b-3]);
+//$a = explode(".",149);
+//$b = strlen(149)-1;
+//$num=$a[0][$b];
+//$arr=[];
+//array_push($arr,$a[0][$b-1],$a[0][$b-2],$a[0][$b-3]);
+//
+//function sum($arr,$index){
+//    if($index>=0){
+//        echo $arr[$index];
+//        return sum($arr,$index-1);
+//    }
+//    return "";
+//}
+//echo(sum($arr,2));
 
-function sum($arr,$index){
-    if($index>=0){
-        echo $arr[$index];
-        return sum($arr,$index-1);
+function reverseOutput($num){
+    if($num===0){
+        return "it's done";
+    }else {
+        echo ($num%10);
+         reverseOutput((int)($num/10));
     }
-    return "";
+    return "!";
 }
-echo(sum($arr,2));
 
+echo reverseOutput(123);
