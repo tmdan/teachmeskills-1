@@ -25,20 +25,27 @@
     </li>
     <li>3 занятие
         <ul>
-            <li><a href="./lesson-3/task1.php">Задача 1</a></li>
-            <li><a href="./lesson-3/task2.php">Задача 2</a></li>
-            <li><a href="./lesson-3/task3.php">Задача 3</a></li>
+            <li><a href="./lesson-3/task1.php">Задача по if...else 1</a></li>
+            <li><a href="./lesson-3/task2.php">Задача по if...else 2</a></li>
+            <li><a href="./lesson-3/task3.php">Задача по if...else 3</a></li>
         </ul>
     </li>
-    <li>3 занятие
+    <li>4 занятие
         <ul>
-            <li><a href="./lesson-4/task1.php">Задача 1</a></li>
-            <li><a href="./lesson-4/task2.php">Задача 2</a></li>
-            <li><a href="./lesson-4/task3.php">Задача 3</a></li>
-            <li><a href="./lesson-4/task4.php">Задача 3</a></li>
+            <li><a href="./lesson-4/task1.php">Задачи по циклам (просто)</a></li>
+            <li><a href="./lesson-4/task2.php">Задачи по массивам (просто)</a></li>
+            <li><a href="./lesson-4/task3.php">Задачи по циклам (средний)</a></li>
+            <li><a href="./lesson-4/task4.php">Задачи по массивам (сложно)</a></li>
         </ul>
     </li>
-
+    <li>7 занятие
+        <ul>
+            <li><a href="./lesson-7/recursion1.php">Задачи по рекурсии (средне)</a></li>
+            <li><a href="./lesson-7/task2.php">Задача 2</a></li>
+            <li><a href="./lesson-7/task3.php">Задача 3</a></li>
+            <li><a href="./lesson-7/task4.php">Задача 4</a></li>
+        </ul>
+    </li>
 
 
 </ul>
