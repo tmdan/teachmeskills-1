@@ -41,7 +41,7 @@
     <li>7 занятие
         <ul>
             <li><a href="./lesson-7/recursion1.php">Задачи по рекурсии (средне)</a></li>
-            <li><a href="./lesson-7/task2.php">Задача 2</a></li>
+            <li><a href="./lesson-7/recursion2.php">Задачи по рекурсии (сложно)</a></li>
             <li><a href="./lesson-7/task3.php">Задача 3</a></li>
             <li><a href="./lesson-7/task4.php">Задача 4</a></li>
         </ul>
