@@ -7,19 +7,14 @@ body {
     background-image: url(picture.jpg);
 }
 
+li {
+    color: blue;
+}
+
 ul {
     list-style-type: none;
 }
 
-img {
-    width: 250px;
-    height: 300px;
-}
-
 .head_information {
 text-align: center;
-}
-
-li.hover {
-    color: yellow;
 }
