@@ -44,6 +44,7 @@
             <li><a href="homework/lesson6-7_homework/login.php">Личный кабинет</a></li>
             <li><a href="homework/lesson6-7_homework/autor.php">Авторизация</a></li>
             <li><a href="homework/lesson6-7_homework/ticket228_yellow.php">Задачи по рекурсии (средне)</a></li>
+            <li><a href="homework/lesson6-7_homework/ticket217_red.php">Задачи по рекурсии (сложно)</a></li>
         </ul>
     </li>
 
