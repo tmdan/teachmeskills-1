@@ -25,13 +25,14 @@
 
     <li>3 занятие
         <ul>
-            <li><a href="./lesson-with-if_else">ДЗ по If...Else</a></li>
+            <li><a href="./slabko/lesson-with-if_else/lesson2(medium).php">ДЗ по If...Else, Средний уровень</a></li>
+            <li><a href="./slabko/lesson-with-if_else/lesson2(hard).php">ДЗ по If...Else, Сложный уровень</a></li>
         </ul>
     </li>
 
     <li>4 занятие
         <ul>
-            <li><a href="/slabko/arrays/lesson3(easy).php">ДЗ по Массивам, Легкий уровень</a></li>
+            <li><a href="./slabko/arrays/lesson3(easy).php">ДЗ по Массивам, Легкий уровень</a></li>
             <li><a href="./slabko/arrays/lesson3(hard).php">ДЗ по Массивам, Сложный уровень</a></li>
             <li><a href="./slabko/cycle/cycleeasylevel.php">ДЗ по Циклам, Легкий уровень</a></li>
             <li><a href="./slabko/cycle/cyclemediumlevel.php">ДЗ по Циклам, Средний уровень</a></li>
