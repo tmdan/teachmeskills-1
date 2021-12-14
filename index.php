@@ -13,24 +13,21 @@
 </div>
 
 <div class="body_information">
-<ul>
 
-    <li>2 занятие
+    <p>2 занятие</p>
         <ul>
             <li><a href="./slabko/personalInfo.php">Личный данные</a></li>
             <li><a href="./slabko/boolean.php">Логические значения в PHP</a></li>
         </ul>
-    </li>
 
 
-    <li>3 занятие
+    <p>3 занятие</p>
         <ul>
             <li><a href="./slabko/lesson-with-if_else/lesson2(medium).php">ДЗ по If...Else, Средний уровень</a></li>
             <li><a href="./slabko/lesson-with-if_else/lesson2(hard).php">ДЗ по If...Else, Сложный уровень</a></li>
         </ul>
-    </li>
 
-    <li>4 занятие
+    <p>4 занятие</p>
         <ul>
             <li><a href="./slabko/arrays/lesson3(easy).php">ДЗ по Массивам, Легкий уровень</a></li>
             <li><a href="./slabko/arrays/lesson3(hard).php">ДЗ по Массивам, Сложный уровень</a></li>
@@ -40,10 +37,7 @@
             <li><a href="./slabko/recursia/recursiamedium.php">ДЗ по Рекурсии, Средний уровень</a></li>
             <li><a href="./slabko/recursia/recursiahard.php">ДЗ по Рекурсии, Сложный уровень</a></li>
         </ul>
-    </li>
 
-
-</ul>
 </div>
 
 
