@@ -29,6 +29,7 @@
                 <li class="session"><a href="./HW_Session-1/logout.php">Session in PHP task-4</a></li>
                 <li class="session"><a href="./HW_Session-1/sessionArray.php">Session in PHP task-5</a></li>
             </li>
+            <li><a href="HW_RegisterForm/register.php">Register Form</a></li>
         </ul>
     </div>
 </section>
