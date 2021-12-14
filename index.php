@@ -40,6 +40,7 @@
         <li class="lessons">6 занятие - Авторизация, сессия
             <ul>
                 <li class="lessons_task"><a href="lesson-6/index.php">Введите ваши данные</a></li>
+                <li class="lessons_task"><a href="lesson-6.2/index.php">Введите ваши данные (версия 2)</a></li>
             </ul>
         </li>
         <li class="lessons">7 занятие - Рекурсия
