@@ -1,5 +1,5 @@
 <?php
-true(1);
+echo true(1);
 "<br>";
-false(0);
+echo false(0);
 ?>

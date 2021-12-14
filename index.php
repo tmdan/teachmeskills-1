@@ -31,13 +31,13 @@
 
     <li>4 занятие
         <ul>
-            <li><a href="./slabko/arrays/lesson3(easy).php">ДЗ по Массивам, Легкий уровень</a></li>
+            <li><a href="/slabko/arrays/lesson3(easy).php">ДЗ по Массивам, Легкий уровень</a></li>
             <li><a href="./slabko/arrays/lesson3(hard).php">ДЗ по Массивам, Сложный уровень</a></li>
-            <li><a href="./slabko/cycle/cycle%20easy%20leve.php">ДЗ по Циклам, Легкий уровень</a></li>
-            <li><a href="./slabko/cycle/cycle%20medium%20level.php">ДЗ по Циклам, Средний уровень</a></li>
-            <li><a href="./slabko/cycle/cycle%20hard%20level.php">ДЗ по Циклам, Сложный уровень</a></li>
-            <li><a href="./slabko/recursia/recursia%20medium.php">ДЗ по Рекурсии, Средний уровень</a></li>
-            <li><a href="./slabko/recursia/recursia%20hard.php">ДЗ по Массивам, Сложный уровень</a></li>
+            <li><a href="./slabko/cycle/cycleeasylevel.php">ДЗ по Циклам, Легкий уровень</a></li>
+            <li><a href="./slabko/cycle/cyclemediumlevel.php">ДЗ по Циклам, Средний уровень</a></li>
+            <li><a href="./slabko/cycle/cyclehardlevel.php">ДЗ по Циклам, Сложный уровень</a></li>
+            <li><a href="./slabko/recursia/recursiamedium.php">ДЗ по Рекурсии, Средний уровень</a></li>
+            <li><a href="./slabko/recursia/recursiahard.php">ДЗ по Рекурсии, Сложный уровень</a></li>
         </ul>
     </li>
 
