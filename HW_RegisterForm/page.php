@@ -17,7 +17,7 @@
 </head>
 <body>
     <h1>Добро пожаловать, <?=$_SESSION['login']?>!</h1>
-    <img src="<?='uploads/'.$_SESSION['img'];?>">
+    <img src="uploads/<?=$_SESSION['img'];?>">
     <p>Твой логин: <?=$_SESSION['login']?></p>
     <p>Твой пароль: <?=$_SESSION['password']?></p>
     <p>Твой E-mail: <?=$_SESSION['email']?></p>
