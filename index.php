@@ -49,6 +49,12 @@
                 <li class="lessons_task"><a href="lesson-7/ticket221_red.php">Цифры натурального числа в обратном порядке</a></li>
             </ul>
         </li>
+        <li class="lessons">8 занятие - Работа с файлами
+            <ul>
+                <li class="lessons_task"><a href="lesson-8/ticket242_green.php">Создание папок и файлов</a></li>
+                <li class="lessons_task"><a href="lesson-8/ticket251_yellow.php">Работа форма - сервер - файл - вывод</a></li>
+            </ul>
+        </li>
     </ul>
 </body>
 </html>
