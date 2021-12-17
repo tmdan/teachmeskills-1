@@ -10,12 +10,26 @@
 <body>
 <form method="post">
     <p><b>Введите данные:</b></p>
-    <?php
-    (empty($_POST['text'])):
-    endif?>
+
+    <?php if (empty($_POST['text'])): ?>
+    <p style="color: red">Textarea пустая!!!</p>
+    <?php endif; ?>
 
     <p><textarea rows="10" cols="45" name="text"></textarea></p>
     <p><input type="submit" value="Отправить"></p>
 </form>
+<?
+$fp = fopen("file.txt", "w");
+fwrite($fp, "{$_POST['text']}");
+fclose($fp);
+
+$fp = fopen("file.txt", "r");
+while (!feof($fp)) {
+    $str = fgets($fp);
+    echo $str;
+}
+fclose($fp);
+
+?>
 </body>
 </html>
