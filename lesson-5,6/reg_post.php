@@ -1,3 +1,17 @@
+<?php
+session_start();
+foreach($_POST as $value) {
+    if (empty($value)) {
+        echo "entry values";
+    }
+}
+$_SESSION['login'] = $_POST['login'];
+$_SESSION['pass'] = $_POST['pass'];
+
+setcookie("login", $_SESSION['login']);
+setcookie("pass", $_SESSION['pass']);
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,11 +22,11 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Your own area area</p>
-    <p><?php $name=$_SESSION['login'];
-            echo "Your name is $name"?></p>
-    <p><?php $surname=$_SESSION['login'];
-        echo "Your surname is $surname"?></p>
+
+    <p>Your own area</p>
+    <p><?="Your name is {$_SESSION['login']}"?></p>
+    <p><?php $surname=$_SESSION['pass'];
+        echo "Your password is $surname"?></p>
 
     <?php
     @mkdir("upload", 0777);
@@ -25,15 +39,3 @@
 
 </body>
 </html>
-<?php
-foreach($_POST as $value) {
-    if (empty($value)) {
-        header("Location: register.php");
-    } else {
-        $_SESSION['login'] = $_POST['login'];
-        $_SESSION['pass'] = $_POST['pass'];
-
-        setcookie("login", $_SESSION['login']);
-        setcookie("pass", $_SESSION['pass']);
-    }
-}
