@@ -67,6 +67,7 @@
     if ($_FILES && $_FILES["filename"]["error"] == UPLOAD_ERR_OK) {
         $name = $_FILES["filename"]["name"];
         $_SESSION["file"] = $_FILES["filename"]["name"];
+        setcookie("file", $_SESSION["file"]);
         move_uploaded_file($_FILES["filename"]["tmp_name"], $name);
         echo "Файл загружен";
     }

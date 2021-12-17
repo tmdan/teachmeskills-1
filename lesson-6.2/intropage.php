@@ -23,7 +23,7 @@ else:
         <p>Логин - <?php echo $_COOKIE["login"]?></p>
         <p>Пароль - <?php echo $_COOKIE["password"]?></p>
         <p>PHPSESSID - <?php echo $_COOKIE["PHPSESSID"];?></p>
-        <img src='<?php echo "./" . $_SESSION["file"] ?>' alt="uploaded image" class="wrapper-img">
+        <img src='<?php echo "./" . $_COOKIE["file"] ?>' alt="uploaded image" class="wrapper-img">
         <form action="logout.php">
             <input  type="submit" value="Выйти">
         </form>

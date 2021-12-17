@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <title>Вход в личный кабинет</title>
 </head>
+<?php
+    session_start();
+    if (!empty($_SESSION["login"]) && !empty($_SESSION["password"])) {
+            header("Location: intropage.php");
+    }
+?>
 <body>
     <div class="wrapper-log">
         <form method="post">
