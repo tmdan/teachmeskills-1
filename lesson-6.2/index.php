@@ -9,13 +9,6 @@
     <title>Регистрация</title>
 </head>
 <body>
-<?php
-    if (isset($_COOKIE["login"]) && isset($_COOKIE["password"])) {
-        if ($_COOKIE["login"] == "Romchik" && $_COOKIE["password"] == "3316") {
-            header("Location: intropage.php");
-        }
-    }
-?>
     <div class="wrapper">
         <div class="wrapper-reg">
             <form method="post" enctype="multipart/form-data">
@@ -61,15 +54,15 @@
 <?php
     session_start();
     if(!empty($_POST["first_name"]) && !empty($_POST["password"])) {
-        if (($_POST["login"] == "Romchik") && ($_POST["password"] == "3316")) {
+            $_SESSION["session_username"] = $_POST["first_name"] . " " . $_POST["last_name"];
+            $_SESSION["email"] = $_POST["email"];
+            $_SESSION["login"] = $_POST["login"];
+            $_SESSION["password"] = $_POST["password"];
             setcookie("session_username", $_POST["first_name"] . " " . $_POST["last_name"]);
             setcookie("email" , $_POST["email"]);
             setcookie("login" , $_POST["login"]);
             setcookie("password" , $_POST["password"]);
             header("Location: intropage.php");
-        } else {
-            echo "Неправильно введены данные" . "<br>";
-        }
     }
     if ($_FILES && $_FILES["filename"]["error"] == UPLOAD_ERR_OK) {
         $name = $_FILES["filename"]["name"];
@@ -77,4 +70,8 @@
         move_uploaded_file($_FILES["filename"]["tmp_name"], $name);
         echo "Файл загружен";
     }
+    if (!empty($_SESSION["login"]) && !empty($_SESSION["password"])) {
+        header("Location: intropage.php");
+    }
+
 ?>

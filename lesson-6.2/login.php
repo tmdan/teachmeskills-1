@@ -8,13 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <title>Вход в личный кабинет</title>
 </head>
-<?php
-    if (isset($_COOKIE["login"]) && isset($_COOKIE["password"])) {
-        if ($_COOKIE["login"] == "Romchik" && $_COOKIE["password"] == "3316") {
-            header("Location: intropage.php");
-        }
-    }
-?>
 <body>
     <div class="wrapper-log">
         <form method="post">
@@ -33,11 +26,7 @@
 </html>
 <?php
     if(!empty($_POST["login"]) && !empty($_POST["password"])) {
-        if (($_POST["login"] == "Romchik") && ($_POST["password"] == "3316")) {
-            setcookie("session_username", "Roman" . " " . "Piletski");
-            setcookie("email" , "1@tut.by");
-            setcookie("login" , $_POST["login"]);
-            setcookie("password" , $_POST["password"]);
+        if (($_POST["login"] == $_COOKIE["login"]) && ($_POST["password"] == $_COOKIE["password"])) {
             header("Location: intropage.php");
         } else {
             header("Location: logout.php");
