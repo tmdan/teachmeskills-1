@@ -40,6 +40,11 @@
             <li><a href="lesson-4/cycle_4.php">Cycle Task 4 easy</a></li>
         </ul>
     </li>
+    <li>8 занятие
+            <ul>
+                <li><a href="lesson_8/file1.php">Files 1</a></li>
+            </ul>
+        </li>
 
 
 </ul>
