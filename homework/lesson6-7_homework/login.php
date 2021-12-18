@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION) and empty ($_SESSION)){
+if ($_SESSION['password'] !== $_COOKIE['password']) {
     header("Location: index.php");
 }
 ?>
@@ -25,18 +25,14 @@ if (isset($_SESSION) and empty ($_SESSION)){
         <img src="<?php echo $_COOKIE['photo']?>" alt="Аватарка" height="300px" width="300px">
     <p>PHPSESSID - <?php echo $_COOKIE["PHPSESSID"];?></p>
     <p>Если хочешь что-нибудь поменять можешь вернуться на начальную страницу<p>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <p><input name="exit" type="submit" value="Изменить данные/Выход"> </p>
     </form>
     </body>
     </html>
-
 <?php
-if (array_key_exists('exit',$_POST)){
+if (array_key_exists('exit', $_POST)) {
     session_destroy();
-    foreach($_COOKIE as $name => $value){
-        unset($_COOKIE[$name]);
-        setcookie($name, null, -1, '/');
-        header("Location: index.php");
-    }}
-?>
+    header("Location: index.php");
+}
+?>;
