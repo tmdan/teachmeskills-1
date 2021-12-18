@@ -18,6 +18,7 @@ $time = date ('H:m:s');
 if (!file_exists("./$name/$year/1.txt")){
     $fp = fopen("./$name/$year/1.txt", "w");
     fwrite($fp, "$name - $time");
+    fclose($fp);
 }else{
     echo 'Файл с именем 1.txt существует';
 }
