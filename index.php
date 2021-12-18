@@ -48,6 +48,13 @@
         </ul>
     </li>
 
+    <li> 8 занятие
+        <ul>
+            <li><a href="homework/lesson8_homework/ticket239_green.php">Задачи по рекурсии (легко)</a></li>
+            <li><a href="homework/lesson8_homework/ticket249_yellow.php">Задачи по рекурсии (средне)</a></li>
+        </ul>
+    </li>
+
 </ul>
 
 
