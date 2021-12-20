@@ -15,7 +15,7 @@
     if (preg_match_all($pattern2, $subject2)) {
         echo "Проверка даты: $subject2 верно<br>";
     };
-    echo "<a href=\https://regex101.com/r/bQE89I/1\">Проверка regex101</a><br><br>";
+    echo "<a href=\"https://regex101.com/r/LlxbSl/1\">Проверка regex101</a><br><br>";
 
     $pattern3 = "/^г\.\s[А-Я][а-яё]+,\sул\.\s[А-Я][а-яё]+,\sдом\s\d+,\sкв\.\s\d+$/u";
     $subject3 = "г. Минск, ул. Основателей, дом 53, кв. 3";
