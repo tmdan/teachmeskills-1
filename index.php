@@ -55,6 +55,11 @@
                 <li class="lessons_task"><a href="lesson-8/ticket251_yellow.php">Работа форма - сервер - файл - вывод</a></li>
             </ul>
         </li>
+        <li class="lessons">9 занятие - Регулярные выражения
+            <ul>
+                <li class="lessons_task"><a href="lesson-9/ticket262_green.php">Регулярное выражение для проверки</a></li>
+            </ul>
+        </li>
     </ul>
 </body>
 </html>
