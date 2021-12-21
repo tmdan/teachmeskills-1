@@ -77,5 +77,5 @@ if (array_key_exists('send', $_POST)){
     $_COOKIE['photo'] = $uploadfile;
     header("Location: login.php");
 }
-?>;
+?>
 

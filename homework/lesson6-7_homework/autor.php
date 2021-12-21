@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['login'])) {
+if (!isset($_SESSION['login'])) {
     header("Location: login.php");
 }
 ?>
@@ -31,9 +31,5 @@ if (array_key_exists('go', $_POST) and $_POST['login'] == $_COOKIE['login'] and 
 } else {
     echo '<p style="color: red">' . "Вы ввели неправилое имя пользователя или пароль!" . '<p>';
 }
-
-echo '<pre>' . var_export($_COOKIE, true) . '</pre>';
-echo '<pre>' . var_export($_POST, true) . '</pre>';
-echo '<pre>' . var_export($_SESSION, true) . '</pre>';
-?>;
+?>
 
