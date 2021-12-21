@@ -1,0 +1,31 @@
+@import url(font.css);
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Dosis-VariableFont_wght";
+  font-size: 20px; }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  padding-top: 200px;
+  margin: 0 auto; }
+  form label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; }
+    form label div p {
+      color: red; }
+    form label div input {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid grey; }
+  form .file_submit {
+    margin: 0 auto 10px; }
+  form .fileRed {
+    color: red;
+    margin-bottom: 10px;
+    margin-left: 85px; }
+
+/*# sourceMappingURL=styleForRegistration.css.map */

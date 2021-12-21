@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  box-sizing: border-box; }
+
+#link1 {
+  font-size: 20px;
+  border: 1px solid grey;
+  position: relative;
+  top: 200px;
+  padding: 20px;
+  left: 600px;
+  text-decoration: none;
+  color: grey; }
+
+#link2 {
+  font-size: 20px;
+  border: 1px solid grey;
+  position: relative;
+  top: 250px;
+  padding: 20px;
+  left: 620px;
+  text-decoration: none;
+  color: grey; }
+
+/*# sourceMappingURL=style.css.map */

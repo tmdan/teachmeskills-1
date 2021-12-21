@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  text-align: center;
+  padding-top: 100px; }
+
+img {
+  border: 2px solid grey;
+  border-radius: 150px;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px; }
+
+.personal_info p {
+  margin-bottom: 10px; }
+.personal_info span {
+  text-decoration: underline; }
+
+/*# sourceMappingURL=personalPage.css.map */
