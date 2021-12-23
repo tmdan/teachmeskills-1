@@ -1,10 +1,39 @@
-<?php session_start();
-if ($_SESSION['login'] && $_SESSION['password']) {
-    header('Location: account.php');
-}
+<?php
+
+
+session_start();
+
+//array_key_exists - благодаря данной фукнции мы можем проверить существования ключа в массиве
+//if (array_key_exists('login', $_SESSION) && array_key_exists('password', $_SESSION)) {
+//   // header('Location: account.php');
+//}
+
 echo '<pre>';
 var_dump($_COOKIE);
 echo '</pre>';
+
+
+
+//array_key_exists - благодаря данной фукнции мы можем проверить существования ключа в массиве
+if (
+    //Если приходит логин в $_POST - т.е. если существует значение с ключем login в массиве $_POST
+    array_key_exists('login', $_POST) &&
+    //Если приходит логин в $_COOKIE - т.е. если существует значение с ключем login в массиве $_COOKIE
+    array_key_exists('login', $_COOKIE) &&
+    //И если тот ключ что пришел с формы анологичен значение которая уже есть в куках то значит пользователь ранее был зареган
+    $_POST['login'] == $_COOKIE['login'] &&
+    array_key_exists('password', $_COOKIE) &&
+    array_key_exists('password', $_POST) &&
+    $_POST['password'] == $_COOKIE['password']
+){
+    //Заносим данные с сессию
+    $_SESSION['password'] = $_POST['password'];
+    $_SESSION['login'] = $_POST['login'];
+
+    //Делаем редирект в кабинет
+    header('Location: account.php');
+}
+
 
 ?>
 <!doctype html>
@@ -18,27 +47,28 @@ echo '</pre>';
     <title>Авторизация</title>
 </head>
 <body>
-    <div id="container">
-<!--        <h1>Добро пожаловать!</h1>-->
-        <div id='authorization'>
-            <h2>Авторизация пользователя</h2>
-            <form  method="post" >
-                <h3>Введите логин</h3>
-                    <input type="text" name="login" id="login" required><br>
+
+<div id="container">
+    <!--        <h1>Добро пожаловать!</h1>-->
+    <div id='authorization'>
+        <h2>Авторизация пользователя</h2>
+
+
+        <form method="POST">
+            <h3>Введите логин</h3>
+            <input type="text" name="login" id="login" required><br>
             <h3>Введите пароль</h3>
-                    <input type="password" name="password" id="password" required><br>
-                    <input type="submit" value="отправить">
-            </form>
-            <p>
-                Впервые у нас? - <a href="registration.php">зарегистрируйтесь</a>!
-            </p>
+            <input type="password" name="password" id="password" required><br>
+            <input type="submit" value="отправить">
+        </form>
+
+
+        <p>
+            Впервые у нас? - <a href="registration.php">зарегистрируйтесь</a>!
+        </p>
     </div>
+
+
 </div>
 </body>
 </html>
-<?php
-$log = $_POST['login'];
-$pass = $_POST['password'];
-if (($log==$_COOKIE['login']) && ($pass==$_COOKIE['password'])){
-//    header('Location: account.php');
-}
