@@ -1,18 +1,5 @@
 <?php
-
-
 session_start();
-
-//array_key_exists - благодаря данной фукнции мы можем проверить существования ключа в массиве
-//if (array_key_exists('login', $_SESSION) && array_key_exists('password', $_SESSION)) {
-//   // header('Location: account.php');
-//}
-
-echo '<pre>';
-var_dump($_COOKIE);
-echo '</pre>';
-
-
 
 //array_key_exists - благодаря данной фукнции мы можем проверить существования ключа в массиве
 if (
@@ -33,6 +20,20 @@ if (
     //Делаем редирект в кабинет
     header('Location: account.php');
 }
+
+
+
+
+//array_key_exists - благодаря данной фукнции мы можем проверить существования ключа в массиве
+//if (array_key_exists('login', $_SESSION) && array_key_exists('password', $_SESSION)) {
+//   // header('Location: account.php');
+//}
+
+echo '<pre>';
+var_dump($_COOKIE);
+echo '</pre>';
+
+
 
 
 ?>

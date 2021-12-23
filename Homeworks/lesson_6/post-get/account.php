@@ -15,6 +15,7 @@ if (
 }
 
 if (!isset($_SESSION['login']) && !isset($_SESSION['password'])) {
+
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['e-mail'];
