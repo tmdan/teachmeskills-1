@@ -20,16 +20,16 @@ class Cat {
       echo  "$this->name" . "<br>" . "$this->age" . "<br>" . "$this->breed" . "<br>" . "$this->gender" . "<br>" ;
     }
 
-    public function __construct(){
-       $this->name = 'Tishka';
-       $this->age = "5";
-       $this->breed = "siamese";
-       $this->gender = "male";
+    public function __construct($name, $age, $breed, $gender){
+       $this->name = $name;
+       $this->age = $age;
+       $this->breed = $breed;
+       $this->gender = $gender;
     }
 
 }
 
-$cat = new Cat();
+$cat = new Cat('Tishka', "5", "siamese", "male");
 $cat->getParams();
 $cat->golos();
 
