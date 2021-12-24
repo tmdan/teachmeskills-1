@@ -45,7 +45,9 @@
                 <li><a href="lesson_8/file1.php">Files 1</a></li>
                 <li><a href="lesson_8/file2.php">Files 2</a></li>
             </ul>
-        </li>
+    </li>
+
+    <a href="lesson-10/oop_light.php">OOP light</a>
 
 
 </ul>
