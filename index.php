@@ -58,6 +58,7 @@
         <li class="lessons">9 занятие - Регулярные выражения
             <ul>
                 <li class="lessons_task"><a href="lesson-9/ticket262_green.php">Регулярное выражение для проверки</a></li>
+                <li class="lessons_task"><a href="lesson-9/ticket273_yellow.php">Регулярное выражение для поиска html тегов</a></li>
             </ul>
         </li>
     </ul>
