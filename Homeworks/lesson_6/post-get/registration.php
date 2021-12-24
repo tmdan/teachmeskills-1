@@ -13,7 +13,7 @@ if(array_key_exists('submit', $_POST)){
     //Если lastname существует в массиве $_POST
     if(array_key_exists('lastname', $_POST))
         //Записываем занчение в куки
-        setcookie("firstname", $_POST['lastname'], time() + 36000);
+        setcookie("lastname", $_POST['lastname'], time() + 36000);
 
     //Если email существует в массиве $_POST
     if(array_key_exists('email', $_POST))
@@ -21,9 +21,9 @@ if(array_key_exists('submit', $_POST)){
 
     if(array_key_exists('password', $_POST)){
         //Записываем занчение в куки
-        setcookie("password", $_POST['password'], time() + 36000);
+        setcookie("password", md5($_POST['password']), time() + 36000);
         //Записываем значение в сессию
-        $_SESSION['password'] = $_POST['password'];
+        $_SESSION['password'] = md5($_POST['password']);
     }
 
     if(array_key_exists('login', $_POST)){
