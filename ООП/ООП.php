@@ -14,34 +14,33 @@
 <!--Имя (string)-->
 <!--Доход (int)-->
 <?php
-    class Build{
-        public $name_build;
-        public $spetification;
-        public $tax;
-
-        function __construct($name_build,$spetification,$tax) //creat a construction for init new objects
-        {
-            $this->name_build = $name_build;
-            $this->spetification = $spetification;
-            $this->tax = $tax;
-        }
-    }
-    class Owner extends Build {
+    class Building{
         private $name;
-        private $income;
+        private $specification;
+        private $tax;
+        private $owner;//заглушка
 
-        function __construct($name,$income,$name_build,$spetification,$tax)
+        public function __construct($name,$specification,$tax,$owner)
         {
-            $this->name = $name;
-            $this->income = $income;
-            parent::__construct($name_build,$spetification,$tax);
+            $this->name=$name;
+            $this->specification=$specification;
+            $this->tax=$tax;
+            $this->owner=$owner;
         }
         public function calc(){
-            return $this->income*$this->tax/100; //total tax
+            echo $this->owner->income*$this->tax/100;
         }
-
     }
+    class Owner extends Building { //использовал наследование чтобы применить модификатор protected
+        private $name;//Верно ли privet и protected - хороший тон?
+        protected $income;//без наследования protected не работает и нужно ставить public что есть плохо (даход конечный,нельзя изменять)
 
-    $build = new Build("HelpPeople","социальное здание","20");
-    $owner = new Owner("Prushak","5000",$build->name_build,$build->spetification,$build->tax);
-    echo "total tax: ".$owner->calc();
+        public function __construct($name,$income)
+        {
+            $this->name=$name;
+            $this->income=$income;
+        }
+    }
+    $owner = new Owner("Ilya","4000");
+    $building = new Building("Office","Administration building",20,$owner);
+    $building->calc();
