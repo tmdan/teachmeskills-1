@@ -6,14 +6,7 @@
     if($_COOKIE){
         var_dump($_POST);
         if($_POST["exit"]) {
-            setcookie("name",null,time()-1);
-            setcookie("lastname",null,time()-1);
-            setcookie("email",null,time()-1);
-            setcookie("login",null,time()-1);
             session_destroy();
-            if(dir("img")){
-                unlink("img/photo.jpg");
-            }
             header("Location:mainPage.php");
         }else echo "";
     }

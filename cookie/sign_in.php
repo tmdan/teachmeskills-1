@@ -1,9 +1,9 @@
 <?php
-    if(is_null($_COOKIE)){
+    if($_COOKIE){
             if($_COOKIE["login"]==$_POST["login"] and $_COOKIE["password"]==$_POST["password"]){
                  header("Location: persanalPage.php");
             }
-    }else echo "you have to registration!";
+    }else header("Location: persanalPage.php");
 ?>
 <!doctype html>
 <html lang="en">
