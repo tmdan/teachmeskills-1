@@ -55,6 +55,12 @@
         </ul>
     </li>
 
+    <li> 11 занятие
+        <ul>
+            <li><a href="homework/lesson11_homework/ticket276_green.php">ООП (знакомство) [легко]</a></li>
+        </ul>
+    </li>
+
 </ul>
 
 
