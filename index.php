@@ -41,6 +41,11 @@
             <li><a href="Homeworks\lesson_6\post-get\index.php">Регистрация и Авторизация</a></li>
         </ul>
     </li>
+    <li>ООП
+        <ul>
+            <li><a href="Homeworks/lesson_11/car.php">Класс — автомобиль</a></li>
+        </ul>
+    </li>
 </ul>
 </body>
 </html>
