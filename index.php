@@ -116,7 +116,7 @@
     <li>10 занятие - Знакомство с ООП
         <ul>
             <li><a href="lesson-10/oop-easy-level.php">ООП - лёгкий уровень</a></li>
-            <li><a href="#">...</a></li>
+            <li><a href="lesson-10/oop-average-level.php">ООП - средний уровень</a></li>
         </ul>
     </li>
 
