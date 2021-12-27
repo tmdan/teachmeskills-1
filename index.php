@@ -61,6 +61,12 @@
                 <li class="lessons_task"><a href="lesson-9/ticket273_yellow.php">Регулярное выражение для поиска html тегов</a></li>
             </ul>
         </li>
+        <li class="lessons">10 занятие - ООП (знакомство)
+            <ul>
+                <li class="lessons_task"><a href="lesson-10/ticket290_yellow.php">Задача - ООП "Здание и рента"</a></li>
+                <li class="lessons_task"><a href="lesson-10/ticket282_green.php">Задача - ООП "Про домашних питомцев"</a></li>
+            </ul10
+        </li>
     </ul>
 </body>
 </html>
