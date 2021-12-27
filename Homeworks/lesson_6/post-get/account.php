@@ -11,7 +11,7 @@ if (
 ) {
     //
 } else {
-    header('Location: ./index.php');
+    header('Location: ./car.php');
 }
 
 if (!isset($_SESSION['login']) && !isset($_SESSION['password'])) {

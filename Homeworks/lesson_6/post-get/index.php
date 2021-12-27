@@ -11,10 +11,10 @@ if (
     $_POST['login'] == $_COOKIE['login'] &&
     array_key_exists('password', $_COOKIE) &&
     array_key_exists('password', $_POST) &&
-    md5($_POST['password']) == $_COOKIE['password']
+    md5(md5($_POST['password'])) == $_COOKIE['password']
 ){
     //Заносим данные с сессию
-    $_SESSION['password'] = md5($_POST['password']);
+    $_SESSION['password'] = md5(md5($_POST['password']));
     $_SESSION['login'] = $_POST['login'];
 
     //Делаем редирект в кабинет

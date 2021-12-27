@@ -35,7 +35,7 @@ class Car{
 
     public function move($km){
         $this->distance += $km;
-        echo "В баке осталось ".$this->engine->getFuel()." бензина".'<br>';
+        echo "В баке осталось ".$this->engine->getFuel()."л. бензина".'<br>';
             if ($this->engine->getFuel() >= $km) {
                 $this->engine->moveFuel($km);
                 echo "мы порехали $km километров и потратили $km литров бензина".'<br>';

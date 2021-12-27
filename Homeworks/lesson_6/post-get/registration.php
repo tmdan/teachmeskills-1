@@ -21,9 +21,9 @@ if(array_key_exists('submit', $_POST)){
 
     if(array_key_exists('password', $_POST)){
         //Записываем занчение в куки
-        setcookie("password", md5($_POST['password']), time() + 36000);
+        setcookie("password", md5(md5($_POST['password'])), time() + 36000);
         //Записываем значение в сессию
-        $_SESSION['password'] = md5($_POST['password']);
+        $_SESSION['password'] = md5(md5($_POST['password']));
     }
 
     if(array_key_exists('login', $_POST)){
