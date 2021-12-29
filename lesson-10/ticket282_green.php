@@ -36,6 +36,7 @@
         }
     }
     $pet = new Pet("Sofie", "dog", "French Buldog", 4, "brown");
+
     echo "Name: " . $pet->getNamePet() . "<br>";
     echo "Breed: " . $pet->getBreed() . "<br>";
     echo "Age: " . $pet->getAgePet() . "<br>";
