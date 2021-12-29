@@ -43,6 +43,7 @@
         }
     }
     $building = new Building("House", "Private property", 25, new Owner("Roman P.", 2000));
+
     echo "Здание : " . $building->getName() . "<br>";
     echo "Вид собственности: " . $building->getType() . "<br>";
     echo "Ставка налога: " . $building->getRent() . "%" . "<br>";
