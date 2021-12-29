@@ -18,7 +18,7 @@ session_start();
 ?>
     <main>
         <div class="authorization-wrapper">
-            <form method="POST">
+            <form method="post">
                 <?php
                 function checkFilling ($element, $fieldName){
                     if (array_key_exists('authorization',$_POST) && empty($_POST[$element]))
@@ -28,37 +28,41 @@ session_start();
                 }
                 checkFilling("login", "Логин");
                 ?>
-                <input class="form-element" type="text" name="login" value="<?php echo $_POST['login'];?>" placeholder="Логин"><br>
+                <input class="form-element" type="text" name="login" value="<?php
+                if (isset($_COOKIE['login'])){
+                    echo $_COOKIE['login'];}?>" placeholder="Логин"><br>
 
                 <?php
                 checkFilling("password", "пароль");
                 ?>
 
-                <input class="form-element" type="password" name="password" placeholder="Пароль" value="<?php echo $_SESSION['password'];?>" ><br>
+                <input class="form-element" type="password" name="password" value="<?php
+                if (isset($_COOKIE['password'])){
+                    echo $_COOKIE['password'];}?>" placeholder="Пароль"  ><br>
+
                 <input class="button-login" name="authorization" type="submit" value="Войти">
                 <a href="index.php"> Регистрация </a>
             </form>
+
         </div>
     </main>
 </body>
 </html>
 
 <?php
-
 if (array_key_exists('authorization',$_POST) && (!empty($_POST['login']) || !empty($_POST['password'])) ){
 
+    if (($_POST['login']===$_COOKIE['login'] || $_POST['login']===$_COOKIE['email']) && $_POST['password']===$_COOKIE['password']){
 
-    if ( ($_POST['login']===$_COOKIE['login'] || $_POST['login']===$_COOKIE['email']) && $_POST['password']===$_COOKIE['password'] ){
+        $_SESSION['login'] = $_POST['login'];
+        $_SESSION['password'] = $_POST['password'];
+        header("Location: personalArea.php");
 
-       header("Location: personalArea.php");
     }
     else {
         echo "<p class='warning-text'>Вход в личный кабинет не выполнен! Вы не правильно ввели логин или пароль!!!</p>";
     }
-   /* if ( ($_POST['login']===$_COOKIE['login'] || $_POST['login']===$_COOKIE['email']) && $_POST['password']===$_COOKIE['password']  ){
-        header("Location: personalArea.php");
-    }else {
-        echo "<p class='warning-text'>Вход в личный кабинет не выполнен! Вы не правильно ввели логин или пароль!!!</p>";
-    }*/
 }
+?>
+
 

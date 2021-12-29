@@ -65,3 +65,12 @@ $data_users = array_merge($_COOKIE, $_SESSION);
     </main>
 </body>
 </html>
+
+<?php
+if (array_key_exists('log_off', $_POST) || empty($_SESSION['login'] && $_SESSION['password']) ){
+
+    unlink($_SESSION['uploadfile']);
+    session_destroy();
+    header("Location: login.php");
+
+}

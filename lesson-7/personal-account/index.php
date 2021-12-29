@@ -100,7 +100,7 @@ if (array_key_exists('send',$_POST)){
         setcookie('first_name', $_SESSION['first_name']);
         setcookie('last_name', $_SESSION['last_name']);
         setcookie('email', $_SESSION['email']);
-        setcookie('file', $_SESSION['file']);
+        setcookie('uploadfile', $_SESSION['uploadfile']);
 
         header("Location: personalArea.php");
         }
