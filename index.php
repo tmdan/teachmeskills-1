@@ -44,6 +44,7 @@
     <li>ООП
         <ul>
             <li><a href="Homeworks/lesson_11/car.php">Класс — автомобиль</a></li>
+            <li><a href="Homeworks/lesson_11/pets.php">Класс - животные</a></li>
         </ul>
     </li>
 </ul>
