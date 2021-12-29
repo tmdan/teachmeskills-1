@@ -7,28 +7,28 @@
         private $age;
         private $color;
         public function __construct($name, $kind, $breed, $age, $color) {
-            $this->namePet = $name;
-            $this->kindPet = $kind;
-            $this->breedPet = $breed;
-            $this->agePet = $age;
-            $this->colorPet = $color;
+            $this->name = $name;
+            $this->kind = $kind;
+            $this->breed = $breed;
+            $this->age = $age;
+            $this->color = $color;
         }
         public function getNamePet() {
-            return $this->namePet;
+            return $this->name;
             }
         public function getBreed() {
-            return $this->breedPet;
+            return $this->breed;
             }
         public function getAgePet() {
-            return $this->agePet;
+            return $this->age;
             }
         public function getColorPet() {
-            return $this->colorPet;
+            return $this->color;
             }
         public function golos() {
-            if ($this->kindPet == "dog") {
+            if ($this->kind == "dog") {
                 echo "GAV-GAV<br><br>";
-            } elseif ($this->kindPet == "cat") {
+            } elseif ($this->kind == "cat") {
                 echo "MIAY-MIAY<br><br>";
             } else {
                 echo "Not a Cat, Not a Dog";
