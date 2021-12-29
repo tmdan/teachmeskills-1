@@ -5,47 +5,47 @@
         private $rent;
         private Owner $owner;
         public function __construct($name, $type,int $rent, Owner $owner) {
-            $this->nameBuilding = $name;
-            $this->typeBuilding = $type;
-            $this->rentBuilding = $rent;
+            $this->name = $name;
+            $this->type = $type;
+            $this->rent = $rent;
             $this->owner = $owner;
         }
-        public function getNameBuilding() {
-            return $this->nameBuilding;
+        public function getName() {
+            return $this->name;
         }
-        public function getTypeBuilding() {
-            return $this->typeBuilding;
+        public function getType() {
+            return $this->type;
         }
-        public function getRentBuilding(): int {
-            return $this->rentBuilding;
+        public function getRent(): int {
+            return $this->rent;
         }
         public function getOwner(): Owner {
             return $this->owner;
         }
         public function calc() {
-            return $this->getOwner()->getPriceOwner() * $this->getRentBuilding() / 100;
+            return $this->getOwner()->getPriceOwner() * $this->getRent() / 100;
         }
     }
     class Owner {
         private $name;
         private $price;
         public function __construct($name, int $price) {
-            $this->nameOwner = $name;
-            $this->priceOwner = $price;
+            $this->name = $name;
+            $this->price = $price;
         }
         public function getNameOwner()
         {
-            return $this->nameOwner;
+            return $this->name;
         }
         public function getPriceOwner(): int
         {
-            return $this->priceOwner;
+            return $this->price;
         }
     }
     $building = new Building("House", "Private property", 25, new Owner("Roman P.", 2000));
-    echo "Здание : " . $building->getNameBuilding() . "<br>";
-    echo "Вид собственности: " . $building->getTypeBuilding() . "<br>";
-    echo "Ставка налога: " . $building->getRentBuilding() . "%" . "<br>";
+    echo "Здание : " . $building->getName() . "<br>";
+    echo "Вид собственности: " . $building->getType() . "<br>";
+    echo "Ставка налога: " . $building->getRent() . "%" . "<br>";
     echo "Владелец: " . $building->getOwner()->getNameOwner() . "<br>";
     echo "Доход владельца: " . $building->getOwner()->getPriceOwner() . "<br>";
     echo "Рассчитанный налог: " . $building->calc();
