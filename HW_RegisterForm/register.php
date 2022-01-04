@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form action="date.php" method="post" enctype="multipart/form-data">
+<form action="date.php" method="post" enctype="multipart/form-data" ">
     <label>Логин</label>
     <input type="text" name="login" placeholder="Введите логин">
     <label>Пароль</label>

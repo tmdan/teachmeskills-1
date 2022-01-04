@@ -30,6 +30,7 @@
                 <li class="session"><a href="./HW_Session-1/sessionArray.php">Session in PHP task-5</a></li>
             </li>
             <li><a href="HW_RegisterForm/register.php">Register Form</a></li>
+            <li><a href="./HW_OOP-Medium">11 lesson OOP HW.</a></li>
         </ul>
     </div>
 </section>
