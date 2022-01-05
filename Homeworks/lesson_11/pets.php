@@ -4,12 +4,15 @@
         private string $Name;
         private string $Color;
         private int $Age;
+        private string $Sound;
 
-       public function __construct($Type, $Name, $Color, $Age){
+       public function __construct($Type, $Name, $Color, $Age, $Sound){
            $this->Type = $Type;
            $this->Name = $Name;
            $this->Color = $Color;
            $this->Age = $Age;
+           $this->Sound = $Sound;
+
        }
 
         public function getType(): string
@@ -35,30 +38,25 @@
             echo "Возраст — $this->Age года <br>";
             return $this->Age;
         }
-
-
-        public function golos(){
-            if($this->Type == 'собака'){
-                echo "ГАВ-ГАВ";
-            } elseif ($this->Type == 'кошка'){
-                echo 'МЯУ';
-            }
+        public function getSound() {
+           echo "$this->Name издаёт $this->Sound";
         }
+
     }
 
-$Dog= new Pet('Собака', 'Дружок', 'Чёрный', 3);
+$Dog= new Pet('Собака', 'Дружок', 'Чёрный', 3, 'ГАВ-ГАВ');
 
 $Dog->getType();
 $Dog->getName();
-$Dog->golos();
 $Dog->getColor();
 $Dog->getAge();
+$Dog->getSound();
 echo '<br> <br>';
 
-$Cat = new Pet('Кошка', 'Мурка', 'Белая', 2);
+$Cat = new Pet('Кошка', 'Мурка', 'Белая', 2, 'МЯУ-МЯУ');
 
 $Cat->getType();
 $Cat->getName();
-$Cat->golos();
 $Cat->getColor();
 $Cat->getAge();
+$Cat->getSound();
