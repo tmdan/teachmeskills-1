@@ -44,6 +44,7 @@
     <li>Регулярные выражения
         <ul>
             <li><a href="Homeworks/lesson_9/regular_expression.php">Проверка доменных имён, даты и адресов</a></li>
+            <li><a href="Homeworks/lesson_9/search_HTML_tags.php">Поиск HTML тэгов</a></li>
         </ul>
     </li>
     <li>ООП
