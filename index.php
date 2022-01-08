@@ -65,7 +65,14 @@
             <ul>
                 <li class="lessons_task"><a href="lesson-10/ticket290_yellow.php">Задача - ООП "Здание и рента"</a></li>
                 <li class="lessons_task"><a href="lesson-10/ticket282_green.php">Задача - ООП "Про домашних питомцев"</a></li>
-            </ul10
+            </ul>
+        </li>
+        <li class="lessons">11 занятие - ООП Задачки
+            <ul>
+                <li class="lessons_task"><a href="lesson-11/new_car.php">Задача - ООП "Новый автомобиль"</a></li>
+                <li class="lessons_task"><a href="lesson-11/student_kurs.php">Задача - ООП "Студент - курс"</a></li>
+                <li class="lessons_task"><a href="lesson-11/country_population.php">Задача - ООП "Страна и население"</a></li>
+            </ul>
         </li>
     </ul>
 </body>
