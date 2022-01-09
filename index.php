@@ -41,6 +41,11 @@
             <li><a href="Homeworks\lesson_6\post-get\index.php">Регистрация и Авторизация</a></li>
         </ul>
     </li>
+    <li>Рекурсия
+        <ul>
+            <li><a href="Homeworks\lesson_7\yellow_card.php">Перейти к задачам</a></li>
+        </ul>
+    </li>
     <li>Регулярные выражения
         <ul>
             <li><a href="Homeworks/lesson_9/regular_expression.php">Проверка доменных имён, даты и адресов</a></li>
