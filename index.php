@@ -58,6 +58,7 @@
     <li> 11 занятие
         <ul>
             <li><a href="homework/lesson11_homework/ticket276_green.php">ООП (знакомство) [легко]</a></li>
+            <li><a href="homework/lesson11_homework/ticket277_yellow.php">ООП (знакомство) [средне]</a></li>
         </ul>
     </li>
 
