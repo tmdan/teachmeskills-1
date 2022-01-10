@@ -96,9 +96,9 @@
         </ul>
     </li>
 
-    <li>8 занятие -
+    <li>8 занятие - Работа с файлами
         <ul>
-            <li><a href="#">....</a></li>
+            <li><a href="lesson-8/file-easy-level.php">Работа с файлами - легкий уровень</a></li>
             <li><a href="#">...</a></li>
         </ul>
     </li>
@@ -129,11 +129,24 @@
 
             <ul>
 
-                <li><a href="#">....</a></li>
+                <li><a href="lesson-11/oop-average-level.php">ООП (основы) - средний уровень</a></li>
                 <li><a href="#">....</a></li>
 
             </ul>
         </ul>
+    </li>
+
+    <li>Каникулы
+            <ul>
+
+                <li><a href="holiday/task1.php">Задание 1 - Задача про планеты</a></li>
+                <li><a href="holiday/task2.php">Задание 2 - Задача про страну и людей</a></li>
+                <li><a href="holiday/task3.php">Задание 3 - Задача про канал на Youtube</a></li>
+                <li><a href="holiday/task4.php">Задание 4 - Студент и доход</a></li>
+                <li><a href="#">....</a></li>
+
+            </ul>
+
     </li>
 
     <li>12 занятие -
