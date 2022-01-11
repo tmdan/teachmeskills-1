@@ -74,6 +74,12 @@
             $this->petrol=$petrol;
         }
 
+        //Пополнить бензин
+        public function setPetrol($petrol)
+        {
+            $this->petrol = $petrol;
+        }
+
         // сжеть один литр бензина из бензобака
         public function burnGasoline(){
             $this->petrol --;
@@ -84,14 +90,9 @@
             return $this->petrol;
         }
 
-        //Пополнить бензин
-        public function setPetrol($petrol)
-        {
-            return $this->petrol = $petrol;
-        }
     }
 
-    $engine = new Engine("5");
+    $engine = new Engine(5);
 
     $car = new Car($engine, 'bmw');
 
@@ -115,7 +116,7 @@
 
 
     echo "Заправим на 2 л" . '<br>';
-    $car->setPetrol("2");
+    $car->setPetrol(2);
     $car->getOldInfo();
 
     $car->move();
