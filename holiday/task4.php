@@ -36,15 +36,19 @@
 */
 
 class Mother{
-    protected $work;
+    private $work;
 
     public function __construct(Work $work){
         $this->work = $work;
     }
+    // мама отдает какой-то процент студенту, здесь рассчитывается остаток зп у мамы
     protected function getSalery($interest){
-       return $this->work->getZp() ;
+       return $this->work->getZp()*(100 - $interest)/100 ;
     }
 
+    public function showZP(){
+        return $this->work->getZp();
+    }
 }
 
 class Work{
@@ -69,9 +73,9 @@ class Student extends Mother{
 
 
     public function __construct($name, Univer $univer, Work $work){
+        parent::__construct( $work);
         $this->name = $name;
         $this->univer = $univer;
-        $this->work = $work;
     }
 
     public function getName(){
@@ -79,8 +83,8 @@ class Student extends Mother{
     }
 
     public function getSalery($interest){
-        return $this->getStipend() + parent::getSalery($interest)*$interest/100;
-
+        // в parent::getSalery(0) передаю 0, т.к. мне нужна сумма зп мамы до того, как она дала процент студенту
+        return $this->getStipend() + parent::getSalery(0)*$interest/100;
     }
 
     // стипендия студента
@@ -145,7 +149,7 @@ $mother = new Mother($work);
 $BSUIR = new Univer('BSUIR', $predmets);
 $Kate = new Student('Kate', $BSUIR, $work);
 
-
+echo "Зарплата у мамы за вычетом налогов: " . $mother->showZP() . '<br>';
 echo "Средний балл по всем предметам: " . $BSUIR->getAverageScore() . '<br>';
 echo "Общий доход у студента " . $Kate->getName() . " равняется: " . $Kate->getSalery(10) . "<br>";
 
