@@ -144,6 +144,7 @@
                 <li><a href="holiday/task2.php">Задание 2 - Задача про страну и людей</a></li>
                 <li><a href="holiday/task3.php">Задание 3 - Задача про канал на Youtube</a></li>
                 <li><a href="holiday/task4.php">Задание 4 - Студент и доход</a></li>
+                <li><a href="holiday/task5.php">Задание 5 - </a></li>
                 <li><a href="#">....</a></li>
 
             </ul>
