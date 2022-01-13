@@ -70,6 +70,7 @@
         <li class="lessons">11 занятие - ООП Задачки
             <ul>
                 <li class="lessons_task"><a href="lesson-11/new_car.php">Задача - ООП "Новый автомобиль"</a></li>
+                <li class="lessons_task"><a href="lesson-11/new_car_with_speed.php">Задача - ООП "Новый автомобиль со скоростью"</a></li>
                 <li class="lessons_task"><a href="lesson-11/student_kurs.php">Задача - ООП "Студент - курс"</a></li>
                 <li class="lessons_task"><a href="lesson-11/country_population.php">Задача - ООП "Страна и население"</a></li>
             </ul>
