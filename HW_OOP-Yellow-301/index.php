@@ -16,7 +16,7 @@ class Car
     {
         if ($this->engine->getFuel() > 0) {
             $this->engine->gasMileage();
-            echo '<br>Проехал 1 км, осталось ' . $this->engine->getFuel();
+            echo '<br>Проехал 1 км';
         } else {
             echo '<br>Топливо закончилось';
         }
@@ -27,6 +27,12 @@ class Car
     {
         $this->engine->addFuel($fuel);
         echo '<br>Бензобак пополнен на ' . $fuel . ' лтр';
+    }
+    //Количество топливо
+    public function fuel() {
+        if($this->engine->getFuel() > 0) {
+            echo '<br>Осталось ' . $this->engine->getFuel() . ' лтр';
+        }
     }
 }
 
@@ -62,12 +68,26 @@ class Engine
 $engine = new Engine(5);
 $car = new Car('BMW', $engine);
 $car->move();
+$car->fuel();
 $car->move();
+$car->fuel();
 $car->move();
+$car->fuel();
 $car->move();
+$car->fuel();
 $car->move();
+$car->fuel();
 $car->move();
-$car->getFuel(2);
+$car->fuel();
+$car->getFuel(4);
 $car->move();
+$car->fuel();
 $car->move();
+$car->fuel();
 $car->move();
+$car->fuel();
+$car->move();
+$car->fuel();
+$car->move();
+
+
