@@ -47,9 +47,11 @@ class Engine
     {
         return $this->oil;
     }
+
     public function reduceOil(){
         return $this->oil--;
     }
+
     public function addOil(){
         return $this->oil++;
     }
