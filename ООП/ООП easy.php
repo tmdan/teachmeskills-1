@@ -9,33 +9,29 @@
 <!--итд-->
 
 <?php
-    class Pet{
-        private $name;
-        private $type;
-        private $color;
-        private $sex;
-        private $size;
-        public function __construct($name,$type,$color,$sex,$size)
-        {
-            $this->name=$name;
-            $this->type=$type;
-            $this->color=$color;
-            $this->sex=$sex;
-            $this->size=$size;
-        }
-        public function roar(){
-            echo "Name: ".$this->name."<br>";
-            echo "Type: ".$this->type."<br>";
-            if($this->type === "собака"):
-                echo "Roar: gav gav <br>";
-            elseif ($this->type === "кот"):
-                echo "Roar: meow meow <br>";
-            else: echo "You have a strange pet, do not know what sound he has <br>";
-            endif;
-            echo "Color: ".$this->color."<br>";
-            echo "Sex: ".$this->sex."<br>";
-            echo "Size: ".$this->size."<br>";
-        }
+class Dog{
+    private string $name;
+    private string $size;
+    private int $age;
+    private string $sex;
+
+    public function __construct($name,$size,$age,$sex)
+    {
+        $this->size=$size;
+        $this->age=$age;
+        $this->sex=$sex;
+        $this->name=$name;
     }
-    $pet = new Pet("Цезарь","кот","red","fimale","big");
-    $pet->roar();
+
+    public function getParameters(){
+        echo "name: ".$this->name.", size: ".$this->size.", age: ".$this->age.", sex: "."$this->sex"."<br>";
+    }
+
+    public function golos(){
+        echo "gove gove";
+    }
+}
+
+$dog = new Dog("Bobik",24,1,"fimale");
+$dog->getParameters();
+$dog->golos();
