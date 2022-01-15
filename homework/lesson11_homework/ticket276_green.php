@@ -4,12 +4,14 @@ class HomePet{
     private $petAge;
     private $petColor;
     private $petType;
+    private $golos;
 
-    public function __construct($petName, $petAge, $petColor, $petType){
+    public function __construct($petName, $petAge, $petColor, $petType, $golos){
         $this->petName = $petName;
         $this->petAge = $petAge;
         $this->petColor = $petColor;
         $this->petType = $petType;
+        $this->golos = $golos;
     }
 
     public function getPetName()
@@ -35,19 +37,13 @@ class HomePet{
 
 
     public function myPetSays(){
-        if($this->petType == "собака"){
-            echo "<br>"."Собака говорит: гав-гав"."<br>";
-        }elseif ($this->petType == "кошка"){
-            echo "<br>"."Кошка говорит: мяу-мяу"."<br>";
-        }else{
-            echo "<br>"."Это не кошка и собака, но оно что-то говорит (если у него есть голос)"."<br>";
-        }
+        echo "<br>"."Голос - ".$this->golos."<br>";
     }
 
 
 }
 
-$pet = new HomePet("Дружок", "3 года", "Белый", "собака");
+$pet = new HomePet("Дружок", "3 года", "Белый", "собака","Гав-гав");
 
 echo "<br>"."Имя - ".$pet->getPetName()."<br>";
 echo "<br>"."Возраст - ".$pet->getPetAge()."<br>";
