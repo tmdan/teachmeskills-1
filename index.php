@@ -117,7 +117,7 @@
         </ul>
     </li>
 
-    <li>11 занятие - ООП - основы и Магические методы
+    <li>11 занятие - ООП - основы
         <ul>
             <li> Самостоятельная работа </li>
             <ul>
@@ -131,30 +131,25 @@
 
                 <li><a href="lesson-11/oop-average-level.php">ООП (основы) - средний уровень</a></li>
                 <li><a href="lesson-11/oop-difficult-level.php">ООП (основы) - сложный уровень</a></li>
-                <li><a href="#">....</a></li>
-
-            </ul>
+             </ul>
         </ul>
     </li>
 
     <li>Каникулы
             <ul>
-
                 <li><a href="holiday/task1.php">Задание 1 - Задача про планеты</a></li>
                 <li><a href="holiday/task2.php">Задание 2 - Задача про страну и людей</a></li>
                 <li><a href="holiday/task3.php">Задание 3 - Задача про канал на Youtube</a></li>
                 <li><a href="holiday/task4.php">Задание 4 - Студент и доход</a></li>
                 <li><a href="holiday/task5.php">Задание 5 - Студенты и университет</a></li>
                 <li><a href="holiday/task6.php">Задание 6 - Автосалон </a></li>
-                <li><a href="#">....</a></li>
-
             </ul>
 
     </li>
 
-    <li>12 занятие -
+    <li>12 занятие - Магические методы, полиморфизм, трейты, статические методы
         <ul>
-            <li><a href="#">....</a></li>
+            <li><a href="lesson-12/trait-easy-level.php">Задача по трейтам - лёгкий уровень</a></li>
             <li><a href="#">...</a></li>
         </ul>
     </li>
