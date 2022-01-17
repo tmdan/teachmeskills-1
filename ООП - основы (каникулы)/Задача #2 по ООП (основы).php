@@ -94,6 +94,14 @@ $car->move();
 $car->showParameters();
 $car->move();
 $car->showParameters();
+$car->move();
+$car->showParameters();
+$car->move();
+$car->showParameters();
+$car->move();
+$car->showParameters();
+$car->move();
+$car->showParameters();
 
 
 
