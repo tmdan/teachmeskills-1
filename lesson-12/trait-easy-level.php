@@ -29,6 +29,9 @@ trait Trait3{
 }
 
 interface TraitInterface{
+    public function method1();
+    public function method2();
+    public function method3();
     public function getSum();
 }
 
