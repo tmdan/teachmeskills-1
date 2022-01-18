@@ -23,3 +23,57 @@ echo "УСЛОВИЕ: <br> 1. Описать класс машины и созд
 добавьте метод speedUp(arg) - который принимает аргумент arg скорости - т.е. на сколько надо увеличить скорость машины (скорость увеличенное на 5 ед. удваивает использование бензина)
 добавьте метод speedDown(arg) - который принимает аргумент arg скорости - т.е. на сколько надо уменьшить скорость машины (скорость уменьшенное на 5 ед. уменьшает вдвое использование бензина)
 PS>если скорость упала до 0 или бензин закончился в баке - предусмотрите вывод сообщения Машина Заглохла<br><br>";
+class Car
+{
+    private $name;
+    private $engine;
+    public $speed;
+    public function __construct($name, $engine){
+        $this->name=$name;
+        $this->engine=$engine;
+    }
+    public function move() {
+        if ($this->engine->getoil() > 0) {
+            echo "У вас {$this->engine->getoil()} л<br>";
+            echo "Вы проехали 1 км - ";
+            $this->engine->burnoil();
+            echo "Остаток топлива {$this->engine->getoil()} л<br><br>";
+        }   else {
+            echo "Бензин закончился - пополните бак<br>";
+            $this->engine->addOil();
+        } }
+    public function speedUp($arg) {
+
+    }
+    public function speedDown($arg) {
+
+    }
+}
+
+class Engine {
+    private $oil;
+    public function __construct($oil)
+    {
+        $this->oil=$oil;
+    }
+    public function burnOil() {
+        $this->oil = $this->oil - 1;
+        return $this->oil;
+    }
+    public function getOil(){
+        return $this->oil;
+    }
+    public function addOil(){
+        echo "<br>Вы пополнили бак на 2 литра<br><br>";
+        return $this->oil = $this->oil + 2;
+    }
+}
+$car=new Car("OPEL", new Engine(5));
+$car->move();
+$car->move();
+$car->move();
+$car->move();
+$car->move();
+$car->move();
+$car->move();
+$car->move();

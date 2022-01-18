@@ -67,12 +67,21 @@
                 <li class="lessons_task"><a href="lesson-10/ticket282_green.php">Задача - ООП "Про домашних питомцев"</a></li>
             </ul>
         </li>
-        <li class="lessons">11 занятие - ООП Задачки
+        <li class="lessons">11 занятие - ООП Задачки Основа
             <ul>
                 <li class="lessons_task"><a href="lesson-11/ticket302_yellow.php">Задача - ООП "Новый автомобиль"</a></li>
-                <li class="lessons_task"><a href="lesson-11/new_car_with_speed.php">Задача - ООП "Новый автомобиль со скоростью"</a></li>
-                <li class="lessons_task"><a href="lesson-11/student_kurs.php">Задача - ООП "Студент - курс"</a></li>
-                <li class="lessons_task"><a href="lesson-11/country_population.php">Задача - ООП "Страна и население"</a></li>
+                <li class="lessons_task"><a href="lesson-11/ticket311_red.php">Задача - ООП "Новый автомобиль со скоростью"</a></li>
+                <li class="lessons_task"><a href="lesson-11/ticket340_red.php">Задача - ООП "Мама, Студент - универ"</a></li>
+                <li class="lessons_task"><a href="lesson-11/ticket372_yellow.php">Задача - ООП "Страна и население"</a></li>
+            </ul>
+        </li>
+        <li class="lessons">12 занятие - ООП Задачки (продолжение)
+            <ul>
+                <li class="lessons_task"><a href="lesson-12/ticket381_green.php">Задача по трейтам</a></li>
+                <li class="lessons_task"><a href="lesson-12/ticket391_yellow.php">Задача про полиморфизм</a></li>
+                <li class="lessons_task"><a href="lesson-12/ticket348_red.php">Задача - ООП "Интерфейсы"</a></li>
+                <li class="lessons_task"><a href="lesson-12/ticket399_orange.php">Задача - ООП "Статика"</a></li>
+                <li class="lessons_task"><a href="lesson-12/ticket333_green.php">Задача - ООП "Магические методы"</a></li>
             </ul>
         </li>
     </ul>
