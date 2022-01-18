@@ -37,7 +37,7 @@ class Human{
         }
     }
 
-    public function designateChannel(Channel $channel){
+    public function designateChannel(ChannelInterface $channel){
         $this->channel = $channel;
     }
 
@@ -48,34 +48,40 @@ class Human{
         }else
             $this->channel->sendMessage();
     }
-}
 
-abstract class Channel{
-
-    abstract public function sendMessage();
-
-    public function displayStatus(){
-
+    public function showName(){
+        return $this->name;
     }
 }
 
-class SmsChannel extends Channel{
+interface ChannelInterface{
+
+    public function sendMessage(); //
+    public function displayStatus(); // отобразить статус сообщения
+
+}
+
+class SmsChannel implements ChannelInterface{
     public function sendMessage(){
         echo "Сообщение отправлено при помощи смс-канала" . '<br>';
     }
 
     public function displayStatus(){
-
+        echo "Здесь отобразится статус сообщения: отправлено, доставлено, прочитано ";
     }
 }
 
-class TelegramChannel extends Channel{
+class TelegramChannel implements ChannelInterface{
     public function sendMessage(){
         echo "Сообщение отправлено при помощи телеграм-канала" . '<br>';
     }
 
     public function displayStatus(){
+        echo "Здесь отобразится статус сообщения: отправлено, доставлено, прочитано " . '<br>';
+    }
 
+    public function sendFile(){
+        echo "Файл отправлен пользователю при помощи телеграм." . '<br>';
     }
 }
 
@@ -86,8 +92,14 @@ echo '<pre>' . var_export($Kate, true) . '</pre>';
 
 echo '<pre>' . var_export($Yuri, true) . '</pre>';
 
+echo "Отправим сообщение " . $Kate->showName() . '<br>';
 $Kate->notification();
+
+echo "Отправим сообщение " . $Yuri->showName() . '<br>';
 $Yuri->notification();
 
+echo "Установим для пользователя " . $Yuri->showName() . ' канал для связи. ' . '<br>';
 $Yuri->designateChannel(new SmsChannel());
+
+echo "Отправим сообщение " . $Yuri->showName() . '<br>';
 $Yuri->notification();
