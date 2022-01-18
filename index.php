@@ -151,7 +151,8 @@
         <ul>
             <li><a href="lesson-12/trait-easy-level.php">Задача по трейтам - лёгкий уровень (найти сумму значений, возвращаемых методами трейтов)</a></li>
             <li><a href="lesson-12/static-difficult-level.php">Задача по статике - сложный уровень (задача про машину и поле storage)</a></li>
-            <li><a href="#">...</a></li>
+            <li><a href="lesson-12/polymorphism-average-level.php">Задача на полиморфизм - средний уровень (задача про сообщения)</a></li>
+            <li><a href="lesson-12/magic-method-easy-level.php">ООП (Магические методы) - лёгкий уровень</a></li>
         </ul>
     </li>
 
