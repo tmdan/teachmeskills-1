@@ -48,7 +48,10 @@
     </li>
 
     <a href="lesson-10/oop_light.php">OOP light</a>
-    <a href="lesson-10/oop_middle.php">OOP light</a>
+    <a href="lesson-10/oop_middle.php">OOP middle</a>
+
+     <a href="lesson-11/oop2.php">OOP</a>
+     <a href="lesson_12/task1_easy.php">magic methods</a>
 
 
 </ul>
