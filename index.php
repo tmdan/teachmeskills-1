@@ -63,7 +63,7 @@
             <li><ol><i>Наследование</i>
                     <li><a href="Homeworks/lesson_12/OOP_Mother.php">Класс семья — мама и студент</a></li>     <li><a href="Homeworks/lesson_12/magic_methods.php">Магические методы</a></li>
                 </ol><ul><i>Трейты</i>
-                    <li><a href="Homeworks/lesson_12/OOP_Mother.php"></a></li>
+                    <li><a href="Homeworks/lesson_12/traits.php">использование трейтов и интерфейса</a></li>
                 </ul><ol><i>Интерфейсы</i>
                     <li><a href="Homeworks/lesson_12/interface.php">Автомобильный салон</a></li>
                 </ol>
