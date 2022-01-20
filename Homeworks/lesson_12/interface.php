@@ -30,15 +30,19 @@
 например: в Truck логично добавить функции (загрузить груз, разгрузить груз).*/
 //создание классов для будущих объектов
 class Showroom{
-    private $transport;
+    private $transports=[];
     public function __construct(CarInterface $Transport){
-        $this->transport=$Transport;
+        $this->transports[]=$Transport;
     }
     public function addCar(CarInterface $Transport){
-        $this->transport=$Transport;
+        $this->transports[]=$Transport;
     }
     public function getTransportInfo(){
-        return $this->transport->getName().', '.$this->transport->getEngine().'. '.$this->transport->getColor();
+        echo '<ul>Список техники в автосалоне: ';
+        foreach ($this->transports as $transport){
+            echo '<li>'.$transport->getName().', '.$transport->getEngine().', '.$transport->getColor().'</li>';
+        }
+        echo '</ul>';
     }
 }
 interface CarInterface{
@@ -182,9 +186,8 @@ $scania = new Truck('Scania s620v8', $truckMotor, 'blue');
 // Проверяем)
 $showRoom = new Showroom($bmw);
 echo $showRoom->getTransportInfo().'<br>';
-$showRoom->addCar($belarus);
-echo $showRoom->getTransportInfo().'<br>';
 $showRoom->addCar($scania);
+$showRoom->addCar($belarus);
 echo $showRoom->getTransportInfo().'<br>';
 
 //можно установить индивидуальные свойства для каждого типа техники и проверить их, вызвав соответствующие методы)
