@@ -66,6 +66,8 @@
                     <li><a href="Homeworks/lesson_12/traits.php">использование трейтов и интерфейса</a></li>
                 </ul><ol><i>Интерфейсы</i>
                     <li><a href="Homeworks/lesson_12/interface.php">Автомобильный салон</a></li>
+                </ol><ol><i>Полиморфизм</i>
+                    <li><a href="Homeworks/lesson_12/messages.php">Тип связи с пользователем</a></li>
                 </ol>
         </ul>
     </li>
