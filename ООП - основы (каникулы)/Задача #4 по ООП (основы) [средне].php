@@ -62,10 +62,9 @@ class Human{
         $this->checkAge($age);
     }
     private function checkAge($age){
-        if(!is_numeric($age)or($age<18 or $age>100)):
+        if(!is_numeric($age)or($age<18 or $age>100)){
             die("It is not a correctly age");
-        else:;$this->age=$age;
-        endif;
+        } else $this->age=$age;
     }
     private function setName($name){
         $this->checkName($name);
