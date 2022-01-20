@@ -42,6 +42,8 @@ class Country{
     }
     public function show(){
         echo "Amount of human in country: ".count($this->population)."<br>";
+    }
+    public function showAverageAge(){
         echo "Average age: ".$this->averageAge."<br>";
     }
 }
@@ -50,29 +52,39 @@ class Human{
     private int $age;
     public function __construct($name,$age)
     {
-        $this->name=$name;
-        $this->age=$age;
+        $this->setName($name);
+        $this->setAge($age);
     }
     public function getAge(){
         return $this->age;
     }
-    public function checkAge(){
-        if($this->age<18 or $this->age>100):
+    private function setAge($age){
+        $this->checkAge($age);
+    }
+    private function checkAge($age){
+        if(!is_numeric($age)or($age<18 or $age>100)):
             die("It is not a correctly age");
-        else:$this->getAge();
+        else:;$this->age=$age;
         endif;
     }
+    private function setName($name){
+        $this->checkName($name);
+    }
+    private function checkName($name){
+        return is_string($name)?$this->name=$name:die("It is not correct name");
+    }
 }
-$human_1 = new Human("Ilya",18);
-$human_1->checkAge();
+$human_1 = new Human("Ilya",30);
 $human_2 = new Human("Kate",20);
-$human_2->checkAge();
+$human_3 = new Human("Ludmila",50);
 
 $country = new Country("Belarus");
 $country->addHuman($human_1);
 $country->addHuman($human_2);
+$country->addHuman($human_3);
 
 $country->averageAge();
+$country->showAverageAge();
 $country->show();
 
 
