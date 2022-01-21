@@ -65,6 +65,7 @@
     <li> 12 занятие
         <ul>
             <li><a href="homework/lesson12_homework/ticket377_green.php">Задача по трейтам (просто)</a></li>
+            <li><a href="homework/lesson12_homework/ticket328_green.php">ООП (Магические методы) (легко)</a></li>
         </ul>
     </li>
 
