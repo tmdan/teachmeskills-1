@@ -65,7 +65,7 @@ class Human{
     }
     private function checkAge($age){
         if(!is_numeric($age)or($age<18 or $age>100)){
-            die("It is not a correctly age");
+            return false;
         } else return true;
     }
     private function setName($name){
