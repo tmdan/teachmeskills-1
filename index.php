@@ -62,6 +62,12 @@
         </ul>
     </li>
 
+    <li> 12 занятие
+        <ul>
+            <li><a href="homework/lesson12_homework/ticket377_green.php">Задача по трейтам (просто)</a></li>
+        </ul>
+    </li>
+
 </ul>
 
 
