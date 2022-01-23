@@ -74,10 +74,6 @@ class BusEngine extends Engine{
     {
         parent::__construct($name, $power);
     }
-    public function show()
-    {
-        //something....
-    }
     public function engineOn()
     {
         echo "engine on by key";
@@ -95,10 +91,6 @@ class TruckEngine extends Engine{
     public function __construct($name, $power)
     {
         parent::__construct($name, $power);
-    }
-    public function show()
-    {
-        //something....
     }
     public function engineOn()
     {
