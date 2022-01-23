@@ -67,6 +67,7 @@
             <li><a href="homework/lesson12_homework/ticket377_green.php">Задача по трейтам (просто)</a></li>
             <li><a href="homework/lesson12_homework/ticket328_green.php">ООП (Магические методы) (легко)</a></li>
             <li><a href="homework/lesson12_homework/ticket387_orange.php">Задача по статике (сложно)</a></li>
+            <li><a href="homework/lesson12_homework/ticket299_yellow.php">Задача #1 по ООП (основы)</a></li>
         </ul>
     </li>
 
