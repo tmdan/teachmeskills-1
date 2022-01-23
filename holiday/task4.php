@@ -41,9 +41,9 @@ class Mother{
     public function __construct(Work $work){
         $this->work = $work;
     }
-    // мама отдает какой-то процент студенту, здесь рассчитывается остаток зп у мамы
+
     protected function getSalery($interest){
-       return $this->work->getZp()*(100 - $interest)/100 ;
+       return $this->work->getZp()* $interest/100 ;
     }
 
     public function showZP(){
@@ -84,7 +84,7 @@ class Student extends Mother{
 
     public function getSalery($interest){
         // в parent::getSalery(0) передаю 0, т.к. мне нужна сумма зп мамы до того, как она дала процент студенту
-        return $this->getStipend() + parent::getSalery(0)*$interest/100;
+        return $this->getStipend() + parent::getSalery(10);
     }
 
     // стипендия студента
