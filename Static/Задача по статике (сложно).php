@@ -14,25 +14,23 @@
 //PS>по итогу получается машину создать можно будет только через статический метод addCar(model, color)
 //потому-что конструктор имеет приватный доступ.
 
-class User{
-    private string $name;
-    private int $age;
-    static $index=0;
-    public function __construct($name,$age)
+class Car{
+    private string $model;
+    private string $color;
+    private static $storage=[]; //при создании нового экземпляра класса, данное свойство не откатывается(в чем и есть плюс статических свойств,методов и т.д.)
+    private function __construct($model,$color)
     {
-        $this->name=$name;
-        $this->age=$age;
-        self::$index++;
+        $this->model=$model;
+        $this->color=$color;
+    }
+    public static function addCar($model,$color){
+        array_push(self::$storage,new Car($model,$color));
+    }
+    public static function getStorage(){
+        return self::$storage;
     }
 }
-class US extends User{
-
-}
-$user = new User("Ilya",25);
-echo User::$index;
-$user1 = new User("Ilya",25);
-echo User::$index;
-$user1 = new User("Ilya",25);
-echo User::$index;
-$user1 = new User("Ilya",25);
-echo User::$index;
+Car::addCar("Mazda","red");
+Car::addCar("Mazda2","red2");
+Car::addCar("Mazda3","red3");
+var_dump(Car::getStorage());
