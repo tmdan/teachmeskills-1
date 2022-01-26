@@ -71,10 +71,6 @@ class Site{
     }
 }
 class User extends Human {
-    public function __construct($name,$login,$password)
-    {
-        parent::__construct($name,$login,$password);
-    }
     public function changeChannelConnect(GeneralChannelInterface $channel,Site $site){ //изменение канала связи
         $site->channelConnect=$channel->getChannel();
     }
