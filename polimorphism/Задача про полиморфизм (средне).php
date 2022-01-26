@@ -71,9 +71,6 @@ class Site{
     }
 }
 class User extends Human {
-    private string $name;
-    private string $logo;
-    private int $password;
     public function __construct($name,$login,$password)
     {
         parent::__construct($name,$login,$password);
