@@ -16,6 +16,9 @@ class Car {
             echo 'Бензобак поплнен '. $this->engine->addGasolina(). '</br>';
         }
     }
+    public function carGasolina($gasgas){
+        return $this->engine->gasTank = $gasgas;
+    }
 }
 class Engine {
     private $gasTank;
