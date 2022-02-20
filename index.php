@@ -49,6 +49,7 @@
     <li>Работа с файлами
         <ol>
             <li><a href="Homeworks\lesson_8\card_246_green.php">Создание директории</a></li>
+            <li><a href="Homeworks/lesson_8/comments.php">Комментарии</a></li>
         </ol>
     </li>
     <li>Регулярные выражения
