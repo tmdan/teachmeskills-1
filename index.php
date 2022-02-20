@@ -46,6 +46,11 @@
             <li><a href="Homeworks\lesson_7\yellow_card.php">Перейти к задачам</a></li>
         </ol>
     </li>
+    <li>Работа с файлами
+        <ol>
+            <li><a href="Homeworks\lesson_8\card_246_green.php">Создание директории</a></li>
+        </ol>
+    </li>
     <li>Регулярные выражения
         <ol>
             <li><a href="Homeworks/lesson_9/regular_expression.php">Проверка доменных имён, даты и адресов</a></li>
