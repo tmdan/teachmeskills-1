@@ -43,7 +43,7 @@
     </li>
     <li>Рекурсия
         <ol>
-            <li><a href="Homeworks\lesson_7\yellow_card.php">Перейти к задачам</a></li>
+            <li><a href="Homeworks\lesson_7\yellow_card.php">Сумм цифр заданного числа</a></li>
         </ol>
     </li>
     <li>Работа с файлами
