@@ -71,6 +71,7 @@
             <ul>
                 <li class="lessons_task"><a href="lesson-11/ticket302_yellow.php">Задача - ООП "Новый автомобиль"</a></li>
                 <li class="lessons_task"><a href="lesson-11/ticket311_red.php">Задача - ООП "Новый автомобиль со скоростью"</a></li>
+                <li class="lessons_task"><a href="lesson-11/ticket364_yellow.php">Задача - ООП "Канал Youtube"</a></li>
                 <li class="lessons_task"><a href="lesson-11/ticket340_red.php">Задача - ООП "Мама, Студент - универ"</a></li>
                 <li class="lessons_task"><a href="lesson-11/ticket372_yellow.php">Задача - ООП "Страна и население"</a></li>
             </ul>
@@ -82,6 +83,11 @@
                 <li class="lessons_task"><a href="lesson-12/ticket348_red.php">Задача - ООП "Интерфейсы"</a></li>
                 <li class="lessons_task"><a href="lesson-12/ticket399_orange.php">Задача - ООП "Статика"</a></li>
                 <li class="lessons_task"><a href="lesson-12/ticket333_green.php">Задача - ООП "Магические методы"</a></li>
+            </ul>
+        </li>
+        <li class="lessons">19 занятие - PDO
+            <ul>
+                <li class="lessons_task"><a href="lesson-19/ticket473_greeen.php">Задача по PDO</a></li>
             </ul>
         </li>
     </ul>

@@ -12,7 +12,7 @@
     <?php
     session_start();
     if (!isset($_SESSION["session_username"])):
-        header("location:index.php");
+        header("location:ticket473_greeen.php");
     else:
     ?>
     <div>

@@ -17,45 +17,60 @@ echo "УСЛОВИЕ: <br> 1. Описать класс машины и созд
 конструктор
 -заливает бензин на заводе (5 литров) - это как правило для тестдрайва при покупке машины<br>
 --Проехать пока бензин не закончиться, затем залить 2 литра и проехать еще 2 километра.<br><br>";
+
 class Car
 {
     private $name;
     private $engine;
-    public function __construct($name, $engine){
-        $this->name=$name;
-        $this->engine=$engine;
+
+    public function __construct($name, $engine)
+    {
+        $this->name = $name;
+        $this->engine = $engine;
     }
-    public function move() {
+
+    public function move()
+    {
         if ($this->engine->getoil() > 0) {
             echo "У вас {$this->engine->getoil()} л<br>";
             echo "Вы проехали 1 км - ";
             $this->engine->burnoil();
             echo "Остаток топлива {$this->engine->getoil()} л<br><br>";
-    }   else {
+        } else {
             echo "Бензин закончился - пополните бак<br>";
             $this->engine->addOil();
-        } }
+        }
+    }
 }
 
-class Engine {
+class Engine
+{
     private $oil;
+
     public function __construct($oil)
     {
-        $this->oil=$oil;
+        $this->oil = $oil;
     }
-    public function burnOil() {
+
+    public function burnOil()
+    {
         $this->oil = $this->oil - 1;
         return $this->oil;
     }
-    public function getOil(){
+
+    public function getOil()
+    {
         return $this->oil;
     }
-    public function addOil(){
+
+    public function addOil()
+    {
         echo "<br>Вы пополнили бак на 2 литра<br><br>";
         return $this->oil = $this->oil + 2;
     }
 }
-$car=new Car("OPEL", new Engine(5));
+
+$car = new Car("OPEL", new Engine(5));
 $car->move();
 $car->move();
 $car->move();
