@@ -1,0 +1,17 @@
+{
+    "name": "antonascheulov/framework",
+    "autoload": {
+        "psr-4": {
+            "Antonascheulov\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AntonAscheulov",
+            "email": "schuca120@mail.ru"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    }
+}
