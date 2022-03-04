@@ -18,12 +18,12 @@
     <p><textarea rows="10" cols="45" name="text"></textarea></p>
     <p><input type="submit" value="Отправить"></p>
 </form>
-<?
-$fp = fopen("file.txt", "w");
+<?php
+$fp = fopen("./file.txt", "w");
 fwrite($fp, "{$_POST['text']}");
 fclose($fp);
 
-$fp = fopen("file.txt", "r");
+$fp = fopen("./file.txt", "r");
 while (!feof($fp)) {
     $str = fgets($fp);
     echo $str;

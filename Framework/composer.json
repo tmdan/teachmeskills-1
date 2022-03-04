@@ -1,0 +1,15 @@
+{
+    "name": "panymari/framework",
+    "autoload": {
+        "psr-4": {
+            "Panymari\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maria Pashkovskaya",
+            "email": "panymari84@gmail.com"
+        }
+    ],
+    "require": {}
+}
