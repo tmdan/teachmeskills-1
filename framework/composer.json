@@ -1,0 +1,15 @@
+{
+    "name": "ekaterinakhliabets/framework",
+    "autoload": {
+        "psr-4": {
+            "Ekaterinakhliabets\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "EkaterinaKhliabets",
+            "email": "e.v.khliabets@gmail.com"
+        }
+    ],
+    "require": {}
+}

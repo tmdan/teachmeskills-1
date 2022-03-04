@@ -156,6 +156,13 @@
         </ul>
     </li>
 
+    <li>19 занятие - PDO
+        <ul>
+            <li><a href="lesson-19/homework/index.php">Задача по PDO - лёгкий уровень</a></li>
+        </ul>
+    </li>
+
+
 
 </ul>
 
