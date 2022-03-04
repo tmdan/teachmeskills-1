@@ -33,7 +33,7 @@ try {
             city varchar(150));";
 
     // выполняем SQL-выражение
-    $conn->exec($sql);
+    $conn->query($sql);
 
 }
 catch (PDOException $exception) {
