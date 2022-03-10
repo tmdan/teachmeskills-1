@@ -68,3 +68,4 @@ $result->setFetchMode(PDO::FETCH_CLASS, "User");
 while ($row = $result->fetch()) {
     $row->getName();
 }
+
