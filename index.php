@@ -72,6 +72,12 @@
         </ul>
     </li>
 
+    <li> 19 занятие
+        <ul>
+            <li><a href="homework/lesson19_homework/ticket469_green.php">Задача по PDO [просто]</a></li>
+        </ul>
+    </li>
+
 </ul>
 
 
