@@ -1,0 +1,15 @@
+{
+  "name": "dmitriisavchik/framework",
+  "autoload": {
+    "psr-4": {
+      "Dmitriisavchik\\Framework\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "DmitriiSavchik",
+      "email": "dmitrii.savchik@gmail.com"
+    }
+  ],
+  "require": {}
+}
