@@ -11,12 +11,12 @@ class Cookie
 
     public static function get($name)
     {
-        return $_COOKIE[$name];
+        return $_COOKIE["$name"];
     }
 
     public static function delete($name)
     {
-        unset($_COOKIE[$name]);
-        setcookie($name, null, -1, '/');
+        unset($_COOKIE["$name"]);
+        setcookie($name, "", -1, '/');
     }
 }
