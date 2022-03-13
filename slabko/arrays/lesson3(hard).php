@@ -4,8 +4,7 @@ for ($i = 0; $i < 10; $i++) {
     echo $arr1[$i].' ';
 }
 echo '<br>';
-$arr2 = array_reverse($arr1);
-for ($i = 0; $i < 10; $i++) {
-    echo $arr2[$i].' ';
+for ($i=count($arr1)-1;$i>=0; $i--) {
+    echo $arr1[$i].' ';
 }
 ?>
