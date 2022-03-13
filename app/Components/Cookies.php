@@ -6,7 +6,7 @@ class Cookies
 {
     public static function get($name)
     {
-        echo $_COOKIE[$name];
+        return $_COOKIE[$name];
     }
 
     public static function set($name, $value, $time = 3600)
