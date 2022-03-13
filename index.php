@@ -2,6 +2,7 @@
 
 require "." . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR . "autoload.php";
 
+use App\Components\Router;
 
 //common
 define('ROOT', $_SERVER['DOCUMENT_ROOT']); //корень сайта
@@ -13,9 +14,6 @@ define('VIEW_ROOT', ROOT . "/views/"); //папка с шаблонами
 define('MODELS_ROOT', ROOT . "/app/models/"); //папка с моделями для системы
 define('TEMPLATE_ROOT', "/template/"); //Папка со всякими статическими данными - файлы скриптов и стилей
 
-
-
-use App\Components\Router;
 
 $router = new Router();
 $router->run();

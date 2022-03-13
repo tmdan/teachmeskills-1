@@ -6,17 +6,20 @@ class Cookie
 {
     public static function set($name, $value, $time)
     {
-        setcookie($name,$value,$time);
+        setcookie($name, $value, $time,'/');
     }
 
     public static function get($name)
     {
-        return $_COOKIE["$name"];
+        return array_key_exists($name, $_COOKIE) ? $_COOKIE["$name"] : null;
     }
 
     public static function delete($name)
     {
-        unset($_COOKIE["$name"]);
-        setcookie($name, "", -1, '/');
+        if (array_key_exists($name, $_COOKIE)) {
+            setcookie($name, "", -1, '/');
+            return true;
+        } else
+            return false;
     }
 }
