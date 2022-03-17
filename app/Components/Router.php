@@ -72,8 +72,9 @@ class Router
                 //cоздаем экземпляр класса контроллера и запускаем нужный action
                 $controllerObject = new $controllerFile;
 
+
                 /*передача управления>>>функция*/
-                $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
+                call_user_func_array(array($controllerObject, $actionName), $parameters);
 
                 break;
 

@@ -13,9 +13,16 @@ class FileUploader
 
         move_uploaded_file($tmp_name, 'upload/' . $filename);
 
+        return '/upload/' .$filename;
     }
 
     public static function remove($url){
-        unlink($url);
+
+        if($url[0]==='/'){
+
+            unlink(substr($url, 1));
+        }
+        else
+            unlink($url);
     }
 }
