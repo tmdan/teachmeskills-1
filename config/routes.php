@@ -18,6 +18,8 @@ return [
     //'users/([0-9]+)/store/([0-9]+)/([0-9]+)' => 'users/list/$1/$2/$3',
 
     'users' => 'users/listAndSave',
+    'sliders/([0-9]+)' => 'slider/destroy/$1',
+    'sliders' => 'slider/store',
 
     '' => 'home/index',
 

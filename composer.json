@@ -23,6 +23,7 @@
     "delete-all-tables": "App\\Migrations\\DeleteTable::deleteAllTables",
     "create-user-table": "App\\Migrations\\CreateUserTable::up",
     "update-user-table": "App\\Migrations\\UpdateUserTable::addColumn",
+    "create-sliders-table": "App\\Migrations\\CreateSlidersTable::up",
     "seed-users": "App\\Seeds\\AddUsers::AddUsers",
     "migrate": [
       "@composer delete-all-tables",

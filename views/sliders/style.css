@@ -1,0 +1,27 @@
+* {
+    /*box-sizing: border-box;*/
+    /*margin: 10px 10px;*/
+    background-color: antiquewhite;
+}
+.err {
+    color: red;
+    font-size: 16px;
+}
+input {
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border: 2px solid cornflowerblue;
+    border-radius: 4px;
+    background-color: honeydew;
+    color: black;
+    text-align:center;
+}
+.wrapper {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper-img {
+    /*width: 100px;*/
+    /*height: 100px;*/
+}
