@@ -9,9 +9,9 @@ jobs:
       - name: 🚚 Get latest code
         uses: sebastianpopp/git-ftp-action@releases/v3
         with:
-          url: ${{ secrets.FTP_SERVER }}/muhammed
-          user: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          url: "ftp://24199w4.beget.tech"
+          user: "i24199w4_blog"
+          password: "i13579024I!"
       - uses: actions/checkout@v1
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
