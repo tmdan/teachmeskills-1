@@ -6,21 +6,15 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index($name)
+    public function show($name)
     {
-        {
-            $cities = [
-                'maksim' => 'minsk',
-                'vanya' => 'new-york',
-                'kostya' => 'los-angeles',
-            ];
-        }
-
-        if (array_key_exists($name, $cities)) {
-            return view('user.index', ["city" => $cities[$name]]);
-        } else {
-            echo "Error 404";
-        }
-        return $cities[$name];
+        $users = [
+            'Anton' => 'Minsk',
+            'Egor' => 'Vitebsk',
+            'Igor' => 'Gomel',
+            'Alex' => 'Slutsk',
+            'Ivan' => 'Bobruisk',
+        ];
+        return view('user.show',['city'=> $users[$name]]);
     }
 }
