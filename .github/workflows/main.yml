@@ -12,9 +12,9 @@ jobs:
       - name: 🚚 Get latest code
         uses: sebastianpopp/git-ftp-action@releases/v3
         with:
-          url: ""
-          user: ""
-          password: ""
+          url: "ftp://i24199w4.beget.tech"
+          user: "i24199w4_blog"
+          password: "Helloworld101!"
 
       - uses: actions/checkout@v1
       - name: Slack Notification
