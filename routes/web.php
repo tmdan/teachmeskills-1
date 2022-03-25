@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*Route::get('/users/{name}', function ($name) {
+    return $name;
+})->where('name', '[A-Za-z]+');*/
+
+Route::get('/users/{name}',  [UserController::class, 'show'])->where('name', '[A-Za-z]+');
+
+Route::group(['prefix' => 'news'], function (){Lingualeo
+    Route::get('/',  [\App\Http\Controllers\IndexController::class, 'index'])->name('news.index');
+    Route::get('/create',  [\App\Http\Controllers\IndexController::class, 'create'])->name('news.create');
+    Route::get('/edit/{id}',  [\App\Http\Controllers\IndexController::class, 'edit'])->name('news.edit')
+    ->where('id', '\d+');
+}
+);
