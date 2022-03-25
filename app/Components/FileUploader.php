@@ -1,4 +1,5 @@
 <?php
+namespace App\Components;
 class FileUploader{
     public static function to($url){
         $uploads_dir = '/uploads';

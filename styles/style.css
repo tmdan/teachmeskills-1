@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.feedback-wrapper{
+    display: flex;
+    border: dimgrey 1px solid;
+    background: darkgrey;
+}
+
+.feedback-name-wrapper {
+    width: 20%;
+}
+
+.feedback-name{
+    font-size: 18px;
+    color: #1d2124;
+}

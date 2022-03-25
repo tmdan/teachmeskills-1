@@ -23,14 +23,21 @@
     "delete-all-tables": "App\\Migrations\\DeleteTable::deleteAllTables",
     "create-user-table": "App\\Migrations\\CreateUserTable::up",
     "update-user-table": "App\\Migrations\\UpdateUserTable::addColumn",
+    "create-feedback-table": "App\\Migrations\\CreateFeedbackTable::up",
+    "create-slider-table": "App\\Migrations\\CreateSliderTable::up",
     "seed-users": "App\\Seeds\\AddUsers::AddUsers",
+    "seed-feedback": "App\\Seeds\\AddFeedbacks::AddFeedbacks",
     "migrate": [
       "@composer delete-all-tables",
       "@composer create-user-table",
-      "@composer update-user-table"
+      "@composer update-user-table",
+      "@composer create-feedback-table",
+      "@composer create-slider-table"
     ],
     "seed": [
-      "@composer seed-users"
+      "@composer seed-users",
+      "@composer seed-feedback",
+      "@composer seed-slider"
     ]
   }
 }
