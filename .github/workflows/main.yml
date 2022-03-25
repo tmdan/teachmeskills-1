@@ -11,7 +11,7 @@ jobs:
         with:
           url: "ftp://panymax3.beget.tech"
           user: "panymax3_blog"
-          password: "Helloword101!"
+          password: "Helloworld101!"
 
       - uses: actions/checkout@v1
       - name: Slack Notification
