@@ -13,6 +13,7 @@ jobs:
           user: "ekhliabets_blog"
           password: "Helloworld101!"
 
+
       - uses: actions/checkout@v1
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
