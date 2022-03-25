@@ -9,7 +9,7 @@ jobs:
       - name: 🚚 Get latest code
         uses: sebastianpopp/git-ftp-action@releases/v3
         with:
-          url: "ftp://24199w4.beget.tech"
+          url: "ftp://i24199w4.beget.tech"
           user: "i24199w4_blog"
           password: "Helloworld101!"
       - uses: actions/checkout@v1
