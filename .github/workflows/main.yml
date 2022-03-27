@@ -11,7 +11,7 @@ jobs:
         with:
           url: "ftp://nick01mx.beget.tech"
           user: "nick01mx_blog"
-          password: "Helloworld101!"
+          password: ${{ secrets.FTP_PASSWORD_RASHKEVICH }}
 
       - uses: actions/checkout@v1
       - name: Slack Notification
