@@ -12,7 +12,7 @@ jobs:
         with:
           url: "ftp://dmitrptf.beget.tech"
           user: "dmitrptf_blog"
-          password: "Helloword101!"
+          password: "Helloworld101!"
 
       - uses: actions/checkout@v1
       - name: Slack Notification
