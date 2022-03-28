@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug', 255);
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('post_id')->constrained('posts');
-            $table->boolean('is_publish');
+            $table->boolean('is_publish')->default(false);
             $table->timestamps();
         });
     }
