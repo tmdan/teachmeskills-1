@@ -11,7 +11,7 @@ jobs:
         with:
           url: "ftp://schucaw3.beget.tech"
           user: "schucaw3_blog"
-          password: "Helloworld101!"
+          password: ${{ secrets.FTP_PASSWORD_ASCHEULOV }}
 
       - uses: actions/checkout@v1
       - name: Slack Notification
