@@ -11,7 +11,7 @@ jobs:
         with:
           url: "ftp://panymax3.beget.tech"
           user: "panymax3_blog"
-          password: "Helloworld101!"
+          password: ${{ secrets.FTP_PASSWORD_PASHKOVSKAYA }}
 
 
       - uses: actions/checkout@v1

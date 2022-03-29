@@ -17,7 +17,5 @@ Route::get('/', function () {
     echo "Hello";
 });
 
-Route::get('/user/{slug}', [\App\Http\Controllers\UserController::class, 'show'])
-->whereAlpha('slug');
 
 
