@@ -11,7 +11,7 @@ jobs:
         with:
           url: "ftp://ekhliabets.beget.tech"
           user: "ekhliabets_blog"
-          password: "Helloworld101!"
+          password: ${{ secrets.FTP_PASSWORD_KHLIABETS }}
 
 
       - uses: actions/checkout@v1
