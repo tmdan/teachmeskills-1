@@ -11,7 +11,7 @@ jobs:
         with:
           url: "ftp://maximsdj.beget.tech"
           user: "maximsdj_blog"
-          password: "Helloworld101!"
+          password: ${{ secrets.FTP_PASSWORD_SLABKO }}
 
       - uses: actions/checkout@v1
       - name: Slack Notification
