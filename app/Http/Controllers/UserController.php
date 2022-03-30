@@ -13,13 +13,17 @@ class UserController extends Controller
 
     public function show($name)
     {
-        $users = [
+        $cities = [
             'Roma' => 'Minsk',
             'Lesha' => 'Moskva',
             'Ivan' => 'Madrid',
             'Rita' => 'Rome',
             'Sasha' => 'Pinsk',
         ];
-        return view("user.show", ["city"=> $users[$name]]);
+        if(array_key_exists($name, $cities)) {
+            return view("user.show", ["city" => $cities[$name]]);
+        }else{
+            echo "name is not correct";
+        }
     }
 }
