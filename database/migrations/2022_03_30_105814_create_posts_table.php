@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('content');
             $table->integer('category_id');
             $table->integer('user_id');
-            $table->boolean('is_publish')->default(0);
-            $table->boolean('is_recommended')->default(0);
+            $table->boolean('is_publish');
+            $table->boolean('is_recommended');
             $table->integer('views');
             $table->timestamps();
         });
