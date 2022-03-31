@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -18,5 +19,10 @@ class UserController extends Controller
         }else{
             echo "Error 404";
         }
+    }
+    public function showFeedbacks($id){
+        $user = User::all();
+        dd($user[$id]->feedbacks);
+        //сделала логику для любого айдишника юзера, тут она была уместна я думаю
     }
 }
