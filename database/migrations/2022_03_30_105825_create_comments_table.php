@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->integer('user_id');
             $table->integer('post_id');
-            $table->boolean('is_publish');
+            $table->boolean('is_publish')->default(0);
             $table->timestamps();
         });
     }
