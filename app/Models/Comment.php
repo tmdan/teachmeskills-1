@@ -33,7 +33,7 @@ class Comment extends Model
 
     public function togglePublish($value)
     {
-        if ($this->is_published == 0)
+        if (!is_null($value))
         {
             return $this->publish();
         }

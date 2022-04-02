@@ -10,6 +10,15 @@ class Post extends Model
 {
     use HasFactory, Sluggable;
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
     public function category()
     {
         return $this->hasOne(Category::class);
@@ -30,13 +39,66 @@ class Post extends Model
         );
     }
 
-    public function sluggable(): array
+    public function publish()
     {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
+        $this->is_published = 1;
+        $this->save();
+    }
+
+    public function unpublish()
+    {
+        $this->is_published = 0;
+        $this->save();
+    }
+
+    public function togglePublish($value)
+    {
+        if (!is_null($value))
+        {
+            return $this->publish();
+        }
+        return $this->unpublish();
+    }
+
+    public function recommend()
+    {
+        $this->is_recommended = 1;
+        $this->save();
+    }
+
+    public function unrecommend()
+    {
+        $this->is_recommended = 0;
+        $this->save();
+    }
+
+    public function toggleRecommend($value)
+    {
+        if (!is_null($value))
+        {
+            return $this->recommend();
+        }
+        return $this->unrecommend();
+    }
+
+    public function scopeRecommended($query)
+    {
+        return $query->where('is_recommended', 1);
+    }
+
+    public function scopeUnrecommended($query)
+    {
+        return $query->where('is_recommended', 0);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', 1);
+    }
+
+    public function scopeUnpublished($query)
+    {
+        return $query->where('is_published', 0);
     }
 
 }
