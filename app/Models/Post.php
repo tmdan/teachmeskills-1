@@ -6,16 +6,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Tag extends Model
+class Post extends Model
 {
     use Sluggable;
-    public function posts()
+    public function category()
+    {
+        return $this->hasOne(Category::class);
+    }
+
+    public function author()
+    {
+        return $this->hasOne(User::class);
+    }
+
+    public function tags()
     {
         return $this->belongsToMany(
-            Post::class,
+            Tag::class,
             'post_tag',
-            'tag_id',
             'post_id',
+            'tag_id',
         );
     }
 
@@ -28,3 +38,8 @@ class Tag extends Model
         ]; /*привет -> privet (дубликаций нет, добавляется последующее число повтороения)*/
     }
 }
+
+//$post = Post::find(1); вытащим пост пол ID 1
+//$post -> category -> title название категории
+//$post -> tags все теги
+//$post -> author -> name достучимся до значения User
