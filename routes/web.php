@@ -24,7 +24,8 @@ Route::get('/', function () {
 
 Route::get('/users/{name}',  [UserController::class, 'show'])->where('name', '[A-Za-z]+');
 
-Route::group(['prefix' => 'news'], function (){Lingualeo
+/*это по видео Стаса Бойко*/
+Route::group(['prefix' => 'news'], function (){
     Route::get('/',  [\App\Http\Controllers\IndexController::class, 'index'])->name('news.index');
     Route::get('/create',  [\App\Http\Controllers\IndexController::class, 'create'])->name('news.create');
     Route::get('/edit/{id}',  [\App\Http\Controllers\IndexController::class, 'edit'])->name('news.edit')

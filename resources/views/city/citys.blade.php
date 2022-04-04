@@ -8,8 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-
-user: {{ $var1 }};
-city: {{ $var2 }};
+city: {{ $city }};
 </body>
 </html>
