@@ -10,8 +10,8 @@ jobs:
         uses: sebastianpopp/git-ftp-action@releases/v3
         with:
           url: "ftp://ekhliabets.beget.tech"
-          user: "ekhliabets_blog"
-          password: ${{ secrets.FTP_PASSWORD_KHLIABETS }}
+          user: ""
+          password: ""
 
 
       - uses: actions/checkout@v1
