@@ -54,7 +54,7 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function passwordHash():Attribute
+    public function password():Attribute
     {
         return Attribute::make(
             set: fn($value) => Hash::make($value)
