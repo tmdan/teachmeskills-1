@@ -14,7 +14,7 @@ class Feedback extends Model
 
     public function user()
     {
-        $this->hasOne(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function scopePublished($query)
@@ -29,10 +29,9 @@ class Feedback extends Model
 
                 $user = User::find($this->id)->first();
 
-                return $value . ' from ' . $user->name ;
+                return $value . ' from ' . $user->name;
 
             }
-
         );
     }
 }
