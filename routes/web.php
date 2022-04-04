@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
@@ -23,6 +24,16 @@ Route::get('/', function () {
 })->where('name', '[A-Za-z]+');*/
 
 Route::get('/users/{name}',  [UserController::class, 'show'])->where('name', '[A-Za-z]+');
+
+Route::get('/usersId/{id}',  [UserController::class, 'showId'])->whereNumber('id');
+
+Route::get('/feedbacks/{id}',  [\App\Http\Controllers\FeedbackController::class, 'show'])
+    ->whereNumber('id');
+
+Route::get('/feedbacksPublish',  [\App\Http\Controllers\FeedbackController::class, 'showPublish']);
+
+
+
 
 /*это по видео Стаса Бойко*/
 Route::group(['prefix' => 'news'], function (){
