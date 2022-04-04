@@ -11,15 +11,20 @@ class Post extends Model
     use HasFactory;
     use Sluggable;
 
-    public function category(){
+    protected $fillable = ['title', 'content'];
+
+    public function category()
+    {
         return $this->hasOne(Category::class);
     }
 
-    public function author(){
+    public function author()
+    {
         return $this->hasOne(User::class);
     }
 
-    public function tags(){
+    public function tags()
+    {
         return $this->belongsToMany(
             Tag::class,
             'post_tag',
@@ -35,5 +40,86 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public static function add($fields)
+    {
+        $post = new static();
+        $post->fill($fields);
+        $post->user_id = 1;
+        $post->save();
+
+        return $post;
+    }
+
+    public function edit($fields)
+    {
+        $this->fill($fields);
+        $this->save();
+    }
+
+    public function remove()
+    {
+        $this->delete();
+    }
+
+    public function published()
+    {
+        $this->is_publish = 1;
+        $this->save();
+    }
+
+    public function unpublished()
+    {
+        $this->is_publish = 0;
+        $this->save();
+    }
+
+    public function togglePublished($value)
+    {
+        if ($value == null) {
+            return $this->unpublished();
+        }
+        return $this->published();
+    }
+
+    public function recommended()
+    {
+        $this->is_recommended = 1;
+        $this->save();
+    }
+
+    public function unrecommended()
+    {
+        $this->is_recommended = 0;
+        $this->save();
+    }
+
+    public function toggleRecommended($value)
+    {
+        if ($value == null) {
+            return $this->unrecommended();
+        }
+        return $this->recommended();
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_publish', 1);
+    }
+
+    public function scopeUnpublished($query)
+    {
+        return $query->where('is_publish', 0);
+    }
+
+    public function scopeRecommended($query)
+    {
+        return $query->where('is_recommended', 1);
+    }
+
+    public function scopeUnrecommended($query)
+    {
+        return $query->where('is_recommended', 0);
     }
 }
