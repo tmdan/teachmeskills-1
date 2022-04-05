@@ -15,7 +15,7 @@ class Post extends Model
         return $this->hasOne(User::class);
     }
     public function tags(){
-        return $this->belongsToMany(Tags::class, "post_tag", "post_id", "tag_id");
+        return $this->belongsToMany(Tag::class, "post_tag", "post_id", "tag_id");
     }
      public function sluggable(): array
     {
