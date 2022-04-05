@@ -20,4 +20,35 @@ class Comment extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public function publish()
+    {
+        $this->is_publish = 1;
+        $this->save();
+    }
+
+    public function unpublish()
+    {
+        $this->is_publish = 0;
+        $this->save();
+    }
+
+    public function togglePublish()
+    {
+        if ($this->is_publish == 0) {
+            return $this->publish();
+        } else {
+            return $this->unpublish();
+        }
+    }
+
+    public function scopePublished($query)
+    {
+        $query->where('is_publish', 1);
+    }
+
+    public function scopeUnpublished($query)
+    {
+        $query->where('is_publish', 0);
+    }
 }
