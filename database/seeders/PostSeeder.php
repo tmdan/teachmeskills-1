@@ -55,6 +55,16 @@ class PostSeeder extends Seeder
                 'is_recommended' => 1,
                 'views' => 500,
             ],
+            [
+                'title' => 'пост №5',
+                'slug' => 'слаг поста №5',
+                'content' => 'пост №5',
+                'category_id' => 4,
+                'users_id' => 5,
+                'is_publish' => 1,
+                'is_recommended' => 1,
+                'views' => 300,
+            ],
         ]);
     }
 }

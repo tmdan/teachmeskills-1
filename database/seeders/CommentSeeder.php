@@ -43,6 +43,13 @@ class CommentSeeder extends Seeder
                 'post_id' => 4,
                 'is_publish' => 1,
             ],
+            [
+                'text' => 'коммент №5',
+                'slug' => 'слаг коммента №5',
+                'users_id' => 5,
+                'post_id' => 1,
+                'is_publish' => 1,
+            ],
         ]);
     }
 }

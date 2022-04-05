@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Database\Seeders\CategorySeeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -24,6 +25,8 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             TagSeeder::class,
             CommentSeeder::class,
+            PostTagSeeder::class,
+            SubscriptionSeeder::class,
         ]);
 
     }
