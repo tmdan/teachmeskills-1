@@ -12,6 +12,8 @@ class Post extends Model
     use HasFactory;
     use Sluggable;
 
+    const NO_IMAGE = '/uploads/no-image.png';
+
     protected $fillable = ['title', 'content'];
 
     public function category()
@@ -38,20 +40,22 @@ class Post extends Model
         ];
     }
 
-   /* protected function image(): Attribute
+    public function setImageAttribute($value)
     {
-        return Attribute::make(
-        get: function ($value)
-        {
-            return $value;
-        },
-        set: function ($value)
-        {
+        if ($value instanceof UploadedFile) {
 
-            return $value;
-        },
-    );
-    }*/
+            if ($this->image !== null && Storage::exists($this->image)) {
+                Storage::delete($this->image);
+            }
+
+            return $value->store('uploads');
+        }
+    }
+
+    public function getImageAttribute($value)
+    {
+        return $value ?? self::NO_IMAGE;
+    }
 
     public function publish()
     {
