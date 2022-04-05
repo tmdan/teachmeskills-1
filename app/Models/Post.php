@@ -10,7 +10,7 @@ class Post extends Model
     use Sluggable;
     protected $fillable = ['title', 'content'];
     public function category(){
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
     public function author(){
         return $this->hasOne(User::class);
