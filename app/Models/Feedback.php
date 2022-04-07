@@ -14,7 +14,7 @@ class Feedback extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function scopePublished($query)
@@ -22,7 +22,12 @@ class Feedback extends Model
         return $query->where('is_publish', 1);
     }
 
-    protected function body(): Attribute
+    public function getBodyAttribute($value)
+    {
+        return $value . ' from ' . $this->user->name;
+    }
+
+    /*protected function body(): Attribute
     {
         return Attribute::make(
             get: function ($value) {
@@ -33,5 +38,5 @@ class Feedback extends Model
 
             }
         );
-    }
+    }*/
 }
