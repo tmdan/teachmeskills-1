@@ -32,6 +32,10 @@ Route::get('/feedbacks/{id}',  [\App\Http\Controllers\FeedbackController::class,
 
 Route::get('/feedbacksPublish',  [\App\Http\Controllers\FeedbackController::class, 'showPublish']);
 
+Route::get('/countries',  [\App\Http\Controllers\CountryController::class, 'show']);
+
+Route::get('/countriesPopulation',  [\App\Http\Controllers\CountryController::class, 'showPopulation']);
+
 
 
 
