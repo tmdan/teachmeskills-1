@@ -59,19 +59,19 @@ class Post extends Model
 
     public function publish()
     {
-        $this->is_publish = 1;
+        $this->is_publish = true;
         $this->save();
     }
 
     public function unpublish()
     {
-        $this->is_publish = 0;
+        $this->is_publish = false;
         $this->save();
     }
 
     public function togglePublish()
     {
-        if ($this->is_publish == 1)
+        if ($this->is_publish == true)
             return $this->unpublish();
 
         return $this->publish();
@@ -79,19 +79,19 @@ class Post extends Model
 
     public function recommend()
     {
-        $this->is_recommended = 1;
+        $this->is_recommended = true;
         $this->save();
     }
 
     public function unrecommend()
     {
-        $this->is_recommended = 0;
+        $this->is_recommended = false;
         $this->save();
     }
 
     public function toggleRecommend()
     {
-        if ($this->is_recommended == 1)
+        if ($this->is_recommended == true)
             return $this->unrecommend();
 
         return $this->recommend();
@@ -99,22 +99,22 @@ class Post extends Model
 
     public function scopeRecommended($query)
     {
-        return $query->where('is_recommended', 1);
+        return $query->where('is_recommended', true);
     }
 
     public function scopePublished($query)
     {
-        return $query->where('is_publish', 1);
+        return $query->where('is_publish', true);
     }
 
     public function scopeUnrecommended($query)
     {
-        return $query->where('is_recommended', 0);
+        return $query->where('is_recommended', false);
     }
 
     public function scopeUnpublished($query)
     {
-        return $query->where('is_publish', 0);
+        return $query->where('is_publish', false);
     }
 
     /* public function add($fields)
