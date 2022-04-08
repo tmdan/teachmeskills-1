@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -21,7 +24,7 @@ class Post extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function author()
@@ -41,13 +44,13 @@ class Post extends Model
 
     public function publish()
     {
-        $this->is_published = 1;
+        $this->is_published = true;
         $this->save();
     }
 
     public function unpublish()
     {
-        $this->is_published = 0;
+        $this->is_published = false;
         $this->save();
     }
 
@@ -62,13 +65,13 @@ class Post extends Model
 
     public function recommend()
     {
-        $this->is_recommended = 1;
+        $this->is_recommended = true;
         $this->save();
     }
 
     public function unrecommend()
     {
-        $this->is_recommended = 0;
+        $this->is_recommended = false;
         $this->save();
     }
 
@@ -83,22 +86,22 @@ class Post extends Model
 
     public function scopeRecommended($query)
     {
-        return $query->where('is_recommended', 1);
+        return $query->where('is_recommended', true);
     }
 
     public function scopeUnrecommended($query)
     {
-        return $query->where('is_recommended', 0);
+        return $query->where('is_recommended', false);
     }
 
     public function scopePublished($query)
     {
-        return $query->where('is_published', 1);
+        return $query->where('is_published', true);
     }
 
     public function scopeUnpublished($query)
     {
-        return $query->where('is_published', 0);
+        return $query->where('is_published', false);
     }
 
 }
