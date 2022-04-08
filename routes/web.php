@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,15 @@ Route::get('/', function () {
 });
 Route::get('/posts/{name}', [UserController::class, 'index'])
     ->whereAlpha('name');
+
+Route::get('/posts/{id}', [UserController::class, 'feedback'])
+    ->whereNumber('id');
+
+
+Route::group(['prefix'=> '/feedbacks'], function (){
+    Route::get('/published', [FeedbackController::class, 'show']);
+
+    Route::get('/{id}', [FeedbackController::class, 'userFeedbacks'])
+        ->whereNumber('id');
+} );
+
