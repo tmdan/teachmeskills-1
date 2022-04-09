@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/user/{id}', [UserController::class, 'showId'])->whereNumber('id');
+
+Route::get('/feedbacks/user/{id}', [FeedbackController::class, 'showFeedback'])
+    ->whereNumber('id');
+
+Route::get('/feedbacks/published', [FeedbackController::class, 'showPublished']);
