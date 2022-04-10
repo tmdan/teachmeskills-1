@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('title', 255);
             $table->string('slug', 255);
-            $table->string('image', 255);
+            $table->string('image', 255)->nullable();
             $table->text('content');
             $table->foreignId('category_id')->constrained('categories');
             $table->foreignId('user_id')->constrained('users');
             $table->boolean('is_publish')->default(false);
             $table->boolean('is_recommended')->default(false);
-            $table->integer('views');
+            $table->integer('views')->default(false);
             $table->timestamps();
         });
     }

@@ -8,10 +8,22 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Post extends Model
 {
     use HasFactory, Sluggable;
+
+    const NO_IMAGE = 'uploads/no-image.png';
+//
+//    protected $fillable = [
+//        'title',
+//        'slug',
+//        'content',
+//        'image',
+//        'category_id',
+//        'user_id'
+//    ];
 
     public function sluggable(): array
     {
@@ -103,5 +115,24 @@ class Post extends Model
     {
         return $query->where('is_published', false);
     }
+
+    public function getImageAttribute($value)
+    {
+        return $value ?? self::NO_IMAGE;
+    }
+
+    public function setImageAttribute($value)
+    {
+        if ($value instanceof UploadedFile) {
+
+            if ($this->image !== null && Storage::exists($this->image))
+            {
+                Storage::delete($this->image);
+            }
+
+            return $value->store('uploads');
+        }
+    }
+
 
 }
