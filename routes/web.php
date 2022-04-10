@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    
-
 });
+
+
+Route::resource("categories", CategoryController::class)
+
+
+    /**
+     * Обычно, если неявно связанная модель ресурса не найдена, то генерируется 404 HTTP-ответ.
+     */
+//    ->missing(function (Request $request) {
+//        return Redirect::route('photos.index');
+//    });
+
+
+//    ->parameters([
+//        'categories' => 'category:slug'
+//    ])
+
+
+;
