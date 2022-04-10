@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
@@ -12,23 +14,17 @@ class Post extends Model
     use HasFactory;
     use Sluggable;
 
+    const UNPUBLISH = false;
+    const PUBLISH = true;
+    const RECOMMENDED = true;
+    const UNRECOMMENDED = false;
+
     protected $fillable = ['title', 'content'];
 
-    public function category()
-    {
-        return $this->hasOne(Category::class);
-    }
-
-    public function author()
-    {
-        return $this->hasOne(User::class);
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
-    }
-
+    /**
+     * Метод для формирования slug
+     * @return \string[][]
+     */
     public function sluggable(): array
     {
         return [
@@ -38,114 +34,128 @@ class Post extends Model
         ];
     }
 
-   /* protected function image(): Attribute
+    /**
+     * Категория поста
+     * @return HasOne
+     */
+    public function category()
     {
-        return Attribute::make(
-        get: function ($value)
-        {
-            return $value;
-        },
-        set: function ($value)
-        {
+        return $this->hasOne(Category::class);
+    }
 
-            return $value;
-        },
-    );
-    }*/
-
-    public function publish()
+    /**
+     * Автор поста
+     * @return HasOne
+     */
+    public function author()
     {
-        $this->is_publish = 1;
+        return $this->hasOne(User::class);
+    }
+
+    /**
+     * Cписок тегов
+     * @return BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
+    }
+
+    /**
+     *  Метод, который выставляет маркер публикации на "не доступен"
+     * @return void
+     */
+    public function publish(): void
+    {
+        $this->is_publish = self::PUBLISH;
         $this->save();
     }
 
-    public function unpublish()
+    /**
+     *  Метод, который выставляет маркер публикации на "не доступен"
+     * @return void
+     */
+    public function unpublish(): void
     {
-        $this->is_publish = 0;
+        $this->is_publish = self::UNPUBLISH;
         $this->save();
     }
 
-    public function togglePublish()
+    /**
+     *  Метод, который будет переключать при каждой вызове между статусами "не доступен" и "доступен"
+     * @return void
+     */
+    public function togglePublish(): void
     {
-        if ($this->is_publish == 1)
-            return $this->unpublish();
-
-        return $this->publish();
+        $this->is_publish ? $this->unpublish() : $this->publish();
     }
 
-    public function recommend()
+    /**
+     * Метод - который будет выставлять маркер рекомендации - на "рекомендовано"
+     * @return void
+     */
+    public function recommend(): void
     {
-        $this->is_recommended = 1;
+        $this->is_recommended = self::RECOMMENDED;
         $this->save();
     }
 
-    public function unrecommend()
+    /**
+     * Метод - который будет выставлять маркер рекомендации - на "не рекомендовано".
+     * @return void
+     */
+    public function unrecommend(): void
     {
-        $this->is_recommended = 0;
+        $this->is_recommended = self::UNRECOMMENDED;
         $this->save();
     }
 
-    public function toggleRecommend()
+    /**
+     * Метод, который будет переключать при каждой вызове между статусами "рекомендовано" и "не рекомендовано".
+     * @return void
+     */
+    public function toggleRecommend(): void
     {
-        if ($this->is_recommended == 1)
-            return $this->unrecommend();
-
-        return $this->recommend();
+        $this->is_recommended == self::RECOMMENDED ? $this->unrecommend() : $this->recommend();
     }
 
+    /**
+     * Scope - который будет добавлять фильтрацию по постам - только рекомендованные
+     * @param $query
+     * @return mixed
+     */
     public function scopeRecommended($query)
     {
-        return $query->where('is_recommended', 1);
+        return $query->where('is_recommended', self::RECOMMENDED);
     }
 
+    /**
+     * Scope - который будет добавлять фильтрацию по постам - только опубликованные
+     * @param $query
+     * @return mixed
+     */
     public function scopePublished($query)
     {
-        return $query->where('is_publish', 1);
+        return $query->where('is_publish', self::PUBLISH);
     }
 
+    /**
+     * Scope - который будет добавлять фильтрацию по постам - только рекомендованные
+     * @param $query
+     * @return mixed
+     */
     public function scopeUnrecommended($query)
     {
-        return $query->where('is_recommended', 0);
+        return $query->where('is_recommended', self::UNRECOMMENDED);
     }
 
+    /**
+     * Scope - который будет добавлять фильтрацию по постам - только не рекомендованные
+     * @param $query
+     * @return mixed
+     */
     public function scopeUnpublished($query)
     {
-        return $query->where('is_publish', 0);
+        return $query->where('is_publish', self::UNPUBLISH);
     }
-
-    /* public function add($fields)
-    {
-        $post = new static();
-        $post->fill($fields);
-        $post->users_id = 1;
-        $post->save();
-
-        return $post;
-    }*/
-
-    /*public function edit($fields)
-    {
-        $this->fill($fields);
-        $this->save();
-    }*/
-
-    /*public function uploadImage($image)
-    {
-        if ($image == null) {
-            return;
-        }
-
-        Storage::delete('uploads/' . $this->image);
-        $filename = str_random(10) . '.' . $image->extention();
-        $image->saveAs('uploads', $filename);
-        $this->image = $filename;
-        $this->save();
-    }*/
-
-    /* public function getImage(){
-        if($this->image==null){
-            return '/img/no-image.png';
-        }
-        return '/uploads/' . $this->image;
-    }*/
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PostSeeder extends Seeder
 {
@@ -14,10 +15,10 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('posts')->insert([
+        DB::table('posts')->insert([
             [
                 'title' => 'пост №1',
-                'slug' => 'слаг поста №1',
+                'slug' => 'post_1',
                 'content' => 'пост №1',
                 'category_id' => 1,
                 'users_id' => 1,
@@ -27,7 +28,7 @@ class PostSeeder extends Seeder
             ],
             [
                 'title' => 'пост №2',
-                'slug' => 'слаг поста №2',
+                'slug' => 'post_2',
                 'content' => 'пост №2',
                 'category_id' => 1,
                 'users_id' => 2,
@@ -37,7 +38,7 @@ class PostSeeder extends Seeder
             ],
             [
                 'title' => 'пост №3',
-                'slug' => 'слаг поста №3',
+                'slug' => 'post_3',
                 'content' => 'пост №3',
                 'category_id' => 2,
                 'users_id' => 3,
@@ -47,7 +48,7 @@ class PostSeeder extends Seeder
             ],
             [
                 'title' => 'пост №4',
-                'slug' => 'слаг поста №4',
+                'slug' => 'post_4',
                 'content' => 'пост №4',
                 'category_id' => 3,
                 'users_id' => 4,

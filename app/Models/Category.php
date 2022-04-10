@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
     use HasFactory;
     use Sluggable;
 
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
-
+    /**
+     * Метод для формирования slug
+     * @return \string[][]
+     */
     public function sluggable(): array
     {
         return [
@@ -25,4 +25,14 @@ class Category extends Model
             ]
         ];
     }
+
+    /**
+     * Все посты конкретной категории
+     * @return HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 }

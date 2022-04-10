@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TagSeeder extends Seeder
 {
@@ -14,18 +14,18 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('tags')->insert([
+        DB::table('tags')->insert([
             [
                 'title' => 'тег №1',
-                'slug' => 'слаг тега №1',
+                'slug' => 'tag_1',
             ],
             [
                 'title' => 'тег №2',
-                'slug' => 'слаг тега №2',
+                'slug' => 'tag_2',
             ],
             [
                 'title' => 'тег №3',
-                'slug' => 'слаг тега №3',
+                'slug' => 'tag_3',
             ]
         ]);
     }
