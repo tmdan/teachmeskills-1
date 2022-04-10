@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Feedback;
 use App\Models\User;
+use App\Models\City;
+use App\Models\Country;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,5 +20,9 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         Feedback::factory(10)->create();
+        City::factory(5)->create();
+        Country::factory(0)->create();
+
+
     }
 }

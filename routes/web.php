@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,9 @@ Route::get('/feedbacks/user/{id}', [FeedbackController::class, 'showFeedback'])
     ->whereNumber('id');
 
 Route::get('/feedbacks/published', [FeedbackController::class, 'showPublished']);
+
+Route::get('/countries', [CountryController::class, 'show']);
+
+Route::get('/countries/population', [CountryController::class, 'showPopulation']);
+
+
