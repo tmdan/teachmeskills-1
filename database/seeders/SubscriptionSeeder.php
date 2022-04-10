@@ -17,49 +17,27 @@ class SubscriptionSeeder extends Seeder
     {
         \DB::table('subscriptions')->insert([
             [
-                'email' => Str::random(10) . '@gmail.com',
+                'email' => '111@gmail.com',
                 'token' => Str::random(48),
             ],
             [
-                'email' => Str::random(10) . '@gmail.com',
+                'email' => '222@gmail.com',
                 'token' => Str::random(48),
             ],
             [
-                'email' => Str::random(10) . '@gmail.com',
+                'email' => '333@gmail.com',
                 'token' => Str::random(48),
             ],
             [
-                'email' => Str::random(10) . '@gmail.com',
+                'email' => '444@gmail.com',
                 'token' => Str::random(48),
             ],
             [
-                'email' => Str::random(10) . '@gmail.com',
+                'email' => '555@gmail.com',
                 'token' => Str::random(48),
             ],
         ]);
 
-        /*\DB::table('subscriptions')->insert([
-            [
-                'email' => Str::random(10).'@gmail.com',
-                'token' => Srt::random(48),
-            ],
-            [
-                'email' => Str::random(10).'@gmail.com',
-                'token' => Srt::random(48),
-            ],
-            [
-                'email' => Str::random(10).'@gmail.com',
-                'token' => Srt::random(48),
-            ],
-            [
-                'email' => Str::random(10).'@gmail.com',
-                'token' => Srt::random(48),
-            ],
-            [
-                'email' => Str::random(10).'@gmail.com',
-                'token' => Srt::random(48),
-            ],
-        ]);*/
     }
 
 }

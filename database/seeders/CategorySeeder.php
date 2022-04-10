@@ -17,23 +17,23 @@ class CategorySeeder extends Seeder
         \DB::table('categories')->insert([
             [
                 'title' => 'Категория №1',
-                'slug' => 'слаг категории №1',
+                'slug' => 'slag_kategorii_1',
             ],
             [
                 'title' => 'Категория №2',
-                'slug' => 'слаг категории №2',
+                'slug' => 'slag_kategorii_2',
             ],
             [
                 'title' => 'Категория №3',
-                'slug' => 'слаг категории №3',
+                'slug' => 'slag_kategorii_3',
             ],
             [
                 'title' => 'Категория №4',
-                'slug' => 'слаг категории №4',
+                'slug' => 'slag_kategorii_4',
             ],
             [
                 'title' => 'Категория №5',
-                'slug' => 'слаг категории №5',
+                'slug' => 'slag_kategorii_5',
             ],
         ]);
     }
