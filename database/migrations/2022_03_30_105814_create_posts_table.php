@@ -23,7 +23,7 @@ return new class extends Migration
             $table->boolean('is_publish')->default(0);
             $table->boolean('is_recommended')->default(0);
             $table->integer('views');
-            $table->string('image');
+            $table->string('image')->nullable();;
             $table->timestamps();
         });
     }

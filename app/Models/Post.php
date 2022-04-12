@@ -4,11 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
     use Sluggable;
-    protected $fillable = ['title', 'content'];
+    use HasFactory;
+
+    const NO_IMAGE = '/uploads/no-image.png';
+
     public function category(){
         return $this->belongsTo(Category::class);
     }
@@ -81,4 +86,19 @@ class Post extends Model
     {
         return $query->where("is_publish", false);
     }
+     public function setImageAttribute($value)
+    {
+        if ($value instanceof UploadedFile) {
+            if ($this->image !== null && Storage::exists($this->image)) {
+                Storage::delete($this->image);
+            }
+            return $value->store('uploads');
+        }
+    }
+
+    public function getImageAttribute($value): string
+    {
+        return $value ?? self::NO_IMAGE;
+    }
+}
 }
