@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -20,10 +21,15 @@ class UserController extends Controller
             'Rita' => 'Rome',
             'Sasha' => 'Pinsk',
         ];
-        if(array_key_exists($name, $cities)) {
+        if (array_key_exists($name, $cities)) {
             return view("user.show", ["city" => $cities[$name]]);
-        }else{
+        } else {
             echo "name is not correct";
         }
+    }
+
+    public function showId($id)
+    {
+        $users = User::where("id", $id)->get();
     }
 }

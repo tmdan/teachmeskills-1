@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/{name}', [UserController::class, "show"])->whereAlpha("name");
-
+Route::get("/usersId/{id}", [UserController::class, "showId"])->whereNumber("id");
+Route::get("/feedbacks/{id}", [\App\Http\Controllers\FeedbackController::class, "show"])->whereNumber("id");
+Route::get('/feedbacksPublish',  [\App\Http\Controllers\FeedbackController::class, 'showPublish']);
 Route::get('/', function () {
     return view('welcome');
 });

@@ -17,7 +17,7 @@ class Feedback extends Model
 
     public function scopePublished($query)
     {
-        return $query->where("is_publish", 1);
+        return $query->where("is_publish", true);
     }
 
     protected function body(): Attribute
