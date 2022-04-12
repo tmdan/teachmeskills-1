@@ -19,12 +19,18 @@ Route::get('/', function () {
 });
 
 
-Route::resource("categories", CategoryController::class)
+Route::get("categories/{category:slug}", [CategoryController::class, 'show']);
 
 
-    /**
-     * Обычно, если неявно связанная модель ресурса не найдена, то генерируется 404 HTTP-ответ.
-     */
+
+
+
+//Route::resource("categories", CategoryController::class)
+
+
+/**
+ * Обычно, если неявно связанная модель ресурса не найдена, то генерируется 404 HTTP-ответ.
+ */
 //    ->missing(function (Request $request) {
 //        return Redirect::route('photos.index');
 //    });

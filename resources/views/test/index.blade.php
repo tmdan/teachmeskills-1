@@ -10,8 +10,7 @@
 <body>
     <h1>Заголовок</h1>
 
-        <?php echo $city?>
-        <?=$city?>
+    {!!$script!!}
 
 </body>
 </html>

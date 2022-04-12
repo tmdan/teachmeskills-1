@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreCategoryRequest;
 use App\Http\Requests\Admin\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 
 class CategoryController extends Controller
@@ -33,9 +34,14 @@ class CategoryController extends Controller
     }
 
 
-    public function show(Category $category)
+    public function show(Request $request, Category $category)
     {
-        dd($category);
+
+        return view('test.index', [
+            'category' => $category,
+            //'script' => "<script>alert('hello')</script>"
+
+        ]);
     }
 
 
