@@ -19,13 +19,14 @@ Route::get('/', function () {
 });
 
 
-Route::get("categories/{category:slug}", [CategoryController::class, 'show']);
+//Route::get("categories/{category:slug}", [CategoryController::class, 'show']);
 
 
-
-
-
-//Route::resource("categories", CategoryController::class)
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource("categories", CategoryController::class);
+    Route::resource("posts", CategoryController::class);
+    Route::resource("tags", CategoryController::class);
+});
 
 
 /**

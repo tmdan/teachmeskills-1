@@ -14,7 +14,9 @@ class CategoryController extends Controller
 
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view("admin.categories.index", ['categories' => $categories]);
     }
 
     /**
@@ -36,11 +38,9 @@ class CategoryController extends Controller
 
     public function show(Request $request, Category $category)
     {
-
         return view('test.index', [
             'category' => $category,
-            //'script' => "<script>alert('hello')</script>"
-
+            'script' => "<script>alert('hello')</script>"
         ]);
     }
 
@@ -59,6 +59,8 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->back();
     }
 }

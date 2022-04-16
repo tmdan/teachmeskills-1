@@ -10,7 +10,7 @@
 <body>
     <h1>Заголовок</h1>
 
-    {!!$script!!}
+    {{$script}}
 
 </body>
 </html>
