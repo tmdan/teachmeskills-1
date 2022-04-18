@@ -18,3 +18,5 @@ Route::get('/', function () {
    echo '123';
 
 });
+
+Route::get('/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
