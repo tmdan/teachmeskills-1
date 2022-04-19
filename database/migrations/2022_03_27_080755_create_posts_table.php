@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('content');
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete();
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
-            $table->boolean('is_publish')->default(0);
+            $table->boolean('is_published')->default(0);
             $table->boolean('is_recommended')->default(0);
             $table->integer('views')->default(0);
             $table->timestamps();
