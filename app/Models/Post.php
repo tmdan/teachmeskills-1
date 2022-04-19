@@ -101,4 +101,3 @@ class Post extends Model
         return $value ?? self::NO_IMAGE;
     }
 }
-}
