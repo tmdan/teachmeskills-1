@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(IndexCategoryRequest $request)
-    {   $categories = Category::all();
+    {
+        $categories = Category::all();
 
         return view('admin.categories.index', ['categories' => $categories]);
     }
@@ -29,7 +30,7 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create($request->validated());
-        return redirect()->route("admin.categories.index");
+        return redirect()->route('admin.categories.index');
     }
 
     public function show(ShowCategoryRequest $request, Category $category)
@@ -39,13 +40,13 @@ class CategoryController extends Controller
 
     public function edit(EditCategoryRequest $request, Category $category)
     {
-        return view('admin.categories.edit', ["category" => $category]);
+        return view('admin.categories.edit', ['category' => $category]);
     }
 
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
-        return redirect()->route("admin.categories.index");
+        return redirect()->route('admin.categories.index');
     }
 
     public function destroy(DestroyCategoryRequest $request, Category $category)
