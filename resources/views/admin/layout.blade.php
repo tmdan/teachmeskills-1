@@ -6,8 +6,20 @@
     <title>AdminLTE 2 | Blank Page</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!--<link rel="stylesheet" href="{{asset('css/admin.css')}}">-->
     <link rel="stylesheet" href="/css/admin.css">
-
+    <style>
+        table.table form{
+            display: inline-block;
+        }
+        button.delete-task
+        {
+            background: transparent;
+            border: none;
+            color: #337ab7;
+            padding: 0;
+        }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -438,7 +450,8 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="js/admin.js"></script>
+<script src="{{asset('js/admin.js')}}"></script>
+
 </body>
 
 <!-- Mirrored from almsaeedstudio.com/themes/AdminLTE/pages/examples/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 18 Dec 2016 15:13:35 GMT -->

@@ -19,4 +19,19 @@ Route::get('/', function () {
 
 });
 
-Route::get('/admin', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
+
+Route::group(['prefix'=>'admin'], function(){
+    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->parameters([
+        'categories' => 'category:slug'
+    ])->names([
+        'edit' => 'admin.categories.edit',
+        'create' => 'admin.categories.create',
+        'show' => 'admin.categories.show',
+        'index' => 'admin.categories.index',
+        'store' => 'admin.categories.store',
+        'update' => 'admin.categories.update',
+        'destroy' => 'admin.categories.delete'
+    ]);
+
+});
