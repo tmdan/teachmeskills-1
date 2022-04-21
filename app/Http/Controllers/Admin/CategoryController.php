@@ -20,23 +20,14 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
     public function store(StoreCategoryRequest $request){
-        $this->validate($request,[
-            'title' => 'required',
-            'description' => 'required',
-            'email' => 'email|unique:users',
-
-        ]);
-        Category::create($request->all());
+        Category::create($request->validated());
         return redirect()->route('admin.categories.index');
     }
     public function edit(Category $category){
         return view('admin.categories.edit', ['category'=>$category]);
     }
     public function update(UpdateCategoryRequest $request, Category $category){
-        $this->validate($request,[
-            'title' => 'required'
-        ]);
-        $category->update($request->all());
+        $category->update($request->validated());
         return redirect()->route('admin.categories.index');
     }
     public function destroy(DestroyCategoryRequest $request, Category $category)
