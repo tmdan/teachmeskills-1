@@ -24,7 +24,7 @@ class UpdateTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|max:255'
+            'title' => 'required|string|unique:tags|max:255'
         ];
     }
 }
