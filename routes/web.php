@@ -34,4 +34,16 @@ Route::group(['prefix'=>'admin'], function(){
         'destroy' => 'admin.categories.delete'
     ]);
 
+    Route::resource('tags', \App\Http\Controllers\Admin\TagController::class)->parameters([
+        'tags' => 'tag:slug'
+    ])->names([
+        'edit' => 'admin.tags.edit',
+        'create' => 'admin.tags.create',
+        'show' => 'admin.tags.show',
+        'index' => 'admin.tags.index',
+        'store' => 'admin.tags.store',
+        'update' => 'admin.tags.update',
+        'destroy' => 'admin.tags.delete'
+    ]);
+
 });
