@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', [DashboardController::class, 'index']);
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('/', [DashboardController::class, 'index']);
+
+    Route::resource('categories',CategoryController::class)
+        ->parameters([
+            'categories' => 'category:slug'
+        ]);
+});
+
+//Route::resource('/admin/posts',PostController::class);

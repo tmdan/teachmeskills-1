@@ -16,7 +16,9 @@
 
       <!-- Default box -->
       <div class="box">
-      {!! Form::open(['route' => 'categories.store']) !!}
+{{--      {!! Form::open(['route' => 'categories.store']) !!}--}}
+       <form action="{{route('categories.store')}}" method="post">
+         @csrf
         <div class="box-header with-border">
           <h3 class="box-title">Добавляем категорию</h3>
           @include('admin.errors')
@@ -35,7 +37,8 @@
           <button class="btn btn-success pull-right">Добавить</button>
         </div>
         <!-- /.box-footer-->
-        {!! Form::close() !!}
+       </form>
+{{--        {!! Form::close() !!}--}}
       </div>
       <!-- /.box -->
 
