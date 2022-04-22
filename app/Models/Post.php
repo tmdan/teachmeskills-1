@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Tag;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -16,7 +18,7 @@ class Post extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function autor()
@@ -43,27 +45,32 @@ class Post extends Model
         ];
     }
 
-//    public function setImageAttribute($image)
-//    {
-////        $filename = uniqid() . '.' . $image->extension();
-////        $image->saveAs('uploads', $filename);
-////        $this->attributes['image'] = $filename;
-////        $this->save();
-//    }
-//
-//    public function getImageAttribute()
-//    {
-//    }
+    public function setImageAttribute($value)
+    {
+        if ($value instanceof UploadedFile) {
+
+            if ($this->image !== null && Storage::exists($this->image)) {
+                Storage::delete($this->image);
+            }
+
+            return $value->store('uploads');
+        }
+    }
+
+    public function getImageAttribute($value)
+    {
+        return $value ?? self::NO_IMAGE;
+    }
 
     public function publish()
     {
-        $this->is_publish = 1;
+        $this->is_publish = true;
         $this->save();
     }
 
     public function unpublish()
     {
-        $this->is_publish = 0;
+        $this->is_publish = false;
         $this->save();
     }
 
@@ -78,13 +85,13 @@ class Post extends Model
 
     public function recommend()
     {
-        $this->is_recommended = 1;
+        $this->is_recommended = true;
         $this->save();
     }
 
     public function unrecommend()
     {
-        $this->is_recommended = 0;
+        $this->is_recommended = false;
         $this->save();
     }
 

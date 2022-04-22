@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->boolean('is_publish')->default(0);
             $table->boolean('is_recommended')->default(0);
-            $table->integer('views');
+            $table->integer('views')->nullable();
             $table->timestamps();
         });
     }
