@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreCategoryRequest;
+use App\Http\Requests\Admin\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -20,11 +22,9 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-         Category::create($request->validate([
-            'title' => 'required|string|min:5|max:255'
-        ]));
+         Category::create($request->all());
          return redirect()->route('categories.index');
     }
 
@@ -38,13 +38,9 @@ class CategoryController extends Controller
         return view('admin.categories.edit', ['category' => $category]);
     }
 
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $result = $request->validate([
-            'title' => 'required|string|min:5|max:255'
-        ])['title'];
-
-        $category->title = $result;
+        $category->title = $request->title;
         $category->save();
         return redirect()->route('categories.index');
     }
