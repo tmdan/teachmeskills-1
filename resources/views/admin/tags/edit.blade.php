@@ -21,7 +21,10 @@
           @include('admin.errors')
         </div>
         <div class="box-body">
-        {{Form::open(['route'=>['tags.update',$tag->id], 'method'=>'put'])}}
+          <form action="{{route('tags.update', $tag->slug)}}" method="post">
+            @method('put')
+            @csrf
+{{--        {{Form::open(['route'=>['tags.update',$tag->id], 'method'=>'put'])}}--}}
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Название</label>
@@ -34,7 +37,8 @@
           <button class="btn btn-warning pull-right">Изменить</button>
         </div>
         <!-- /.box-footer-->
-        {{Form::close()}}
+{{--        {{Form::close()}}--}}
+        </form>
       </div>
       <!-- /.box -->
 

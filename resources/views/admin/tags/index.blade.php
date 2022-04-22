@@ -42,13 +42,16 @@
 	                <tr>
 	                  <td>{{$tag->id}}</td>
 	                  <td>{{$tag->title}}</td>
-	                  <td><a href="{{route('tags.edit', $tag->id)}}" class="fa fa-pencil"></a> 
-					{{Form::open(['route'=>['tags.destroy', $tag->id], 'method'=>'delete'])}}
+	                  <td><a href="{{route('tags.edit', $tag->slug)}}" class="fa fa-pencil"></a>
+{{--					{{Form::open(['route'=>['tags.destroy', $tag->id], 'method'=>'delete'])}}--}}                   <form action="{{route('tags.destroy', $tag->slug)}}" method="post">
+                          @method('delete')
+                          @csrf
 	                  <button onclick="return confirm('are you sure?')" type="submit" class="delete">
 	                   <i class="fa fa-remove"></i>
 	                  </button>
 
-	                   {{Form::close()}}
+{{--	                   {{Form::close()}}--}}
+                        </form>
 	                  </td>
 	                </tr>
                 @endforeach

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,10 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('categories',CategoryController::class)
         ->parameters([
             'categories' => 'category:slug'
+        ]);
+    Route::resource('tags', TagController::class)
+        ->parameters([
+            'tags' => 'tag:slug'
         ]);
 });
 
