@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
