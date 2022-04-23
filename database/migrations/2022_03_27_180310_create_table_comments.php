@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('text');
             $table->string('slug', 255);
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->foreignId('post_id')->constrained('posts');
             $table->boolean('is_publish')->default(false);
             $table->timestamps();

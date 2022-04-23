@@ -14,11 +14,14 @@
 
     <!-- Main content -->
     <section class="content">
-	{{Form::open([
-		'route'	=>	['users.update', $user->id],
-		'method'	=>	'put',
-		'files'	=>	true
-	])}}
+	<form action="{{route('users.update', $user->id)}}" method="post" enctype="multipart/form-data">
+      @method('put')
+        @csrf
+{{--    {{Form::open([--}}
+{{--		'route'	=>	['users.update', $user->id],--}}
+{{--		'method'	=>	'put',--}}
+{{--		'files'	=>	true--}}
+{{--	])}}--}}
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
@@ -40,7 +43,7 @@
               <input type="password" class="form-control" id="exampleInputEmail1" name="password" placeholder="">
             </div>
             <div class="form-group">
-              <img src="{{$user->getImage()}}" alt="" width="200" class="img-responsive">
+              <img src="{{$user->avatar}}" alt="" width="200" class="img-responsive">
               <label for="exampleInputFile">Аватар</label>
               <input type="file" name="avatar" id="exampleInputFile">
 
@@ -55,7 +58,8 @@
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->
-	{{Form::close()}}
+    </form>
+{{--	{{Form::close()}}--}}
     </section>
     <!-- /.content -->
   </div>

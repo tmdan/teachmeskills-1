@@ -13,7 +13,9 @@
 
     <!-- Main content -->
     <section class="content">
-		{{Form::open(['route'	=>	'users.store', 'files'	=>	true])}}
+      <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
+{{--		{{Form::open(['route'	=>	'users.store', 'files'	=>	true])}}--}}
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
@@ -49,7 +51,8 @@
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->
-	{{Form::close()}}
+      </form>
+{{--	{{Form::close()}}--}}
     </section>
     <!-- /.content -->
   </div>

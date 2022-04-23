@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::group(['prefix' => 'admin'], function(){
         ->parameters([
             'tags' => 'tag:slug'
         ]);
+    Route::resource('users', UserController::class);
 });
 
 //Route::resource('/admin/posts',PostController::class);
