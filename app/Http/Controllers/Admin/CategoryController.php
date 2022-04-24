@@ -24,7 +24,7 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
-         Category::create($request->all());
+         Category::create($request->validated());
          return redirect()->route('categories.index');
     }
 
@@ -40,9 +40,9 @@ class CategoryController extends Controller
 
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category->title = $request->title;
-        $category->save();
-        return redirect()->route('categories.index');
+        $category->update($request->validated());
+
+        return view('admin.categories.edit', ['category' => $category]);
     }
 
     public function destroy(Category $category)
