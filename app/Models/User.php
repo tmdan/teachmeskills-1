@@ -10,7 +10,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
-use MongoDB\Driver\Server;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class User extends Authenticatable
@@ -45,10 +44,16 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function password():Attribute
+
+    protected function password(): Attribute
     {
         return Attribute::make(
-            set: fn($value) => Hash::make($value)
+            get: fn($value) => $value,
+
+            set: function ($value){
+                if($value !== null)
+                    return Hash::make($value);
+            }
         );
     }
 

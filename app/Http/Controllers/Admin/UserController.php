@@ -28,7 +28,8 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        User::create($request->all());
+        User::create($request->validated());
+
         return redirect()->route('users.index');
     }
 
@@ -44,28 +45,19 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        if($request->password == null)
+        if($request->password !== null)
         {
-           // СОХРАНЕНИЕ БЕЗ АТТРИБУТА password МОДЕЛИ $user
+            $user->update($request->validated());
         }
+        $user->update($request->safe()->except('password'));
 
-
-        $userattributes = $user->getAttributes();
-
-        foreach ($userattributes as $attributename=>$value){
-            if (array_key_exists($attributename, $request->all())){
-                $user->$attributename = $request->$attributename;
-            }
-        }
-        $user->save();
-
-
-        return redirect()->route('users.index');
+        return view('admin.users.edit', ['user' => $user]);
     }
 
     public function destroy(User $user)
     {
         $user->delete();
+
         return redirect()->route('users.index');
     }
 }
