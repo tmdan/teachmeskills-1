@@ -3,64 +3,58 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreCategoryRequest;
-use App\Http\Requests\Admin\UpdateCategoryRequest;
+use App\Http\Requests\Category\CreateCategoryRequest;
+use App\Http\Requests\Category\DestroyCategoryRequest;
+use App\Http\Requests\Category\EditCategoryRequest;
+use App\Http\Requests\Category\IndexCategoryRequest;
+use App\Http\Requests\Category\ShowCategoryRequest;
+use App\Http\Requests\Category\StoreCategoryRequest;
+use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
-
 
 class CategoryController extends Controller
 {
 
-    public function index()
+    public function index(IndexCategoryRequest $request)
     {
         $categories = Category::all();
 
-        return view("admin.categories.index", ['categories' => $categories]);
+        return view('admin.categories.index', ['categories' => $categories]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(CreateCategoryRequest $request)
     {
-        //
+        return view('admin.categories.create');
     }
-
 
     public function store(StoreCategoryRequest $request)
     {
-        //
+        Category::create($request->validated());
+
+        return redirect()->route('admin.categories.index');
     }
 
-
-    public function show(Request $request, Category $category)
-    {
-        return view('test.index', [
-            'category' => $category,
-            'script' => "<script>alert('hello')</script>"
-        ]);
-    }
-
-
-    public function edit(Category $category)
+    public function show(ShowCategoryRequest $request, Category $category)
     {
         //
     }
 
+    public function edit(EditCategoryRequest $request, Category $category)
+    {
+        return view('admin.categories.edit', ['category' => $category]);
+    }
 
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->validated());
+
+        return redirect()->route('admin.categories.index');
     }
 
-
-    public function destroy(Category $category)
+    public function destroy(DestroyCategoryRequest $request, Category $category)
     {
         $category->delete();
 
-        return redirect()->back();
+        return redirect()->route('admin.categories.index');
     }
 }

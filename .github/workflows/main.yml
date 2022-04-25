@@ -9,9 +9,9 @@ jobs:
       - name: 🚚 Get latest code
         uses: sebastianpopp/git-ftp-action@releases/v3
         with:
-          url: "ftp://ekhliabets.beget.tech"
-          user: ""
-          password: ""
+          url: "${{ secrets.FTP_SERVER_GUSTARNIK}}"
+          user: "${{ secrets.FTP_USER_GUSTARNIK}"
+          password: "${{ secrets.FTP_PASSWORD_GUSTARNIK }}"
 
 
       - uses: actions/checkout@v1

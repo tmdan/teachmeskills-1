@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,32 +15,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
+
+Route::group(['prefix'=>'admin'], function(){
+
+    Route::resource("categories", CategoryController::class)->parameters([
+        'categories' => "category:slug"
+    ])->names([
+        'edit' => 'admin.categories.edit',
+        'create' => 'admin.categories.create',
+        'show' => 'admin.categories.show',
+        'index' => 'admin.categories.index',
+        'store' => 'admin.categories.store',
+        'update' => 'admin.categories.update',
+        'destroy' => 'admin.categories.delete'
+    ]);
+
+//    Route::resource("tags", TagController::class)->parameters([
+//        'tags' => "tag:slug"
+//    ])->names([
+//        'edit' => 'admin.tags.edit',
+//        'create' => 'admin.tags.create',
+//        'show' => 'admin.tags.show',
+//        'index' => 'admin.tags.index',
+//        'store' => 'admin.tags.store',
+//        'update' => 'admin.tags.update',
+//        'destroy' => 'admin.tags.delete'
+//    ]);
+
+//
+//    Route::resource("users", UserController::class)->names([
+//        'edit' => 'admin.users.edit',
+//        'create' => 'admin.users.create',
+//        'show' => 'admin.users.show',
+//        'index' => 'admin.users.index',
+//        'store' => 'admin.users.store',
+//        'update' => 'admin.users.update',
+//        'destroy' => 'admin.users.delete'
+//    ]);
 });
-
-
-//Route::get("categories/{category:slug}", [CategoryController::class, 'show']);
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource("categories", CategoryController::class);
-    Route::resource("posts", CategoryController::class);
-    Route::resource("tags", CategoryController::class);
-});
-
-
-/**
- * Обычно, если неявно связанная модель ресурса не найдена, то генерируется 404 HTTP-ответ.
- */
-//    ->missing(function (Request $request) {
-//        return Redirect::route('photos.index');
-//    });
-
-
-//    ->parameters([
-//        'categories' => 'category:slug'
-//    ])
-
-
-;
