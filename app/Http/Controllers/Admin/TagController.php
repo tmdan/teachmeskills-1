@@ -17,19 +17,23 @@ class TagController extends Controller
 
     public function index(IndexTagRequest $request)
     {
-        //
+        $tags = Tag::all();
+
+        return view('admin.tags.index', ['tags' => $tags]);
     }
 
 
     public function create(CreateTagRequest $request)
     {
-        //
+        return view('admin.tags.create');
     }
 
 
     public function store(StoreTagRequest $request)
     {
-        //
+        Tag::create($request->validated());
+
+        return redirect()->route('admin.tags.index');
     }
 
     public function show(ShowTagRequest $request, Tag $tag)
@@ -40,18 +44,22 @@ class TagController extends Controller
 
     public function edit(EditTagRequest $request, Tag $tag)
     {
-        //
+        return view('admin.tags.edit', ['tag' => $tag]);
     }
 
 
     public function update(UpdateTagRequest $request, Tag $tag)
     {
-        //
+        $tag->update($request->validated());
+
+        return redirect()->route('admin.tags.index');
     }
 
 
     public function destroy(DestroyTagRequest $request, Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect()->route('admin.tags.index');
     }
 }
