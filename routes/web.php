@@ -48,7 +48,7 @@ Route::group(['prefix'=>'admin'], function(){
     ]);
 
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->names([
-        'edit' => 'admin.users.edit',
+        'edit'  => 'admin.users.edit',
         'create' => 'admin.users.create',
         'show' => 'admin.users.show',
         'index' => 'admin.users.index',

@@ -29,7 +29,7 @@
                                 <input type="text" name="name" class="form-control" id="exampleInputEmail1"
                                        value="{{old('name')}}" placeholder="">
                             </div>
-                            <div class="form-group">
+                            <div class= "form-group">
                                 <label for="exampleInputEmail1">E-mail</label>
                                 <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                        value="{{old('email')}}" placeholder="">
