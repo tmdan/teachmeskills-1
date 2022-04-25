@@ -46,7 +46,7 @@
 	                  <td>{{$user->name}}</td>
 	                  <td>{{$user->email}}</td>
 	                  <td>
-	                    <img src="{{$user->avatar}}" alt="{{$user->avatar}}" class="img-responsive" width="150">
+	                    <img src="{{asset('storage/'.$user->avatar)}}" alt="{{asset('storage/'.$user->avatar)}}" class="img-responsive" width="150">
 	                  </td>
 	                  <td><a href="{{route('users.edit', $user->id)}}" class="fa fa-pencil"></a>
                           <form action="{{route('users.destroy', $user->id)}}" method="post">
