@@ -15,33 +15,17 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(IndexTagRequest $request)
     {
         $tags = Tag::all();
         return view('admin.tags.index', ['tags' => $tags]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(CreateTagRequest $request)
     {
         return view('admin.tags.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreTagRequest $request)
     {
         $request->validated();

@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin'], function(){
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
+
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->parameters([
         'categories' => 'category:slug'
     ])->names([
@@ -46,4 +47,13 @@ Route::group(['prefix'=>'admin'], function(){
         'destroy' => 'admin.tags.delete'
     ]);
 
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->names([
+        'edit' => 'admin.users.edit',
+        'create' => 'admin.users.create',
+        'show' => 'admin.users.show',
+        'index' => 'admin.users.index',
+        'store' => 'admin.users.store',
+        'update' => 'admin.users.update',
+        'destroy' => 'admin.users.delete'
+    ]);
 });
