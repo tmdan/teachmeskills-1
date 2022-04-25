@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreateTagRequest;
-use App\Http\Requests\Admin\DestroyTagRequest;
-use App\Http\Requests\Admin\EditTagRequest;
-use App\Http\Requests\Admin\IndexTagRequest;
-use App\Http\Requests\Admin\ShowTagRequest;
-use App\Http\Requests\Admin\StoreTagRequest;
-use App\Http\Requests\Admin\UpdateTagRequest;
+use App\Http\Requests\Admin\Tag\CreateTagRequest;
+use App\Http\Requests\Admin\Tag\DestroyTagRequest;
+use App\Http\Requests\Admin\Tag\EditTagRequest;
+use App\Http\Requests\Admin\Tag\IndexTagRequest;
+use App\Http\Requests\Admin\Tag\ShowTagRequest;
+use App\Http\Requests\Admin\Tag\StoreTagRequest;
+use App\Http\Requests\Admin\Tag\UpdateTagRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 

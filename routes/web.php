@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -44,5 +45,15 @@ Route::group(['prefix'=>'admin'], function(){
         'store' => 'admin.tags.store',
         'update' => 'admin.tags.update',
         'destroy' => 'admin.tags.delete'
+    ]);
+
+    Route::resource("users", UserController::class)->names([
+        'edit' => 'admin.users.edit',
+        'create' => 'admin.users.create',
+        'show' => 'admin.users.show',
+        'index' => 'admin.users.index',
+        'store' => 'admin.users.store',
+        'update' => 'admin.users.update',
+        'destroy' => 'admin.users.delete'
     ]);
 });
