@@ -28,7 +28,7 @@ class UserObserver
 
     public function deleting(User $user)
     {
-        if(!($user->avatar = User::NO_IMAGE))
+        if(!($user->avatar == User::NO_IMAGE))
         {
             Storage::delete($user->avatar);
         }
