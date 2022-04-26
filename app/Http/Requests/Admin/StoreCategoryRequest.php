@@ -24,9 +24,7 @@ class StoreCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'email' => 'email|unique:users'
+            'title' => 'required'
         ];
     }
 }
