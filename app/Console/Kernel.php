@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //$schedule->command('users:force-delete')->daily();
-        $schedule->command('users:force-delete')->everyMinute();
+        $schedule->command('users:force-delete')->daily();
+        //$schedule->command('users:force-delete')->everyMinute();
     }
 
     /**
