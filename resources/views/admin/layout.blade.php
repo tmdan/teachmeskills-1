@@ -7,7 +7,17 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="/css/admin.css">
-
+<style>
+    table.table form {
+        display: inline-block;
+    }
+    button.delete {
+        background: transparent;
+        border: none;
+        color: #337ab7;
+        padding: 0px;
+    }
+</style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -125,7 +135,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">Maksim Slabko</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -133,7 +143,7 @@
                                 <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    Maksim Slabko - Web Developer
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
@@ -184,7 +194,7 @@
                     <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>Maksim Slabko</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -203,12 +213,12 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="{{route('admin.dashboard')}}">
                         <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
                     </a>
                 </li>
                 <li><a href="#"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
-                <li><a href="#"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
+                <li><a href="{{route("admin.categories.index")}}"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
                 <li><a href="#"><i class="fa fa-tags"></i> <span>Теги</span></a></li>
                 <li>
                     <a href="#">
