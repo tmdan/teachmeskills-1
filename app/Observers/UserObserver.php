@@ -42,9 +42,7 @@ class UserObserver
 
     public function deleting(User $user)
     {
-        if ($user->avatar !== User::NO_IMAGE && isset($user->avatar)) {
-            Storage::delete($user->avatar);
-        }
+
     }
 
     /**
@@ -58,14 +56,10 @@ class UserObserver
         //
     }
 
-    /**
-     * Handle the User "force deleted" event.
-     *
-     * @param \App\Models\User $user
-     * @return void
-     */
     public function forceDeleted(User $user)
     {
-        //
+       /* if ($user->avatar !== User::NO_IMAGE && isset($user->avatar)) {
+            Storage::delete($user->avatar);
+        }*/
     }
 }
