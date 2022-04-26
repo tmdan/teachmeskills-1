@@ -27,10 +27,12 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'string|max:255',
             'email' => ['email',
+                'required',
                 'string',
-                //Rule::unique('users')->ignore($user->id),
+                Rule::unique('users')->ignore($this->user->id),
             ],
-            'avatar' => 'image|max:2048'
+            'avatar' => 'image|max:2048',
+            'password' => 'string|nullable'
         ];
     }
 }
