@@ -29,17 +29,10 @@ class UserForceDeleteCommand extends Command
      */
     public function handle()
     {
-        //User::onlyTrashed()->forceDelete();
-
-        $users = User::onlyTrashed()->get();
+        $users = \App\Models\User::onlyTrashed()->get();
 
         foreach ($users as $user){
-
             $user->forceDelete();
-
-            if ($user->avatar !== User::NO_IMAGE && isset($user->avatar)) {
-                Storage::delete($user->avatar);
-            }
         }
 
         return 0;
