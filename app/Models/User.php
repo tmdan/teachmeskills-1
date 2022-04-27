@@ -61,7 +61,18 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    protected function password(): Attribute
+    public function setPasswordAttribute($value)
+    {
+        if ($value != null)
+            $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function getPasswordAttribute($value)
+    {
+        return $value;
+    }
+
+    /*protected function password(): Attribute
     {
         return Attribute::make(
             get: fn($value) => $value,
@@ -73,7 +84,7 @@ class User extends Authenticatable
                     return $this->password;
             },
         );
-    }
+    }*/
 
     public function getAvatarAttribute($value){
         return $value ?? self::NO_IMAGE;

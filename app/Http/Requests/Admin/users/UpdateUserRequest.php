@@ -31,7 +31,7 @@ class UpdateUserRequest extends FormRequest
                 'email',
                 Rule::unique('users')->ignore($this->user->id),
             ],
-            'password' => 'nullable',
+            'password' => 'nullable|string',
             'avatar' => 'nullable|image',
         ];
     }
