@@ -11,10 +11,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     const NO_IMAGE = 'uploads/no-image.png';
 
@@ -29,6 +30,8 @@ class User extends Authenticatable
         'password',
         'avatar'
     ];
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -78,7 +81,6 @@ class User extends Authenticatable
             if ($this->avatar !== self::NO_IMAGE && Storage::exists($this->avatar)) {
                 Storage::delete($this->avatar);
             }
-
 
             $this->attributes['avatar'] = $value->store("uploads");
         }

@@ -38,10 +38,7 @@ class UserObserver
 
     public function deleting(User $user){
 
-        if ($user->avatar != User::NO_IMAGE && Storage::exists($user->avatar)) {
-            Storage::delete($user->avatar);
-        }
-
+    //
     }
 
     public function deleted(User $user)
@@ -68,6 +65,8 @@ class UserObserver
      */
     public function forceDeleted(User $user)
     {
-        //
+        if ($user->avatar != User::NO_IMAGE && Storage::exists($user->avatar)) {
+            Storage::delete($user->avatar);
+        }
     }
 }
