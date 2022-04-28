@@ -45,11 +45,8 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        if($request->password !== null)
-        {
-            $user->update($request->validated());
-        }
-        $user->update($request->safe()->except('password'));
+
+        $user->update($request->validated());
 
         return view('admin.users.edit', ['user' => $user]);
     }
