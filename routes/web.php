@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +33,20 @@ Route::group(['prefix'=>'admin'], function(){
         'store' => 'admin.categories.store',
         'update' => 'admin.categories.update',
         'destroy' => 'admin.categories.delete'
+    ]);
+});
+
+Route::group(['prefix'=>'admin'], function(){
+
+    Route::resource("tags", TagController::class)->parameters([
+        'tags' => 'tag:slug'
+    ])->names([
+        'edit' => 'admin.tags.edit',
+        'create' => 'admin.tags.create',
+        'show' => 'admin.tags.show',
+        'index' => 'admin.tags.index',
+        'store' => 'admin.tags.store',
+        'update' => 'admin.tags.update',
+        'destroy' => 'admin.tags.delete'
     ]);
 });
