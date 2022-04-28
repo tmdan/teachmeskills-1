@@ -19,7 +19,7 @@ class UserForceDeleteCommand extends Command
      *
      * @var string
      */
-    protected $description = 'deleting users at database by force';
+    protected $description = 'deleting users at database by force whith avatar';
 
     /**
      * Execute the console command.
@@ -28,7 +28,10 @@ class UserForceDeleteCommand extends Command
      */
     public function handle()
     {
-        User::onlyTrashed()->forceDelete();
+       $users = User::onlyTrashed()->get();
+       foreach ($users as $user){
+           $user->forceDelete();
+       }
         return 0;
     }
 }
