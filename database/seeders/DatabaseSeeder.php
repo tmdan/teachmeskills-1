@@ -16,11 +16,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategorySeeder::class,
-            PostSeeder::class,
-            PostTagSeeder::class,
+
             SubscriptionSeeder::class,
             TagSeeder::class,
             UserSeeder::class,
+            PostSeeder::class,
+            PostTagSeeder::class,
             CommentSeeder::class,
         ]);
     }
