@@ -25,10 +25,10 @@ class UserObserver
 
     public function deleting(User $user)
     {
-        if($user->avatar !== User::NO_IMAGE)
-        {
-            Storage::delete($user->avatar);
-        }
+//        if($user->avatar !== User::NO_IMAGE)
+//        {
+//            Storage::delete($user->avatar);
+//        }
     }
 
     public function restored(User $user)
@@ -38,6 +38,10 @@ class UserObserver
 
     public function forceDeleted(User $user)
     {
-        //
+
+        if($user->avatar !== User::NO_IMAGE && isset($user->avatar))
+        {
+            Storage::delete($user->avatar);
+        }
     }
 }
