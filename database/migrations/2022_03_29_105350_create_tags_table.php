@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('slug');
             //$table->timestamps();
         });
+        Schema::table('tags', function (Blueprint $table) {
+            $table->timestamps();
+        });
     }
 
     /**
