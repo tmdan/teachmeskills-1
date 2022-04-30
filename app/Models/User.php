@@ -17,7 +17,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    const NO_IMAGE = 'uploads/no-image.png';
+    const NO_IMAGE = 'uploads/no-avatar.png';
 
     /**
      * The attributes that are mass assignable.

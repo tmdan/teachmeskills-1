@@ -7,15 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Post extends Model
 {
-    use HasFactory;
-    use Sluggable;
+    use HasFactory, Sluggable, SoftDeletes;
 
     const NO_IMAGE = '/uploads/no-image.png';
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = [
+        'title',
+        'content',
+        'date',
+        'image',
+    ];
 
     public function category()
     {
@@ -110,7 +116,7 @@ class Post extends Model
     {
         if ($value instanceof UploadedFile) {
 
-            if ($this->image !== null && Storage::exists($this->image)) {
+            if ($this->image !== self::NO_IMAGE && Storage::exists($this->image)) {
                 Storage::delete($this->image);
             }
 
@@ -120,6 +126,18 @@ class Post extends Model
 
     public function getImageAttribute($value)
     {
-        return $value ?? self::NO_IMAGE;
+        {
+            if ($value !== null) {
+                return $value;
+            }
+            return self::NO_IMAGE;
+        }
+    }
+
+    public function setDateAttribute($value)
+    {
+       $date = Carbon::createFromFormat('d/m/y', $value)->format('Y-m-d');
+       $this->attributes['date'] = $date;
     }
 }
+
