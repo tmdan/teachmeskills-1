@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,9 +14,9 @@ class Post extends Model
     use HasFactory;
     use Sluggable;
 
-    const NO_IMAGE = '/uploads/no-image.png';
+    const NO_IMAGE = 'uploads/no-image-2.png';
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'date', 'image'];
 
     public function category()
     {
@@ -23,7 +25,7 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function tags()
@@ -42,13 +44,15 @@ class Post extends Model
 
     public function setImageAttribute($value)
     {
+
         if ($value instanceof UploadedFile) {
 
-            if ($this->image !== null && Storage::exists($this->image)) {
+            if ($this->image !== null && Storage::exists($this->image) && $this->image !== self::NO_IMAGE) {
                 Storage::delete($this->image);
             }
 
-            return $value->store('uploads');
+            //return $value->store('uploads');
+            $this->attributes['image'] = $value->store("uploads");
         }
     }
 
@@ -69,13 +73,14 @@ class Post extends Model
         $this->save();
     }
 
-    public function togglePublish()
+    public function togglePublish($value)
     {
-        if ($this->is_publish == true)
+        if ($value == null) {
             return $this->unpublish();
-
+        }
         return $this->publish();
     }
+
 
     public function recommend()
     {
@@ -89,9 +94,9 @@ class Post extends Model
         $this->save();
     }
 
-    public function toggleRecommend()
+    public function toggleRecommend($value)
     {
-        if ($this->is_recommended == true)
+        if ($value == null)
             return $this->unrecommend();
 
         return $this->recommend();
@@ -115,6 +120,56 @@ class Post extends Model
     public function scopeUnpublished($query)
     {
         return $query->where('is_publish', false);
+    }
+
+    public function setDateAttribute($value)
+    {
+        $date = Carbon::createFromFormat('d/m/y', $value)->format('Y-m-d');
+        $this->attributes['date'] = $date;
+    }
+
+    public function getDateAttribute($value)
+    {
+
+        $date = Carbon::createFromFormat('Y-m-d', $value)->format('d/m/y');
+
+        return $date;
+    }
+
+    public function setCategory($id)
+    {
+        if ($id == null) {
+            return;
+        }
+
+        $this->category_id = $id;
+        $this->save();
+    }
+
+    public function setTags($ids)
+    {
+        if ($ids == null) {
+            return;
+        }
+
+        $this->tags()->sync($ids);
+        //$this->save();
+    }
+
+    public function getCategoryTitle(){
+        if ($this->category != null){
+            return $this->category->title;
+        }
+
+        return 'Нет категории';
+    }
+
+    public function getTagsTitles(){
+        if(!$this->tags->isEmpty()){
+            return implode(', ', $this->tags->pluck('title')->all());
+        }
+
+        return 'Нет тегов';
     }
 
     /* public function add($fields)

@@ -55,4 +55,14 @@ Route::group(['prefix'=>'admin'], function(){
         'update' => 'admin.users.update',
         'destroy' => 'admin.users.delete'
     ]);
+
+    Route::resource('posts', \App\Http\Controllers\Admin\PostController::class)->names([
+        'edit'  => 'admin.posts.edit',
+        'create' => 'admin.posts.create',
+        'show' => 'admin.posts.show',
+        'index' => 'admin.posts.index',
+        'store' => 'admin.posts.store',
+        'update' => 'admin.posts.update',
+        'destroy' => 'admin.posts.delete'
+    ]);
 });

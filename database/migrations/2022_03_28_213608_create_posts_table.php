@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('title', 255);
             $table->string('slug', 255);
             $table->text('content')->nullable();
-            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
-            $table->foreignId('users_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('users_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->boolean('is_publish')->default(0);
             $table->boolean('is_recommended')->default(0);
             $table->integer('views')->default(0);
             $table->string('image', 255)->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }
