@@ -30,4 +30,13 @@ class StoreUserRequest extends FormRequest
             'password' => 'required'
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'имя',
+            'email' => 'e-mail',
+            'password' => 'пароль'
+        ];
+    }
 }

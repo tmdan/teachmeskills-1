@@ -5,8 +5,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавить категорию
-                <small>приятные слова..</small>
+                Изменить категорию
             </h1>
         </section>
 
@@ -25,7 +24,7 @@
                         @method("PUT")
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Название</label>
+                            <label for="exampleInputEmail1">Название категории</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title" value="{{$category->title}}">
                         </div>
                     </div>

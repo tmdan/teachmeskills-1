@@ -35,4 +35,13 @@ class UpdateUserRequest extends FormRequest
             'password' => 'string|nullable'
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'имя',
+            'email' => 'e-mail',
+            'password' => 'пароль'
+        ];
+    }
 }

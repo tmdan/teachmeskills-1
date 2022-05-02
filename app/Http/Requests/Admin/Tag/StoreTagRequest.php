@@ -27,4 +27,11 @@ class StoreTagRequest extends FormRequest
             'title' => 'required|string|unique:tags|max:255'
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'название тэга'
+        ];
+    }
 }

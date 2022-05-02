@@ -6,7 +6,6 @@
         <section class="content-header">
             <h1>
                 Изменить тэг
-                <small>приятные слова..</small>
             </h1>
         </section>
 
@@ -25,7 +24,7 @@
                         @method("PUT")
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Название</label>
+                                <label for="exampleInputEmail1">Название тэга</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title" value="{{$tag->title}}">
                             </div>
                         </div>

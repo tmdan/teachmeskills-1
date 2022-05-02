@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\User;
+use App\Notifications\SingUpNotification;
 use Illuminate\Support\Facades\Storage;
 
 class UserObserver
@@ -15,7 +16,10 @@ class UserObserver
      */
     public function created(User $user)
     {
-        //
+        $admins = User::where('is_admin', true)->get();
+        foreach ($admins as $admin){
+            $admin->notify(new SingUpNotification($user));
+        }
     }
 
     /**
@@ -55,8 +59,7 @@ class UserObserver
      */
     public function restored(User $user)
     {
-        // if ($user->trashed() && $user->avatar != User::NO_IMAGE && Storage::exists($user->avatar)) {
-        //            Storage::delete($user->avatar);
+        //
     }
 
     /**

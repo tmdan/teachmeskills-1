@@ -8,7 +8,6 @@
         <section class="content-header">
             <h1>
                 Добавить тэг
-                <small>приятные слова..</small>
             </h1>
         </section>
         <!-- Main content -->
@@ -25,7 +24,7 @@
                     <div class="box-body">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Название</label>
+                                <label for="exampleInputEmail1">Название тэга</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title">
                             </div>
                         </div>

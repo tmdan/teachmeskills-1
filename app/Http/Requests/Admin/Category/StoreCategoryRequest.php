@@ -27,4 +27,11 @@ class StoreCategoryRequest extends FormRequest
             'title' => 'required|string|unique:categories|max:255'
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'название категории'
+        ];
+    }
 }
