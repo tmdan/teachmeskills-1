@@ -46,13 +46,10 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //dd($request->validated());
-        $post = Post::create($request->validated());
+        $post = Post::create($request->validated() + ['users_id' => 1] );
 
         $post->setCategory($request->get('category_id'));
         $post->setTags($request->get('tags'));
-        $post->toggleRecommend($request->get('is_recommended'));
-        $post->togglePublish($request->get('is_publish'));
 
         return redirect()->route('admin.posts.index');
     }
@@ -97,8 +94,6 @@ class PostController extends Controller
 
         $post->setCategory($request->get('category_id'));
         $post->setTags($request->get('tags'));
-        $post->toggleRecommend($request->get('is_recommended'));
-        $post->togglePublish($request->get('is_publish'));
 
         return redirect()->route('admin.posts.index');
 

@@ -16,6 +16,30 @@ class UpdatePostRequest extends FormRequest
         return true;
     }
 
+    // в этой функции можно обработать валидационные данные до валидации.
+    protected function prepareForValidation()
+    {
+        if ($this->request->get('is_recommended')=='on'){
+            $is_recommended = true;
+        }
+        else{
+            $is_recommended = false;
+        }
+
+        if ($this->request->get('is_publish')=='on'){
+            $is_publish = true;
+        }
+        else{
+            $is_publish = false;
+        }
+
+        $this->merge([
+            'is_recommended' => $is_recommended,
+            'is_publish' => $is_publish,
+            'users_id' => 1,
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,10 +48,14 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|string|max:255',
             'content' => 'required',
             'date' => 'required',
             'image' => 'nullable|image',
+            //'category_id' => 'exists:category,id',
+            'users_id' => 'required|exists:users,id',
+            'is_publish' => 'required|boolean',
+            'is_recommended' => 'required|boolean',
         ];
     }
 }

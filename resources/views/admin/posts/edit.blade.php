@@ -111,6 +111,7 @@
                     </div>
                 </div>
                 <!-- /.box-body -->
+
                 <div class="box-footer">
                     <button class="btn btn-warning pull-right">Изменить</button>
                 </div>
