@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-
-   echo '123';
-
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 Route::group(['prefix'=>'admin'], function(){
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
