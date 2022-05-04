@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
+use App\Mail\WelcomeMessage;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("lorem", function (){
+Route::get("lorem", function () {
 
 });
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix' => 'admin'], function () {
 
     Route::resource("categories", CategoryController::class)->parameters([
         'categories' => "category:slug"
@@ -50,6 +53,21 @@ Route::group(['prefix'=>'admin'], function(){
         'update' => 'admin.tags.update',
         'destroy' => 'admin.tags.delete'
     ]);
+
+
+    Route::resource("posts", PostController::class)->parameters([
+        'post' => "post:id"
+    ])->names([
+        'edit' => 'admin.posts.edit',
+        'create' => 'admin.posts.create',
+        'show' => 'admin.posts.show',
+        'index' => 'admin.posts.index',
+        'store' => 'admin.posts.store',
+        'update' => 'admin.posts.update',
+        'destroy' => 'admin.posts.delete',
+    ]);
+
+    Route::delete('posts/{post}/image',[PostController::class, 'deleteImage'])->name('admin.posts.image.delete');
 
 
     Route::resource("users", UserController::class)->names([

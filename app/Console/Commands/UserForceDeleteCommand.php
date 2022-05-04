@@ -31,7 +31,7 @@ class UserForceDeleteCommand extends Command
     {
 
 
-        
+
 
         $this->table(
             ['Name', 'Email'],

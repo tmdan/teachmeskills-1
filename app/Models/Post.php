@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo as BelongsToAlias;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+
 
 class Post extends Model
 {
@@ -18,8 +21,25 @@ class Post extends Model
     const PUBLISH = true;
     const RECOMMENDED = true;
     const UNRECOMMENDED = false;
+    const NO_IMAGE = 'uploads/no-image.png';
 
-    protected $fillable = ['title', 'content'];
+
+    protected $fillable = [
+        'title',
+        'content',
+        'category_id',
+        'users_id',
+        'is_publish',
+        'is_recommended',
+        'views',
+        'image',
+    ];
+
+
+    protected $casts = [
+        'is_publish' => 'boolean',
+        'is_recommended' => 'boolean',
+    ];
 
     /**
      * Метод для формирования slug
@@ -36,11 +56,11 @@ class Post extends Model
 
     /**
      * Категория поста
-     * @return HasOne
+     * @return BelongsToAlias
      */
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -157,5 +177,24 @@ class Post extends Model
     public function scopeUnpublished($query)
     {
         return $query->where('is_publish', self::UNPUBLISH);
+    }
+
+
+    public function setImageAttribute($value)
+    {
+
+        if ($value instanceof UploadedFile) {
+
+            if ($this->image !== null && Storage::exists($this->image)) {
+                Storage::delete($this->image);
+            }
+
+            $this->attributes['image'] = $value->store("uploads");
+        }
+    }
+
+    public function getImageAttribute($value)
+    {
+        return $value ?? self::NO_IMAGE;
     }
 }
