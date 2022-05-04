@@ -19,7 +19,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    const NO_IMAGE = '/uploads/no-image.jpg';
+    const NO_IMAGE = 'uploads/no-image.jpg';
 
     protected $fillable = [
         'name',
