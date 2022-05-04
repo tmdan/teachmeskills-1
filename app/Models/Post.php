@@ -16,7 +16,7 @@ class Post extends Model
 
     const NO_IMAGE = 'uploads/no-image-2.png';
 
-    protected $fillable = ['title', 'content', 'date', 'image', 'is_publish', 'is_recommended'];
+    protected $fillable = ['title', 'content', 'date', 'image', 'is_publish', 'is_recommended', 'description'];
 
     public function category()
     {
@@ -136,6 +136,11 @@ class Post extends Model
         return $date;
     }
 
+    public function getDate()
+    {
+        return Carbon::createFromFormat('d/m/y', $this->date)->format('F d, Y');
+    }
+
     public function setCategory($id)
     {
         if ($id == null) {
@@ -156,16 +161,18 @@ class Post extends Model
         //$this->save();
     }
 
-    public function getCategoryTitle(){
-        if ($this->category != null){
+    public function getCategoryTitle()
+    {
+        if ($this->category != null) {
             return $this->category->title;
         }
 
         return 'Нет категории';
     }
 
-    public function getTagsTitles(){
-        if(!$this->tags->isEmpty()){
+    public function getTagsTitles()
+    {
+        if (!$this->tags->isEmpty()) {
             return implode(', ', $this->tags->pluck('title')->all());
         }
 

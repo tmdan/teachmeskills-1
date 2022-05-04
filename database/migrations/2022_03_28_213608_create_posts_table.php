@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('views')->default(0);
             $table->string('image', 255)->nullable();
             $table->date('date')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,8 @@ class PostSeeder extends Seeder
                 'is_publish' => 1,
                 'is_recommended' => 1,
                 'views' => 200,
+                'date' => now(),
+                'description' => 'краткое описание поста №1',
             ],
             [
                 'title' => 'пост №2',
@@ -34,6 +36,8 @@ class PostSeeder extends Seeder
                 'is_publish' => 1,
                 'is_recommended' => 1,
                 'views' => 300,
+                'date' => now(),
+                'description' => 'краткое описание поста №2',
             ],
             [
                 'title' => 'пост №3',
@@ -44,6 +48,8 @@ class PostSeeder extends Seeder
                 'is_publish' => 0,
                 'is_recommended' => 0,
                 'views' => 0,
+                'date' => now(),
+                'description' => 'краткое описание поста №3',
             ],
             [
                 'title' => 'пост №4',
@@ -54,6 +60,8 @@ class PostSeeder extends Seeder
                 'is_publish' => 1,
                 'is_recommended' => 1,
                 'views' => 500,
+                'date' => now(),
+                'description' => 'краткое описание поста №4',
             ],
             [
                 'title' => 'пост №5',
@@ -64,6 +72,8 @@ class PostSeeder extends Seeder
                 'is_publish' => 1,
                 'is_recommended' => 1,
                 'views' => 300,
+                'date' => now(),
+                'description' => 'краткое описание поста №5',
             ],
         ]);
     }

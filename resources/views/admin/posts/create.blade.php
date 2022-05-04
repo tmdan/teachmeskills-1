@@ -106,6 +106,13 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Описание</label>
+                                <textarea id="" cols="30" rows="10" class="form-control"
+                                          name="description">{{old('description')}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Полный текст</label>
                                 <textarea id="" cols="30" rows="10" class="form-control"
                                           name="content"></textarea>

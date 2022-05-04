@@ -59,6 +59,7 @@ class StorePostRequest extends FormRequest
             //'users_id' => 'required|exists:users,id',
             'is_publish' => 'required|boolean',
             'is_recommended' => 'required|boolean',
+            'description' => 'required',
         ];
     }
 }
