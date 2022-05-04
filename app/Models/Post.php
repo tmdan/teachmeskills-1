@@ -21,6 +21,8 @@ class Post extends Model
         'content',
         'date',
         'image',
+        'is_published',
+        'is_recommended'
     ];
 
     public function category()
@@ -30,7 +32,7 @@ class Post extends Model
 
     public function author()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function tags()
@@ -54,13 +56,13 @@ class Post extends Model
 
     public function published()
     {
-        $this->is_publish = true;
+        $this->is_published = true;
         $this->save();
     }
 
     public function unpublished()
     {
-        $this->is_publish = false;
+        $this->is_published = false;
         $this->save();
     }
 
@@ -94,12 +96,12 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('is_publish', true);
+        return $query->where('is_published', true);
     }
 
     public function scopeUnpublished($query)
     {
-        return $query->where('is_publish', false);
+        return $query->where('is_published', false);
     }
 
     public function scopeRecommended($query)
@@ -120,7 +122,7 @@ class Post extends Model
                 Storage::delete($this->image);
             }
 
-            return $value->store('uploads');
+            $this->attributes['image'] = $value->store('uploads');
         }
     }
 
@@ -134,10 +136,43 @@ class Post extends Model
         }
     }
 
-    public function setDateAttribute($value)
+    /* public function setDateAttribute($value)
+     {
+        $date = Carbon::createFromFormat('d/m/y', $value)->format('Y-m-d');
+        $this->attributes['date'] = $date;
+     }*/
+
+    public function setCategory($id)
     {
-       $date = Carbon::createFromFormat('d/m/y', $value)->format('Y-m-d');
-       $this->attributes['date'] = $date;
+        if ($id == null) {
+            return;
+        }
+        $this->category_id = $id;
+        $this->save();
+    }
+
+    public function setTags($ids)
+    {
+        if ($ids == null) {
+            return;
+        }
+        $this->tags()->sync($ids);
+    }
+
+    public function getCategoryTitle()
+    {
+        if ($this->category !== null) {
+            return $this->category->title;
+        }
+        return 'Без категории';
+    }
+
+    public function getTagsTitles()
+    {
+        if (!$this->tags->isEmpty()) {
+            return implode(', ', $this->tags->pluck('title')->all());
+        }
+        return 'Без тегов';
     }
 }
 

@@ -43,8 +43,8 @@
                             <tr>
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->title}}</td>
-                                <td>Обучение</td>
-                                <td>Laravel, PHP</td>
+                                <td>{{$post->getCategoryTitle()}}</td>
+                                <td>{{$post->getTagsTitles()}}</td>
                                 <td>
                                     <img src="{{asset('storage/'.$post->image)}}" alt="" class="img-responsive" width="150">
                                 </td>

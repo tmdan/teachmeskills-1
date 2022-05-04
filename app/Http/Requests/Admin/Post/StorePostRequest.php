@@ -25,9 +25,24 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'content' => 'required',
-            'date' => 'required',
-            'image' => 'image|max:2048',
+            'content' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
+            'image' => 'required|image',
+            'tags' => 'required|array',
+            'tags.*' => 'required|exists:tags,id',
+            'user_id' => 'required|nullable',
+            'is_published' => 'required|nullable',
+            'is_recommended' => 'required|nullable',
         ];
+    }
+
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'user_id' => 1,
+            'is_published' => $this->exists('is_published') ? true : false,
+            'is_recommended' => $this->exists('is_recommended') ? true : false,
+        ]);
     }
 }
