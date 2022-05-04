@@ -2,10 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Post;
-use App\Models\Comment;
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,7 +15,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    const NO_IMAGE = 'uploads/no-image.jpg';
+    const NO_IMAGE = 'uploads/no-image.png';
 
     protected $fillable = [
         'name',
