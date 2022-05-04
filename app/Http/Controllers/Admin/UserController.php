@@ -13,6 +13,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+
         return view('admin.users.index', ['users' => $users]);
     }
 
@@ -26,6 +27,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         User::create($request->validated());
+
         return redirect()->route('admin.users.index');
     }
 

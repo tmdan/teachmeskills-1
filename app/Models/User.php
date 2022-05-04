@@ -61,7 +61,7 @@ class User extends Authenticatable
 
         if ($value instanceof UploadedFile) {
 
-            if ($this->avatar !== null && Storage::exists($this->avatar)) {
+            if ($this->avatar !== self::NO_IMAGE && Storage::exists($this->avatar)) {
                 Storage::delete($this->avatar);
             }
 
