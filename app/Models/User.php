@@ -70,7 +70,7 @@ class User extends Authenticatable
         }
     }
 
-    public function getImageAttribute($value)
+    public function getAvatarAttribute($value)
     {
         return $value ?? self::NO_IMAGE;
     }
