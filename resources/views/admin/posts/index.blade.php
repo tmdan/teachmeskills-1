@@ -26,8 +26,15 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
+
+{{--                        @php--}}
+{{--                           dd($posts->lastItem());--}}
+{{--                        @endphp--}}
+
 {{--                        <a href="{{route('admin.posts.create')}}" class="btn btn-success">Добавить</a>--}}
-                        {{$posts->links('vendor.pagination.default')}}
+{{--                        {{$posts->links('vendor.pagination.default')}}--}}
+                        {{$posts->links()}}
+{{--                        {{$posts->links('vendor.pagination.simple-default')}}--}}
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>

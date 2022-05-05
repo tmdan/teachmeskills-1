@@ -8,15 +8,26 @@ use App\Http\Requests\Post\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
 
     public function index()
     {
-        $posts = Post::paginate(2)->withQueryString();
+        //DB::enableQueryLog(); // Enable query log
 
-        $posts->appends(['sort' => 'votes']);
+        $posts = Post::paginate(1);
+
+        //dd(DB::getQueryLog()); // Show results of log
+
+
+
+//            ->withQueryString()
+//            ->appends(['sort' => 'votes']);
+
+
+
 
         return view('admin.posts.index', ['posts' => $posts]);
     }
