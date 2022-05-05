@@ -14,7 +14,7 @@ class PostController extends Controller
 
     public function index()
     {
-
+        return view('admin.posts.index', ['posts' => Post::all()]);
     }
 
     public function create()
@@ -25,7 +25,6 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
-
         $post = Post::create($request->validated());
 
         $post->tags()->sync($request->tags);
@@ -60,11 +59,8 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        //
-    }
-
-    public function deleteImage(Post $post)
-    {
-        dd($post);
+        $post->delete();
+        
+        return redirect()->back();
     }
 }
