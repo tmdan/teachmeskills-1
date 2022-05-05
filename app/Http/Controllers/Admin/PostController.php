@@ -25,6 +25,7 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
+
         $post = Post::create($request->validated());
 
         $post->tags()->sync($request->tags);

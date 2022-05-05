@@ -36,7 +36,7 @@ class UpdatePostRequest extends FormRequest
         ];
     }
 
-    public function passedValidation()
+    public function prepareForValidation()
     {
         $this->merge([
             'user_id' => 1,
