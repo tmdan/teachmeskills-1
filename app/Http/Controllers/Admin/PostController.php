@@ -14,7 +14,11 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('admin.posts.index', ['posts' => Post::all()]);
+        $posts = Post::paginate(2)->withQueryString();
+
+        $posts->appends(['sort' => 'votes']);
+
+        return view('admin.posts.index', ['posts' => $posts]);
     }
 
     public function create()
@@ -60,7 +64,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        
+
         return redirect()->back();
     }
 }

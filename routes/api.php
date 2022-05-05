@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::resource("posts", PostController::class)->parameters([
+    'post' => "post:id"
+])->names([
+    'edit' => 'api.posts.edit',
+    'create' => 'api.posts.create',
+    'show' => 'api.posts.show',
+    'index' => 'api.posts.index',
+    'store' => 'api.posts.store',
+    'update' => 'api.posts.update',
+    'destroy' => 'api.posts.delete',
+]);
