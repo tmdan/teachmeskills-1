@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/posts/{post:slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
 
 Route::group(['prefix'=>'admin'], function(){
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
