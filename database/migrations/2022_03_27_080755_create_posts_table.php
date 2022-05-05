@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('slug');
             $table->string('image')->nullable();
             $table->text('content');
-            $table->date('date')->nullable();
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete();
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->boolean('is_published')->default(0);

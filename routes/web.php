@@ -8,6 +8,7 @@ use App\Notifications\SingUpNotification;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,8 @@ use App\Http\Controllers\Admin\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    //User::first()->notify(new SingUpNotification());
-});
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::group(['prefix'=>'admin'], function(){
 
