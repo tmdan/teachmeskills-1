@@ -13,6 +13,10 @@ class Tag extends Model
     use Sluggable;
 
 
+    public $fillable = [
+      'title'
+    ];
+
     /**
      * Метод для формирования slug
      * @return \string[][]

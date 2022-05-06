@@ -3,26 +3,29 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\EditCategoryRequest;
-use App\Http\Requests\Admin\StoreCategoryRequest;
-use App\Http\Requests\Admin\UpdateCategoryRequest;
+use App\Http\Requests\Category\CreateCategoryRequest;
+use App\Http\Requests\Category\DestroyCategoryRequest;
+use App\Http\Requests\Category\EditCategoryRequest;
+use App\Http\Requests\Category\IndexCategoryRequest;
+use App\Http\Requests\Category\ShowCategoryRequest;
+use App\Http\Requests\Category\StoreCategoryRequest;
+use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Models\Category;
-
 
 class CategoryController extends Controller
 {
 
-    public function index()
+    public function index(IndexCategoryRequest $request)
     {
-        return view('admin.categories.index', ['categories' => Category::all()]);
+        $categories = Category::all();
+
+        return view('admin.categories.index', ['categories' => $categories]);
     }
 
-
-    public function create()
+    public function create(CreateCategoryRequest $request)
     {
         return view('admin.categories.create');
     }
-
 
     public function store(StoreCategoryRequest $request)
     {
@@ -31,29 +34,24 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index');
     }
 
-
-    public function show( Category $category)
+    public function show(ShowCategoryRequest $request, Category $category)
     {
-
-        dd($category);
-
-       // return view('admin.categories.show', ['category' => $category]);
+        //
     }
-
 
     public function edit(EditCategoryRequest $request, Category $category)
     {
-        return view('admin.categories.edit');
+        return view('admin.categories.edit', ['category' => $category]);
     }
-
 
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-       // return view('categories.update');
+        $category->update($request->validated());
+
+        return redirect()->route('admin.categories.index');
     }
 
-
-    public function destroy(Category $category)
+    public function destroy(DestroyCategoryRequest $request, Category $category)
     {
         $category->delete();
 

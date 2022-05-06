@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+
+    const NO_IMAGE = 'uploads/no-image.png';
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -78,5 +83,23 @@ class User extends Authenticatable
                 if($value!==null) bcrypt($value);
             }
         );
+    }
+
+    public function setAvatarAttribute($value)
+    {
+
+        if ($value instanceof UploadedFile) {
+
+            if ($this->avatar !== null && Storage::exists($this->avatar)) {
+                Storage::delete($this->avatar);
+            }
+
+            $this->attributes['avatar'] = $value->store("uploads");
+        }
+    }
+
+    public function getAvatarAttribute($value)
+    {
+        return $value ?? self::NO_IMAGE;
     }
 }

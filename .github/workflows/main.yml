@@ -9,9 +9,9 @@ jobs:
       - name: 🚚 Get latest code
         uses: sebastianpopp/git-ftp-action@releases/v3
         with:
-          url: "ftp://ekhliabets.beget.tech"
-          user: ""
-          password: ""
+          url: "${{ secrets.FTP_SERVER_GUSTARNIK}}"
+          user: "${{ secrets.FTP_USER_GUSTARNIK}}"
+          password: ${{ secrets.FTP_PASSWORD_GUSTARNIK }}
 
 
       - uses: actions/checkout@v1
@@ -23,7 +23,7 @@ jobs:
           SLACK_COLOR: ${{ secrets.SLACK_COLOR }}
           SLACK_MESSAGE: ${{ secrets.SLACK_MESSAGE }}
           SLACK_TITLE: ${{ secrets.SLACK_TITLE }}
-          SLACK_FOOTER: ${{ secrets.SLACK_FOOTER }}
+          SLACK_FOOTER: "http://gustarsl.beget.tech"
           SLACK_USERNAME: ${{ secrets.SLACK_USERNAME }}
           SLACK_ICON_EMOJI: ${{ secrets.SLACK_ICON_EMOJI }}
           MSG_MINIMAL: commit

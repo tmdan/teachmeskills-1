@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo as BelongsToAlias;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+
 
 class Post extends Model
 {
@@ -18,8 +21,25 @@ class Post extends Model
     const PUBLISH = true;
     const RECOMMENDED = true;
     const UNRECOMMENDED = false;
+    const NO_IMAGE = 'uploads/no-image.png';
 
-    protected $fillable = ['title', 'content'];
+
+    protected $fillable = [
+        'title',
+        'content',
+        'category_id',
+        'users_id',
+        'is_publish',
+        'is_recommended',
+        'views',
+        'image',
+    ];
+
+
+    protected $casts = [
+        'is_publish' => 'boolean',
+        'is_recommended' => 'boolean',
+    ];
 
     /**
      * Метод для формирования slug
@@ -36,21 +56,22 @@ class Post extends Model
 
     /**
      * Категория поста
-     * @return HasOne
+     * @return BelongsToAlias
      */
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     /**
      * Автор поста
-     * @return HasOne
+     * @return BelongsToAlias
      */
     public function author()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
+
 
     /**
      * Cписок тегов
@@ -60,6 +81,7 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
     }
+
 
     /**
      *  Метод, который выставляет маркер публикации на "не доступен"
@@ -71,6 +93,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      *  Метод, который выставляет маркер публикации на "не доступен"
      * @return void
@@ -81,6 +104,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      *  Метод, который будет переключать при каждой вызове между статусами "не доступен" и "доступен"
      * @return void
@@ -89,6 +113,7 @@ class Post extends Model
     {
         $this->is_publish ? $this->unpublish() : $this->publish();
     }
+
 
     /**
      * Метод - который будет выставлять маркер рекомендации - на "рекомендовано"
@@ -100,6 +125,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      * Метод - который будет выставлять маркер рекомендации - на "не рекомендовано".
      * @return void
@@ -110,6 +136,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      * Метод, который будет переключать при каждой вызове между статусами "рекомендовано" и "не рекомендовано".
      * @return void
@@ -118,6 +145,7 @@ class Post extends Model
     {
         $this->is_recommended == self::RECOMMENDED ? $this->unrecommend() : $this->recommend();
     }
+
 
     /**
      * Scope - который будет добавлять фильтрацию по постам - только рекомендованные
@@ -129,6 +157,7 @@ class Post extends Model
         return $query->where('is_recommended', self::RECOMMENDED);
     }
 
+
     /**
      * Scope - который будет добавлять фильтрацию по постам - только опубликованные
      * @param $query
@@ -138,6 +167,7 @@ class Post extends Model
     {
         return $query->where('is_publish', self::PUBLISH);
     }
+
 
     /**
      * Scope - который будет добавлять фильтрацию по постам - только рекомендованные
@@ -149,6 +179,7 @@ class Post extends Model
         return $query->where('is_recommended', self::UNRECOMMENDED);
     }
 
+
     /**
      * Scope - который будет добавлять фильтрацию по постам - только не рекомендованные
      * @param $query
@@ -157,5 +188,24 @@ class Post extends Model
     public function scopeUnpublished($query)
     {
         return $query->where('is_publish', self::UNPUBLISH);
+    }
+
+
+    public function setImageAttribute($value)
+    {
+
+        if ($value instanceof UploadedFile) {
+
+            if ($this->image !== null && Storage::exists($this->image)) {
+                Storage::delete($this->image);
+            }
+
+            $this->attributes['image'] = $value->store("uploads");
+        }
+    }
+
+    public function getImageAttribute($value)
+    {
+        return $value ?? self::NO_IMAGE;
     }
 }
