@@ -13,6 +13,10 @@ class Category extends Model
     use HasFactory;
     use Sluggable;
 
+    protected $fillable = [
+        'title'
+    ];
+
     /**
      * Метод для формирования slug
      * @return \string[][]
