@@ -16,7 +16,7 @@ class SubscriptionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('subscription')->insert([
+        DB::table('subscriptions')->insert([
             [
                 'email' => 'email1@mail.ru',
                 'token' => Str::random(48),
