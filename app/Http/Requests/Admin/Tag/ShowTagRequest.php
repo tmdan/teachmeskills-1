@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IndexCategoryRequest extends FormRequest
+class ShowTagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

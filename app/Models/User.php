@@ -5,14 +5,18 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    const NO_IMAGE = 'uploads/no-image.png';
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -56,8 +61,33 @@ class User extends Authenticatable
 
     public function setPasswordAttribute($request)
     {
-        $request->user()->fill([
-            'password' => Hash::make($request->newPassword)
-        ])->save();
+        if ($request != null) $this->attributes['password'] = bcrypt($request);
+    }
+
+    public function getPasswordAttribute($request)
+    {
+        return $request;
+    }
+
+    public function setAvatarAttribute($request)
+    {
+
+        if ($request instanceof UploadedFile) {
+
+            if ($this->avatar !== self::NO_IMAGE && Storage::exists($this->avatar)) {
+                Storage::delete($this->avatar);
+            }
+
+
+            $this->attributes['avatar'] = $request->store("uploads");
+        }
+    }
+
+    public function getAvatarAttribute($request)
+    {
+        if ($request !== null) {
+            return $request;
+        }
+        return self::NO_IMAGE;
     }
 }

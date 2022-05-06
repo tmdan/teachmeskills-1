@@ -8,8 +8,8 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Tag extends Model
 {
-    use HasFactory;
     use Sluggable;
+    use HasFactory;
 
     protected $fillable = [
         'title'

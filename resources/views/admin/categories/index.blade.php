@@ -16,7 +16,7 @@
         <section class="content">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Листинг сущности</h3>
+                    <h3 class="box-title">Категории</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">

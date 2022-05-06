@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreateCategoryRequest;
-use App\Http\Requests\Admin\DestroyCategoryRequest;
-use App\Http\Requests\Admin\EditCategoryRequest;
-use App\Http\Requests\Admin\IndexCategoryRequest;
-use App\Http\Requests\Admin\ShowCategoryRequest;
-use App\Http\Requests\Admin\StoreCategoryRequest;
-use App\Http\Requests\Admin\UpdateCategoryRequest;
+use App\Http\Requests\Admin\Category\DestroyCategoryRequest;
+use App\Http\Requests\Admin\Category\EditCategoryRequest;
+use App\Http\Requests\Admin\Category\CreateCategoryRequest;
+use App\Http\Requests\Admin\Category\IndexCategoryRequest;
+use App\Http\Requests\Admin\Category\ShowCategoryRequest;
+use App\Http\Requests\Admin\Category\StoreCategoryRequest;
+use App\Http\Requests\Admin\Category\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
