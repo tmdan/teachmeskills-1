@@ -65,12 +65,13 @@ class Post extends Model
 
     /**
      * Автор поста
-     * @return HasOne
+     * @return BelongsToAlias
      */
     public function author()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
+
 
     /**
      * Cписок тегов
@@ -80,6 +81,7 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
     }
+
 
     /**
      *  Метод, который выставляет маркер публикации на "не доступен"
@@ -91,6 +93,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      *  Метод, который выставляет маркер публикации на "не доступен"
      * @return void
@@ -101,6 +104,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      *  Метод, который будет переключать при каждой вызове между статусами "не доступен" и "доступен"
      * @return void
@@ -109,6 +113,7 @@ class Post extends Model
     {
         $this->is_publish ? $this->unpublish() : $this->publish();
     }
+
 
     /**
      * Метод - который будет выставлять маркер рекомендации - на "рекомендовано"
@@ -120,6 +125,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      * Метод - который будет выставлять маркер рекомендации - на "не рекомендовано".
      * @return void
@@ -130,6 +136,7 @@ class Post extends Model
         $this->save();
     }
 
+
     /**
      * Метод, который будет переключать при каждой вызове между статусами "рекомендовано" и "не рекомендовано".
      * @return void
@@ -138,6 +145,7 @@ class Post extends Model
     {
         $this->is_recommended == self::RECOMMENDED ? $this->unrecommend() : $this->recommend();
     }
+
 
     /**
      * Scope - который будет добавлять фильтрацию по постам - только рекомендованные
@@ -149,6 +157,7 @@ class Post extends Model
         return $query->where('is_recommended', self::RECOMMENDED);
     }
 
+
     /**
      * Scope - который будет добавлять фильтрацию по постам - только опубликованные
      * @param $query
@@ -159,6 +168,7 @@ class Post extends Model
         return $query->where('is_publish', self::PUBLISH);
     }
 
+
     /**
      * Scope - который будет добавлять фильтрацию по постам - только рекомендованные
      * @param $query
@@ -168,6 +178,7 @@ class Post extends Model
     {
         return $query->where('is_recommended', self::UNRECOMMENDED);
     }
+
 
     /**
      * Scope - который будет добавлять фильтрацию по постам - только не рекомендованные

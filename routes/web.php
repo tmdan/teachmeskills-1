@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CategoryController as CategoryControllerAlias;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Mail\WelcomeMessage;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
@@ -21,16 +23,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("lorem", function () {
 
-});
+
+Route::get('', [HomeController::class, 'index']);
+
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 
+Route::resource("posts", CategoryController::class)
+    ->only([
+        'index',
+        'show'
+    ])
+    ->parameters([
+        'posts' => "post:slug"
+    ])->names([
+        'show' => 'posts.show',
+        'index' => 'posts.index',
+    ]);
+
+
+Route::resource("categories", CategoryController::class)
+    ->only([
+        'index',
+        'show'
+    ])
+    ->parameters([
+        'categories' => "category:slug"
+    ])->names([
+        'show' => 'categories.show',
+        'index' => 'categories.index',
+    ]);
+
+
+
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::resource("categories", CategoryController::class)->parameters([
+
+    Route::resource("categories", CategoryControllerAlias::class)->parameters([
         'categories' => "category:slug"
     ])->names([
         'edit' => 'admin.categories.edit',
@@ -41,6 +72,7 @@ Route::group(['prefix' => 'admin'], function () {
         'update' => 'admin.categories.update',
         'destroy' => 'admin.categories.delete'
     ]);
+
 
     Route::resource("tags", TagController::class)->parameters([
         'tags' => "tag:slug"
@@ -66,8 +98,6 @@ Route::group(['prefix' => 'admin'], function () {
         'update' => 'admin.posts.update',
         'destroy' => 'admin.posts.delete',
     ]);
-
-    Route::delete('posts/{post}/image',[PostController::class, 'deleteImage'])->name('admin.posts.image.delete');
 
 
     Route::resource("users", UserController::class)->names([
