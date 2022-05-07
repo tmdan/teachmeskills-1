@@ -16,7 +16,7 @@ class Post extends Model
 
     const NO_IMAGE = 'uploads/no-image-2.png';
 
-    protected $fillable = ['title', 'content', 'date', 'image', 'is_publish', 'is_recommended', 'description'];
+    protected $fillable = ['title', 'content', 'date', 'image', 'is_publish', 'is_recommended', 'description', 'category_id', 'user_id'];
 
     public function category()
     {
@@ -151,7 +151,7 @@ class Post extends Model
         $this->save();
     }
 
-    public function setTags($ids)
+    /*public function setTags($ids)
     {
         if ($ids == null) {
             return;
@@ -159,7 +159,7 @@ class Post extends Model
 
         $this->tags()->sync($ids);
         //$this->save();
-    }
+    }*/
 
     public function getCategoryTitle()
     {
@@ -179,27 +179,32 @@ class Post extends Model
         return 'Нет тегов';
     }
 
-    public function hasPrevious(){
+    public function hasPrevious()
+    {
         return self::where('id', '<', $this->id)->max('id');
     }
 
-    public function hasNext(){
+    public function hasNext()
+    {
         return self::where('id', '>', $this->id)->min('id');
     }
 
-    public function getPrevious(){
+    public function getPrevious()
+    {
         $postID = $this->hasPrevious();
         return self::find($postID);
     }
 
-    public function getNext(){
+    public function getNext()
+    {
         $postID = $this->hasNext();
         return self::find($postID);
     }
 
-    public function related(){
+    public function related()
+    {
 
-       return self::all()->except($this->id);
+        return self::all()->except($this->id);
     }
 
     /* public function add($fields)

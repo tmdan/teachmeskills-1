@@ -45,7 +45,7 @@
                             </div>
                         </article>
                     @endforeach
-                    {{$posts->links()}}
+                    {{ $posts->links('vendor.pagination.default') }}
                 </div>
                 <div class="col-md-4" data-sticky_column>
                     <div class="primary-sidebar">

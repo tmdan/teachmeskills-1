@@ -19,7 +19,7 @@ class UpdatePostRequest extends FormRequest
     // в этой функции можно обработать валидационные данные до валидации.
     protected function prepareForValidation()
     {
-        if ($this->request->get('is_recommended')=='on'){
+        /*if ($this->request->get('is_recommended')=='on'){
             $is_recommended = true;
         }
         else{
@@ -31,12 +31,15 @@ class UpdatePostRequest extends FormRequest
         }
         else{
             $is_publish = false;
-        }
+        }*/
 
         $this->merge([
-            'is_recommended' => $is_recommended,
-            'is_publish' => $is_publish,
-            'users_id' => 1,
+            //'is_recommended' => $is_recommended,
+            //'is_publish' => $is_publish,
+            'user_id' => 1,
+            'is_publish' => $this->exists('is_publish') ? true : false,
+            'is_recommended' => $this->exists('is_recommended') ? true : false,
+            'category_id' => $this->request->get('category_id'),
         ]);
     }
 
@@ -48,12 +51,12 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|max:255',
-            'content' => 'required',
+            'title' => 'string|max:255',
+            'content' => 'string',
             'date' => 'required',
             'image' => 'nullable|image',
-            //'category_id' => 'exists:category,id',
-            'users_id' => 'required|exists:users,id',
+            'category_id' => 'exists:categories,id',
+            'user_id' => 'required|exists:users,id',
             'is_publish' => 'required|boolean',
             'is_recommended' => 'required|boolean',
             'description' => 'required',

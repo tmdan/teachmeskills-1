@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug', 255);
             $table->text('content')->nullable();
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete();
-            $table->foreignId('users_id')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->boolean('is_publish')->default(0);
             $table->boolean('is_recommended')->default(0);
             $table->integer('views')->default(0);

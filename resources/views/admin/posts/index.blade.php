@@ -31,7 +31,9 @@
                 <div class="box-body">
                     <div class="form-group">
                         <a href="{{route('admin.posts.create')}}" class="btn btn-success">Добавить</a>
+                        {{ $posts->links('vendor.pagination.default') }}
                     </div>
+
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
@@ -65,14 +67,21 @@
                             </td>
                         </tr>
                         @endforeach
+
                         </tfoot>
+
                     </table>
+
                 </div>
                 <!-- /.box-body -->
+
+
+
             </div>
             <!-- /.box -->
 
             </form>
+
         </section>
         <!-- /.content -->
     </div>

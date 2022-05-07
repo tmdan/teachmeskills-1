@@ -19,8 +19,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-
+        //$posts = Post::all();
+        $posts = Post::paginate(2);
         return view('admin.posts.index', ['posts' => $posts]);
 
     }
@@ -46,10 +46,11 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $post = Post::create($request->validated() + ['users_id' => 1] );
+        $post = Post::create($request->validated() );
 
-        $post->setCategory($request->get('category_id'));
-        $post->setTags($request->get('tags'));
+        //$post->setCategory($request->get('category_id'));
+        //$post->setTags($request->get('tags'));
+        $post->tags()->sync($request->get('tags'));
 
         return redirect()->route('admin.posts.index');
     }
@@ -92,8 +93,9 @@ class PostController extends Controller
     {
         $post->update($request->validated());
 
-        $post->setCategory($request->get('category_id'));
-        $post->setTags($request->get('tags'));
+        //$post->setCategory($request->get('category_id'));
+        //$post->setTags($request->get('tags'));
+        $post->tags()->sync($request->get('tags'));
 
         return redirect()->route('admin.posts.index');
 
