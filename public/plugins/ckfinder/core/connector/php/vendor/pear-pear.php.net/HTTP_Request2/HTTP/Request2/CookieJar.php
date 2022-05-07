@@ -369,7 +369,7 @@ class HTTP_Request2_CookieJar implements Serializable
      * Firefox, Chrome and Opera browsers to restrict cookie setting.
      *
      * Note that PSL is licensed differently to HTTP_Request2 package (refer to
-     * the license information in public-suffix-list.php), so you can disable
+     * the license information in public-suffix-list.blade.php), so you can disable
      * its use if this is an issue for you.
      *
      * @param boolean $useList use the list?
@@ -494,7 +494,7 @@ class HTTP_Request2_CookieJar implements Serializable
                     . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'data'
                 );
             }
-            self::$psl = include_once $path . DIRECTORY_SEPARATOR . 'public-suffix-list.php';
+            self::$psl = include_once $path . DIRECTORY_SEPARATOR . 'public-suffix-list.blade.php';
         }
 
         if (!($result = self::checkDomainsList($domainParts, self::$psl))) {

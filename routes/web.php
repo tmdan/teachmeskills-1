@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/posts/{post:slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+Route::get('/tags/{tag:slug}', [\App\Http\Controllers\HomeController::class, 'tag'])->name('tag.show');
+Route::get('/categories/{category:slug}', [\App\Http\Controllers\HomeController::class, 'category'])
+    ->name('category.show');
 
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->parameters([
@@ -44,7 +47,7 @@ Route::group(['prefix'=>'admin'], function(){
     ]);
 
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->names([
-        'edit'  => 'admin.users.edit',
+        'edit' => 'admin.users.edit',
         'create' => 'admin.users.create',
         'show' => 'admin.users.show',
         'index' => 'admin.users.index',
@@ -54,7 +57,7 @@ Route::group(['prefix'=>'admin'], function(){
     ]);
 
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class)->names([
-        'edit'  => 'admin.posts.edit',
+        'edit' => 'admin.posts.edit',
         'create' => 'admin.posts.create',
         'show' => 'admin.posts.show',
         'index' => 'admin.posts.index',
