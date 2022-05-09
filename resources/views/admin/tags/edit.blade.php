@@ -21,7 +21,7 @@
                 </div>
                 <div class="box-body">
                     <form method="POST" action="{{route('admin.tags.update', $tag->slug)}}">
-                        @csrf
+                        @CSRF
                         @method("PUT")
                         <div class="col-md-6">
                             <div class="form-group">

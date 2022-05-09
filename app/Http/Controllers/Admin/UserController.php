@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Tag\Category\Category\Category\Category\Category\Category\Category\Category\ShowCategoryRequest;
-use App\Http\Requests\Admin\Tag\Category\Category\Category\Category\Category\Category\Category\User\CreateUserRequest;
-use App\Http\Requests\Admin\Tag\Category\Category\Category\Category\Category\Category\Category\User\DestroyUserRequest;
-use App\Http\Requests\Admin\Tag\Category\Category\Category\Category\Category\Category\Category\User\EditUserRequest;
-use App\Http\Requests\Admin\Tag\Category\Category\Category\Category\Category\Category\Category\User\IndexUserRequest;
-use App\Http\Requests\Admin\Tag\Category\Category\Category\Category\Category\Category\Category\User\StoreUserRequest;
-use App\Http\Requests\Admin\Tag\Category\Category\Category\Category\Category\Category\Category\User\UpdateUserRequest;
+use App\Http\Requests\Admin\Category\ShowCategoryRequest;
+use App\Http\Requests\Admin\User\CreateUserRequest;
+use App\Http\Requests\Admin\User\DestroyUserRequest;
+use App\Http\Requests\Admin\User\EditUserRequest;
+use App\Http\Requests\Admin\User\IndexUserRequest;
+use App\Http\Requests\Admin\User\StoreUserRequest;
+use App\Http\Requests\Admin\User\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 

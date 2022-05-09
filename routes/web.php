@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
