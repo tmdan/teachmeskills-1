@@ -16,7 +16,7 @@ class OpenWeatherService implements WeatherServiceInterface
      */
     public function connect(): Response
     {
-        return Http::get("https://api.openweathermap.org/data/2.5/weather", [
+        return Http::get(config('services.open-weather-api.link'), [
             'appid' => config('services.open-weather-api.key'),
             'q' => config('services.open-weather-api.city'),
             'lang' => config('services.open-weather-api.lang'),
