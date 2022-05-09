@@ -5,16 +5,15 @@ namespace App\Services\Weather\OpenWeather;
 use App\Services\Weather\OpenWeather\Models\Coordinate;
 use App\Services\Weather\OpenWeather\Models\Temperature;
 use App\Services\Weather\Template\WeatherServiceInterface;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class OpenWeatherService implements WeatherServiceInterface
 {
     /**
      * Метод, который обращается к внешним ресурсам для получения данных
-     * @return Response
+     * @return array|object
      */
-    public function connect(): Response
+    public function response(): object
     {
         return Http::get(config('services.open-weather-api.link'), [
             'appid' => config('services.open-weather-api.key'),
@@ -25,29 +24,12 @@ class OpenWeatherService implements WeatherServiceInterface
     }
 
     /**
-     * Дополнительный метод который регулируют сборку данных относительно объектов - можно было бы обойтись и без него
-     * @param $element
-     * @return Coordinate|Temperature
-     */
-    private function prepareData($element): Coordinate|Temperature
-    {
-        return match ($element) {
-            'coordinates' => new Coordinate($this->connect()->object()->coord),
-            'temperature' => new Temperature($this->connect()->object()->main),
-
-            /*........
-            'something' => new Something($this->connect()->object()->something),
-            */
-        };
-    }
-
-    /**
-     * Метод, который возвращает регламентированный формат данных координат
+     * Метод, который возвращает регламентированный формат данных местоположения
      * @return Coordinate
      */
     function coordinates(): Coordinate
     {
-        return $this->prepareData('coordinates');
+        return new Coordinate($this->response()->object());
     }
 
     /**
@@ -56,6 +38,6 @@ class OpenWeatherService implements WeatherServiceInterface
      */
     function temperature(): Temperature
     {
-        return $this->prepareData('temperature');
+        return new Temperature($this->response()->object());
     }
 }

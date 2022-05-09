@@ -16,4 +16,12 @@ interface CoordinationInterface
      * @return float
      */
     public function getLat(): float|null;
+
+
+    /**
+     * Название города
+     * @return string
+     */
+    public function getCityName(): string|null;
+
 }

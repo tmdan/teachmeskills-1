@@ -7,13 +7,15 @@ use App\Services\Weather\Template\Models\CoordinationInterface;
 
 class Coordinate implements CoordinationInterface
 {
-    public $lon;
-    public $lat;
+    private $lon;
+    private $lat;
+    private $cityName;
 
     public function __construct(object $coords)
     {
-        $this->lat = $coords->lat;
-        $this->lon = $coords->lon;
+        $this->lat = $coords->coord->lat;
+        $this->lon = $coords->coord->lon;
+        $this->cityName = $coords->name;
     }
 
     public function getLon(): float
@@ -24,5 +26,10 @@ class Coordinate implements CoordinationInterface
     public function getLat(): float
     {
         return $this->lat;
+    }
+
+    public function getCityName(): string|null
+    {
+        return $this->cityName;
     }
 }
