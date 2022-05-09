@@ -36,7 +36,6 @@
                                 <td>{{"$tag->title"}}</td>
                                 <td><a href="{{route('admin.tags.edit', $tag->slug)}}" class="fa fa-pencil"></a>
                                     <form method="POST" action="{{route('admin.tags.delete', $tag->slug)}}">
-                                        @CSRF
                                         @method("DELETE")
                                         <button onclick="return confirm('Are you sure?')" type="submit" class="delete">
                                             <a class="fa fa-remove"></a>

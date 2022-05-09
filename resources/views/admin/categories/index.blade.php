@@ -37,7 +37,6 @@
                                 <td>{{"$category->title"}}</td>
                                 <td><a href="{{route("admin.categories.edit", $category->slug)}}" class="fa fa-pencil"></a>
                                     <form method="POST" action="{{route('admin.categories.delete', $category->slug)}}">
-                                        @CSRF
                                         @method("DELETE")
                                         <button onclick="return confirm('Are you sure?')" type="submit" class="delete">
                                             <a class="fa fa-remove"></a>
