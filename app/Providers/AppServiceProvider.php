@@ -17,14 +17,14 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //Атач сервиса к фасаду
-        $this->app->bind('weather', function ($app){
-            return new OpenWeatherService();
-        });
+//        $this->app->bind('weather', function ($app){
+//            return new OpenWeatherService();
+//        });
 
-        //Атач сервиса к интерфейсу
-        $this->app->bind(WeatherServiceInterface::class, function ($app){
-            return new OpenWeatherService();
-        });
+//        //Атач сервиса к интерфейсу
+//        $this->app->bind(WeatherServiceInterface::class, function ($app){
+//            return new OpenWeatherService();
+//        });
     }
 
     /**

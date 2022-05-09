@@ -26,12 +26,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get("weather", function (WeatherServiceInterface $weatherService){
+Route::get("weather", function (){
 
 
-    //dd(\App\Facade\Weather::temperature()->getFeelsLikeTemperature());
+    dd(\App\Facade\Weather::temperature()->getFeelsLikeTemperature());
 
-    dd($weatherService->temperature()->getCurrentTemperature());
+    //dd($weatherService->temperature()->getCurrentTemperature());
 
 });
 
