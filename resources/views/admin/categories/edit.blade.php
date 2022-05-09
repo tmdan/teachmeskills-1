@@ -21,6 +21,7 @@
                 </div>
                 <div class="box-body">
                     <form method="POST" action="{{route('admin.categories.update', $category->slug)}}">
+                        @csrf
                         @method("PATCH")
                         <div class="col-md-6">
                             <div class="form-group">
