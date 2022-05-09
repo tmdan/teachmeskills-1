@@ -22,31 +22,31 @@ class UserSeeder extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => 'admin',
-                "avatar" => "uploads/admin.png",
+                "avatar" => "uploads/user1-128x128.jpg",
             ],
             [
                 'name' => 'user_name1',
                 'email' => 'user1@gmail.com',
                 'password' => 'password1223',
-                "avatar" => "uploads/user1.png",
+                "avatar" => "uploads/user2-160x160.jpg",
             ],
             [
                 'name' => 'user_name2',
                 'email' => 'user2@gmail.com',
                 'password' => 'password656',
-                "avatar" => "uploads/user2.png",
+                "avatar" => "uploads/user3-128x128.jpg",
             ],
             [
                 'name' => 'user_name3',
                 'email' => 'user3@gmail.com',
                 'password' => 'password8767',
-                "avatar" => "uploads/user3.png",
+                "avatar" => "uploads/user4-128x128.jpg",
             ],
             [
                 'name' => 'user_name4',
                 'email' => 'user4@gmail.com',
                 'password' => 'password4545',
-                "avatar" => "uploads/user4.png",
+                "avatar" => "uploads/user5-128x128.jpg",
             ],
         ]);
     }
