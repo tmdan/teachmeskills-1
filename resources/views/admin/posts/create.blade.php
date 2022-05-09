@@ -12,7 +12,7 @@
             </h1>
         </section>
 
-        <!-- Main content -->
+        <!-- Temperature content -->
         <section class="content">
             <form action="{{route('admin.posts.store')}}" enctype="multipart/form-data" method="POST">
             @csrf

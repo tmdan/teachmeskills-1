@@ -11,7 +11,7 @@
         <small>приятные слова..</small>
       </h1>
     </section>
-    <!-- Main content -->
+    <!-- Temperature content -->
     <section class="content">
 
       <!-- Default box -->

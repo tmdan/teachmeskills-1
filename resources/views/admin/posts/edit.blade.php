@@ -11,7 +11,7 @@
       </h1>
     </section>
 
-    <!-- Main content -->
+    <!-- Temperature content -->
     <section class="content">
       <form action="{{route('admin.posts.update', $post->id)}}" method="POST" enctype="multipart/form-data">
       @csrf

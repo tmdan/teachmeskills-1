@@ -1,10 +1,11 @@
 <?php
 
 
-namespace App\Services\OpenWeatherApi\Models;
+namespace App\Services\Weather\OpenWeather\Models;
 
+use App\Services\Weather\Template\Models\CoordinationInterface;
 
-class Coord
+class Coordinate implements CoordinationInterface
 {
     public $lon;
     public $lat;
@@ -15,12 +16,12 @@ class Coord
         $this->lon = $coords->lon;
     }
 
-    public function getLon()
+    public function getLon(): float
     {
         return $this->lon;
     }
 
-    public function getLat()
+    public function getLat(): float
     {
         return $this->lat;
     }

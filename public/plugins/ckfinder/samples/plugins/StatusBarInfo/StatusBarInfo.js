@@ -31,12 +31,12 @@ CKFinder.define( [ 'underscore', 'backbone', 'marionette', 'doT' ], function( _,
 				}
 			} );
 
-			// Wait for the 'page:create:Main' event to attach the status bar
-			finder.on( 'page:create:Main', function() {
-				// Create a status bar named 'MyStatusBar' for the 'Main' page which contains the files pane.
+			// Wait for the 'page:create:Temperature' event to attach the status bar
+			finder.on( 'page:create:Temperature', function() {
+				// Create a status bar named 'MyStatusBar' for the 'Temperature' page which contains the files pane.
 				finder.request( 'statusBar:create', {
 					name: 'MyStatusBar',
-					page: 'Main',
+					page: 'Temperature',
 					label: 'My Status Bar'
 				} );
 

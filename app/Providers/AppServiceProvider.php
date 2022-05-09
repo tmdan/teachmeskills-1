@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\Services\OpenWeatherApi\OpenWeatherApiService;
+use App\Services\Weather\New\SomeNewWeatherService;
+use App\Services\Weather\Template\WeatherServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -15,8 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(OpenWeatherApiService::class, function ($app){
-            return new OpenWeatherApiService();
+        $this->app->bind(WeatherServiceInterface::class, function ($app){
+            return new SomeNewWeatherService();
         });
     }
 

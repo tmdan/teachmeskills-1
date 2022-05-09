@@ -299,7 +299,7 @@ class CKFinder extends Container implements HttpKernelInterface
     }
 
     /**
-     * Main method used to handle a request by CKFinder.
+     * Temperature method used to handle a request by CKFinder.
      *
      * @param Request $request request object
      */

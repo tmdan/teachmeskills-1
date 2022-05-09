@@ -9,6 +9,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Mail\WelcomeMessage;
 use App\Models\User;
+use App\Services\Weather\Template\WeatherServiceInterface;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get("weather", function (WeatherServiceInterface $weatherService){
+
+    dd($weatherService->coordinates()->getLon());
+
+});
 
 
 Route::get('', [HomeController::class, 'index']);

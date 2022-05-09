@@ -1,49 +1,49 @@
 <?php
 
 
-namespace App\Services\OpenWeatherApi\Models;
+namespace App\Services\Weather\New\Models;
 
+use App\Services\Weather\Template\Models\TemperatureInterface;
 
-class Main
+class Temperature implements TemperatureInterface
 {
-
     /**
      * Текущая температура
      * @var float
      */
-    public float $temp;
+    private float $temp;
 
     /**
      * Ощущается как
      * @var float
      */
-    public float $feels_like;
+    private float $feels_like;
 
 
     /**
      * Минимальная суточная температура
      * @var float
      */
-    public float $temp_min;
+    private float $temp_min;
 
     /**
      * Максимальная суточная температура
      * @var float
      */
-    public float $temp_max;
+    private float $temp_max;
 
     /**
      * Давление
      * @var int
      */
-    public int $pressure;
+    private int $pressure;
 
 
     /**
      * Влажность в процентах
      * @var int
      */
-    public int $humidity;
+    private int $humidity;
 
 
     public function __construct(object $data)
@@ -54,5 +54,30 @@ class Main
         $this->temp_max = $data->temp_max;
         $this->humidity = $data->humidity;
 
+    }
+
+    public function getCurrentTemperature(): float
+    {
+        return 0.0;
+    }
+
+    public function getFeelsLikeTemperature(): float
+    {
+        return 0.0;
+    }
+
+    public function getMinTemperature(): float
+    {
+        return 0.0;
+    }
+
+    public function getMaxTemperature(): float
+    {
+        return 0.0;
+    }
+
+    public function getHumidity(): int
+    {
+        return 0;
     }
 }
