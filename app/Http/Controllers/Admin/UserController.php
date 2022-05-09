@@ -19,18 +19,18 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('admin.users.index', ['users' => $users]);
+        return view('admin.Users.index', ['users' => $users]);
     }
 
     public function create(CreateUserRequest $request)
     {
-        return view('admin.users.create');
+        return view('admin.Users.create');
     }
 
     public function store(StoreUserRequest $request)
     {
         User::create($request->validated());
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.Users.index');
     }
 
     public function show(ShowCategoryRequest $request, User $user)
@@ -40,18 +40,18 @@ class UserController extends Controller
 
     public function edit(EditUserRequest $request, User $user)
     {
-        return view('admin.users.edit', ['user' => $user]);
+        return view('admin.Users.edit', ['user' => $user]);
     }
 
     public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->validated());
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.Users.index');
     }
 
     public function destroy(DestroyUserRequest $request, User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.Users.index');
     }
 }
