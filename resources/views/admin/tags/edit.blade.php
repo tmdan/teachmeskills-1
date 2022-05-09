@@ -22,7 +22,7 @@
                 <div class="box-body">
                     <form method="POST" action="{{route('admin.tags.update', $tag->slug)}}">
                         @CSRF
-                        @method("PUT")
+                        @method("PATCH")
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Название</label>

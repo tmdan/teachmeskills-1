@@ -41,7 +41,7 @@ class UserObserver
                 Storage::delete($user->avatar);
             }
         }
-        
+
     public function deleted(User $user)
     {
         //

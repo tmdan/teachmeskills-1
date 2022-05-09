@@ -18,6 +18,7 @@
             <div class="box">
                 <form method="POST" action="{{route('admin.tags.store')}}">
                     @CSRF
+                    @method("POST")
                     <div class="box-header with-border">
                         <h3 class="box-title">Добавляем тэг</h3>
                         @include('admin.errors')
