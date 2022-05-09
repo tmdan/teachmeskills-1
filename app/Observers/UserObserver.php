@@ -30,12 +30,9 @@ class UserObserver
         //
     }
 
-    public function deleting(User $user){
-
-        if ($user->avatar != User::NO_IMAGE && Storage::exists($user->avatar)) {
-            Storage::delete($user->avatar);
-        }
-
+    public function deleting(User $user)
+    {
+        //
     }
     /**
      * Handle the User "deleted" event.
@@ -67,6 +64,8 @@ class UserObserver
      */
     public function forceDeleted(User $user)
     {
-        //
+        if ($user->avatar != User::NO_IMAGE && Storage::exists($user->avatar)) {
+            Storage::delete($user->avatar);
+        }
     }
 }
