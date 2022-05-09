@@ -27,13 +27,13 @@ interface TemperatureInterface
      * Получить максимальную суточную температуру
      * @return float
      */
-    public function getMaxTemperature(): float;
+    public function getMaxTemperature(): float|null;
 
     /**
      * Получить показатели давления
      * @return int
      */
-    public function getHumidity(): int;
+    public function getHumidity(): int|null;
 
 
     /**

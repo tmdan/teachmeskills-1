@@ -8,12 +8,12 @@ interface CoordinationInterface
      * Ширина
      * @return float
      */
-    public function getLon(): float;
+    public function getLon(): float|null;
 
 
     /**
      * Долгота
      * @return float
      */
-    public function getLat(): float;
+    public function getLat(): float|null;
 }
