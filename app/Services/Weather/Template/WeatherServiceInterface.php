@@ -6,7 +6,6 @@ use App\Services\Weather\OpenWeather\Models\Coordinate;
 use App\Services\Weather\OpenWeather\Models\Temperature;
 use App\Services\Weather\Template\Models\CoordinationInterface;
 use App\Services\Weather\Template\Models\TemperatureInterface;
-use Illuminate\Http\Client\Response;
 
 interface WeatherServiceInterface
 {

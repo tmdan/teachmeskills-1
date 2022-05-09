@@ -28,7 +28,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("weather", function (WeatherServiceInterface $weatherService){
 
-    dd($weatherService->coordinates()->getCityName());
+
+
+    //dd($weatherService->coordinates()->getCityName());
 
 });
 

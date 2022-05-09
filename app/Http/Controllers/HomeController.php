@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Services\OpenWeatherApi\OpenWeatherApiService;
+use App\Services\Weather\Template\WeatherServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
-    public function index(OpenWeatherApiService $openWeatherApiService)
+    public function index(WeatherServiceInterface $openWeatherApiService)
     {
 
 
-        dd($openWeatherApiService->getInfo());
+        dd($openWeatherApiService->coordinates()->getCityName());
 
 
 //        $data = Http::get("https://api.openweathermap.org/data/2.5/weather?q=Minsk&appid=5cc014b5ee90117eb3ad4f8c758455c4&lang=ru&units=metric")->json();
