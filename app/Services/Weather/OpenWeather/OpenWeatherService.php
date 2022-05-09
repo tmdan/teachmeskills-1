@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Http;
 
 class OpenWeatherService implements WeatherServiceInterface
 {
+    /**
+     * Метод, который обращается к внешним ресурсам для получения данных
+     * @return Response
+     */
     public function connect(): Response
     {
         return Http::get("https://api.openweathermap.org/data/2.5/weather", [
@@ -37,11 +41,19 @@ class OpenWeatherService implements WeatherServiceInterface
         };
     }
 
+    /**
+     * Метод, который возвращает регламентированный формат данных координат
+     * @return Coordinate
+     */
     function coordinates(): Coordinate
     {
         return $this->prepareData('coordinates');
     }
 
+    /**
+     * Метод, который возвращает регламентированный формат данных температуры
+     * @return Temperature
+     */
     function temperature(): Temperature
     {
         return $this->prepareData('temperature');
