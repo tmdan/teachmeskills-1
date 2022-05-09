@@ -7,7 +7,7 @@ use App\Services\Weather\Template\WeatherServiceInterface;
 
 class HomeController extends Controller
 {
-    public function index(WeatherServiceInterface $openWeatherApiService)
+    public function index()
     {
         //dd($openWeatherApiService->coordinates()->getCityName());
 

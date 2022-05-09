@@ -26,9 +26,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get("weather", function (WeatherServiceInterface $weatherService){
+Route::get("weather", function (){
 
 
+    dd(\App\Facade\Weather::temperature());
 
     //dd($weatherService->coordinates()->getCityName());
 

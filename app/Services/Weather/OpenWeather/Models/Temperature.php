@@ -48,11 +48,11 @@ class Temperature implements TemperatureInterface
 
     public function __construct(object $data)
     {
-        $this->temp = $data->temp;
-        $this->feels_like = $data->feels_like;
-        $this->temp_min = $data->temp_min;
-        $this->temp_max = $data->temp_max;
-        $this->humidity = $data->humidity;
+        $this->temp = $data->main->temp;
+        $this->feels_like = $data->main->feels_like;
+        $this->temp_min = $data->main->temp_min;
+        $this->temp_max = $data->main->temp_max;
+        $this->humidity = $data->main->humidity;
 
     }
 
