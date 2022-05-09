@@ -67,7 +67,7 @@ class Resources
     const MEDIA_SERVICES_ACCESS_KEY = 'AccessKey';
     const MEDIA_SERVICES_OAUTH_ENDPOINT_URI_NAME = 'OAuthEndpoint';
 
-    // Messages
+    // Messagers
     const INVALID_TYPE_MSG = 'The provided variable should be of type: ';
     const INVALID_META_MSG = 'Metadata cannot contain newline characters.';
     const AZURE_ERROR_MSG = "Fail:\nCode: %s\nValue: %s\ndetails (if any): %s.";

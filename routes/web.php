@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("weather", function (WeatherServiceInterface $weatherService){
 
-    dd($weatherService->coordinates()->getLon());
+    dd($weatherService->temperature()->getFeelsLikeTemperature());
 
 });
 

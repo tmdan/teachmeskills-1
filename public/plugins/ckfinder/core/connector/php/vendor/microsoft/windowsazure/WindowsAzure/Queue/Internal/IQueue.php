@@ -130,7 +130,7 @@ interface IQueue extends FilterableService
      * @param string              $queueName                  The queue name.
      * @param string              $messageId                  The id of the message.
      * @param string              $popReceipt                 The valid pop receipt 
-     * value returned from an earlier call to the Get Messages or Update Message
+     * value returned from an earlier call to the Get Messagers or Update Message
      * operation.
      * @param string              $messageText                The message contents.
      * @param int                 $visibilityTimeoutInSeconds Specifies the new 
@@ -154,7 +154,7 @@ interface IQueue extends FilterableService
      * @param string              $queueName  The queue name.
      * @param string              $messageId  The id of the message.
      * @param string              $popReceipt The valid pop receipt value returned
-     * from an earlier call to the Get Messages or Update Message operation.
+     * from an earlier call to the Get Messagers or Update Message operation.
      * @param QueueServiceOptions $options    The optional parameters.
      * 
      * @return none

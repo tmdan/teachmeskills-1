@@ -113,11 +113,11 @@ class QueueRestProxy extends ServiceRestProxy implements IQueue
     /**
      * Clears all messages from the queue.
      * 
-     * If a queue contains a large number of messages, Clear Messages may time out 
+     * If a queue contains a large number of messages, Clear Messagers may time out
      * before all messages have been deleted. In this case the Queue service will 
      * return status code 500 (Internal Server Error), with the additional error 
      * code OperationTimedOut. If the operation times out, the client should 
-     * continue to retry Clear Messages until it succeeds, to ensure that all 
+     * continue to retry Clear Messagers until it succeeds, to ensure that all
      * messages have been deleted.
      * 
      * @param string              $queueName The name of the queue.
@@ -274,7 +274,7 @@ class QueueRestProxy extends ServiceRestProxy implements IQueue
      * @param string              $queueName  The name of the queue.
      * @param string              $messageId  The id of the message.
      * @param string              $popReceipt The valid pop receipt value returned
-     * from an earlier call to the Get Messages or Update Message operation.
+     * from an earlier call to the Get Messagers or Update Message operation.
      * @param QueueServiceOptions $options    The optional parameters.
      * 
      * @return none
@@ -682,7 +682,7 @@ class QueueRestProxy extends ServiceRestProxy implements IQueue
      * @param string              $queueName                  The queue name.
      * @param string              $messageId                  The id of the message.
      * @param string              $popReceipt                 The valid pop receipt 
-     * value returned from an earlier call to the Get Messages or Update Message
+     * value returned from an earlier call to the Get Messagers or Update Message
      * operation.
      * @param string              $messageText                The message contents.
      * @param int                 $visibilityTimeoutInSeconds Specifies the new 
