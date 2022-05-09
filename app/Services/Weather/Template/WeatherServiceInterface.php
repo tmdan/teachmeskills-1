@@ -16,7 +16,6 @@ interface WeatherServiceInterface
      */
     function response(): object;
 
-
     /**
      * Метод, который возвращает регламентированный формат данных местоположения
      * @return Coordinate
