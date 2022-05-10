@@ -42,7 +42,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <a href="{{route('admin.users.index')}} " class="btn btn-default">Назад</a>
-                    <button class="btn btn-success pull-right">Добавить</button>
+                    <button type="submit" class="btn btn-success pull-right">Добавить</button>
                 </div>
                 <!-- /.box-footer-->
             </form>
