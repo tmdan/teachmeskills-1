@@ -22,13 +22,15 @@ class Post extends Model
     const RECOMMENDED = true;
     const UNRECOMMENDED = false;
     const NO_IMAGE = 'uploads/no-image.png';
-
+    protected $hidden = [
+        'created_at'
+    ];
 
     protected $fillable = [
         'title',
         'content',
         'category_id',
-        'users_id',
+        'user_id',
         'is_publish',
         'is_recommended',
         'views',
@@ -67,7 +69,7 @@ class Post extends Model
      * Автор поста
      * @return BelongsToAlias
      */
-    public function author()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

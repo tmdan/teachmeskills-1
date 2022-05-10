@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Mail\WelcomeMessage;
 use App\Models\User;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('lorem', function (){
 
+});
 
 Route::get('', [HomeController::class, 'index']);
 

@@ -20,6 +20,8 @@ class User extends Authenticatable
 
     const NO_IMAGE = 'uploads/no-image.png';
 
+
+
     /**
      * The attributes that are mass assignable.
      *

@@ -10,16 +10,23 @@ use App\Http\Requests\Category\IndexCategoryRequest;
 use App\Http\Requests\Category\ShowCategoryRequest;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Category;
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
 
     public function index(IndexCategoryRequest $request)
     {
-        $categories = Category::all();
 
-        return view('admin.categories.index', ['categories' => $categories]);
+
+        $categories = Post::all();
+
+
+
+        return PostResource::collection($categories);
     }
 
     public function create(CreateCategoryRequest $request)
