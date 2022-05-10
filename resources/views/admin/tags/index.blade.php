@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <a href="{{route('admin.tags.create')}}" class="btn btn-success">Добавить</a>
                     </div>
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="tags" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
@@ -47,6 +47,7 @@
                         @endforeach
                         </tfoot>
                     </table>
+                    {{$tags->links()}}
                 </div>
             </div>
         </section>
