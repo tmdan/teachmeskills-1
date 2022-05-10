@@ -17,7 +17,7 @@
             <!-- Default box -->
             <div class="box">
                 <form method="POST" action="{{route("admin.categories.store")}}">
-                    @@csrf
+                    @csrf
                     @method("POST")
                     <div class="box-header with-border">
                         <h3 class="box-title">Добавляем категорию</h3>
