@@ -12,7 +12,7 @@
       </h1>
     </section>
 
-    <!-- Main content -->
+    <!-- Temperature content -->
     <section class="content">
 	{{Form::open(['route'	=>	'subscribers.store'])}}
       <!-- Default box -->

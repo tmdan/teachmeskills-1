@@ -16,7 +16,7 @@
             </ol>
         </section>
 
-        <!-- Main content -->
+        <!-- Temperature content -->
         <section class="content">
             <!-- Default box -->
             <div class="box">

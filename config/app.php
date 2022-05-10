@@ -193,7 +193,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+       'Weather' => \App\Facade\Weather::class
     ])->toArray(),
 
 ];

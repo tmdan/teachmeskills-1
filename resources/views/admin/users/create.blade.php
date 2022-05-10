@@ -11,7 +11,7 @@
       </h1>
     </section>
 
-    <!-- Main content -->
+    <!-- Temperature content -->
     <section class="content">
 
       <form method="POST" action="{{route("admin.users.store")}}" enctype="multipart/form-data">

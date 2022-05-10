@@ -30,5 +30,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'open-weather-api' => [
+        "link" => env("OPEN_WEATHER_LINK", "https://api.openweathermap.org/data/2.5/weather"),
+        "key" => env("OPEN_WEATHER_API_KEY", "5cc014b5ee90117eb3ad4f8c758455c4"),
+        'city' => env('OPEN_WEATHER_API_CITY', "Minsk"),
+        "lang" => env("OPEN_WEATHER_API_LANG", "ru"),
+        "units" => env("OPEN_WEATHER_API_UNITS", "metric"),
+    ]
 ];
