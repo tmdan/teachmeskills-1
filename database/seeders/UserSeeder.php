@@ -20,27 +20,27 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name' => 'Maksim',
-                'email' => 'emailUser1@mail.ru',
+                'email' => 'maksim@mail.ru',
                 'password' => Hash::make(Str::random(48)),
             ],
             [
                 'name' => 'Ivan',
-                'email' => 'emailUser2@mail.ru',
+                'email' => 'ivan@mail.ru',
                 'password' => Hash::make(Str::random(48)),
             ],
             [
                 'name' => 'Kirill',
-                'email' => 'emailUser3@mail.ru',
+                'email' => 'kirill@mail.ru',
                 'password' => Hash::make(Str::random(48)),
             ],
             [
                 'name' => 'Darya',
-                'email' => 'emailUser4@mail.ru',
+                'email' => 'darya@mail.ru',
                 'password' => Hash::make(Str::random(48)),
             ],
             [
                 'name' => 'Volga',
-                'email' => 'emailUser5@mail.ru',
+                'email' => 'volga@mail.ru',
                 'password' => Hash::make(Str::random(48)),
             ],
         ]);

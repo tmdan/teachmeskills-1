@@ -19,6 +19,7 @@ class PostSeeder extends Seeder
             [
                 'title' => 'PostTitle1',
                 'slug' => 'PostSlug1',
+                'image' => null,
                 'content' => 'ContentPost1',
                 'category_id' => 1,
                 'user_id' => 1,
@@ -29,6 +30,7 @@ class PostSeeder extends Seeder
             [
                 'title' => 'PostTitle2',
                 'slug' => 'PostSlug2',
+                'image' => null,
                 'content' => 'ContentPost2',
                 'category_id' => 2,
                 'user_id' => 2,
@@ -39,6 +41,7 @@ class PostSeeder extends Seeder
             [
                 'title' => 'PostTitle3',
                 'slug' => 'PostSlug3',
+                'image' => null,
                 'content' => 'ContentPost3',
                 'category_id' => 3,
                 'user_id' => 3,
@@ -49,6 +52,7 @@ class PostSeeder extends Seeder
             [
                 'title' => 'PostTitle4',
                 'slug' => 'PostSlug4',
+                'image' => null,
                 'content' => 'ContentPost4',
                 'category_id' => 4,
                 'user_id' => 4,
@@ -59,6 +63,7 @@ class PostSeeder extends Seeder
             [
                 'title' => 'PostTitle5',
                 'slug' => 'PostSlug5',
+                'image' => null,
                 'content' => 'ContentPost5',
                 'category_id' => 5,
                 'user_id' => 5,
