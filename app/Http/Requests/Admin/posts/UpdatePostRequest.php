@@ -39,7 +39,7 @@ class UpdatePostRequest extends FormRequest
             'user_id' => 1,
             'is_publish' => $this->exists('is_publish') ? true : false,
             'is_recommended' => $this->exists('is_recommended') ? true : false,
-            'category_id' => $this->request->get('category_id'),
+            //'category_id' => $this->request->get('category_id'),
         ]);
     }
 

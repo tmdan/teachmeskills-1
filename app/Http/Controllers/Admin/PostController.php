@@ -46,7 +46,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $post = Post::create($request->validated() );
+        $post = Post::create($request->validated() + ['category_id' => $request->get('category_id')]);
 
         //$post->setCategory($request->get('category_id'));
         //$post->setTags($request->get('tags'));
@@ -91,7 +91,7 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $post->update($request->validated());
+        $post->update($request->validated() + ['category_id' => $request->get('category_id')]);
 
         //$post->setCategory($request->get('category_id'));
         //$post->setTags($request->get('tags'));
