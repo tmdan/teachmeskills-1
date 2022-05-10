@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => 'admin',
-                "avatar" => "uploads/user1-128x128.jpg",
+                "avatar" => "uploads/user6-128x128.jpg",
             ],
             [
                 'name' => 'user_name1',
