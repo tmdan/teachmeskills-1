@@ -91,6 +91,11 @@
                                 <label>Опубликовать</label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Краткое описание</label>
+                            <textarea id="" cols="10" rows="5" class="form-control"
+                                      name="description">{{$post->description}}</textarea>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Полный текст</label>

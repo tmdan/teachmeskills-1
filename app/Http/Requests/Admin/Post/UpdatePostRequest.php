@@ -26,6 +26,7 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => 'string|max:255',
             'content' => 'string',
+            'description' => 'string',
             'category_id' => 'exists:categories,id',
             'image' => 'image',
             'tags' => 'array',

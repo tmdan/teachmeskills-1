@@ -22,7 +22,8 @@ class Post extends Model
         'date',
         'image',
         'is_published',
-        'is_recommended'
+        'is_recommended',
+        'description',
     ];
 
     public function category()
