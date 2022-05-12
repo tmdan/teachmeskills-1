@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Moscow',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,6 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\WeatherServiceProvider::class,
 
     ],
 
@@ -191,7 +192,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'WeatherFacade' => \App\Facade\WeatherFacade::class
     ])->toArray(),
 
 ];

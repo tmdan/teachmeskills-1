@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Weather\Interfaces\WeatherServiceContract;
 use Illuminate\Http\Request;
 use App\Models\Post;
 

@@ -46,10 +46,9 @@
                 </div>
                 <div class="col-md-4" data-sticky_column>
                     <div class="primary-sidebar">
-
+                        @include('weather.widget')
                         <aside class="widget news-letter">
                             <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
-
                             <form action="#">
                                 <input type="email" placeholder="Your email address">
                                 <input type="submit" value="Subscribe Now"
@@ -74,18 +73,7 @@
 
                                 </div>
                             </div>
-                            <div class="popular-post">
 
-                                <a href="#" class="popular-img"><img src="/images/p1.jpg" alt="">
-
-                                    <div class="p-overlay"></div>
-                                </a>
-
-                                <div class="p-content">
-                                    <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                                    <span class="p-date">February 15, 2016</span>
-                                </div>
-                            </div>
                             <div class="popular-post">
 
 
