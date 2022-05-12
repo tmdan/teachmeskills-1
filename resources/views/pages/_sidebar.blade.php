@@ -1,6 +1,8 @@
 <div class="col-md-4" data-sticky_column>
     <div class="primary-sidebar">
 
+        @include('weather.index')
+
         <aside class="widget news-letter">
             <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
 
@@ -12,6 +14,9 @@
 
         </aside>
         <aside class="widget">
+
+
+
             <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
             @foreach($popularPost as $post)
                 <div class="popular-post">

@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('recommendedPost', Post::where('is_recommended', true)->take(3)->get());
             $view->with('recentPost', Post::orderBy('date', 'desc')->take(4)->get());
             $view->with('categories', Category::all());
-
         });
     }
 }

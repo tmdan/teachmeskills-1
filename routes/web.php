@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Weather\Interfaces\WeatherServiceContract;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/weather', function (){
+
+    //dd(\App\Facade\Weather::generalInformation()->getNameCity());
+    return view('weather.index');
+
+
+    //WeatherServiceContract $weatherService
+    //return view('weather.index', ['weatherService' => $weatherService]);
+
+});
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/posts/{post:slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');

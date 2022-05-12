@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Services\Weather\Interfaces\WeatherServiceContract;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +15,8 @@ class HomeController extends Controller
         $posts = Post::paginate(2);
 
         return view('pages.index', [
-            'posts' => $posts
+            'posts' => $posts,
+            //'weatherService' => $weatherService
         ]);
     }
 

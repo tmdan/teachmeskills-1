@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        //\App\Providers\WeatherServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -194,6 +195,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // ...
+        'Weather' => \App\Facade\Weather::class,
     ])->toArray(),
 
 ];

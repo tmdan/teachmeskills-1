@@ -72,3 +72,7 @@ mix.scripts([
 mix.copy('resources/assets/front/fonts', 'public/fonts');
 mix.copy('resources/assets/front/images', 'public/images');
 
+mix.styles([
+    'resources/assets/weather/css/style.css'
+], 'public/css/weather.css');
+
