@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(2);
+        $posts = Post::paginate(3);
 
         return view('pages.index', ['posts' => $posts]);
     }
@@ -47,9 +47,10 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->firstOrFail();
+        return view('pages.show', ['post' => $post]);
     }
 
     /**
