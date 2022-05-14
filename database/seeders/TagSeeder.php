@@ -36,6 +36,26 @@ class TagSeeder extends Seeder
                 'title' => 'Тэг 5',
                 'slug' => 'tag_5'
             ],
+            [
+                'title' => 'Тэг 6',
+                'slug' => 'tag_6'
+            ],
+            [
+                'title' => 'Тэг 7',
+                'slug' => 'tag_7'
+            ],
+            [
+                'title' => 'Тэг 8',
+                'slug' => 'tag_8'
+            ],
+            [
+                'title' => 'Тэг 9',
+                'slug' => 'tag_9'
+            ],
+            [
+                'title' => 'Тэг 10',
+                'slug' => 'tag_10'
+            ],
         ]);
     }
 }
