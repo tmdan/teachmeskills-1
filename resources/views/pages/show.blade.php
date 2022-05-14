@@ -7,25 +7,27 @@
                 <div class="col-md-8">
                     <article class="post">
                         <div class="post-thumb">
-                            <a href="blog.html"><img src="{{asset('storage/'.$post->image)}}" alt=""></a>
+                            <a href="{{route('post.show', $post->slug)}}"><img src="{{asset('storage/'.$post->image)}}" alt=""></a>
                         </div>
                         <div class="post-content">
                             <header class="entry-header text-center text-uppercase">
-                                <h6><a href="#"> {{$post->getCategoryTitle()}}</a></h6>
-
-                                <h1 class="entry-title"><a href="blog.html">{{$post->title}}</a></h1>
-
-
+                                @if($post->category)
+                                    <h6><a href="{{route('category.show', $post->category->slug)}}"> {{$post->getCategoryTitle()}}</a></h6>
+                                @else
+                                    <h6 class="text-info">{{$post->getCategoryTitle()}}</h6>
+                                @endif
+                                <h1 class="entry-title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h1>
                             </header>
                             <div class="entry-content">
                               {!! $post->content !!}
                             </div>
                             <div class="decoration">
-                                @foreach($post->tags  as $tag)
-                                <a href="#" class="btn btn-default">{{$tag->title}}</a>
+                                @foreach($post->tags as $tag)
+                                <a href="{{route('tag.show', $tag->slug)}}" class="btn btn-default">{{$tag->title}}</a>
+                                @endforeach
                             </div>
-                            @endforeach
                             <div class="social-share">
+                                <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a></span>
                                 <ul class="text-center pull-right">
                                     <li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>

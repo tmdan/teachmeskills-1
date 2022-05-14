@@ -23,6 +23,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/post/{slug}',[HomeController::class, 'show'])->name('post.show');
+Route::get('/tag/{slug}',[HomeController::class, 'tag'])->name('tag.show');
+Route::get('/category/{slug}',[HomeController::class, 'category'])->name('category.show');
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::group(['prefix'=>'admin'], function(){
