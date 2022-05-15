@@ -53,15 +53,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
-    public function password(): Attribute
+    public function setPasswordAttribute($value)
     {
-        return Attribute::make(
-            get: fn($value) => $value,
-            set: function ($value) {
-        if ($value !== null)
-            return Hash::make($value);
-    },
-        );
+        if ($value != null) $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function getPasswordAttribute($value)
+    {
+        return $value;
     }
 
     public function setAvatarAttribute($value)
@@ -69,7 +68,7 @@ class User extends Authenticatable
 
         if ($value instanceof UploadedFile) {
 
-            if ($this->avatar !== null && Storage::exists($this->avatar)) {
+            if ($this->avatar !== self::NO_IMAGE && Storage::exists($this->avatar)) {
                 Storage::delete($this->avatar);
             }
 
@@ -80,7 +79,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-        if ($value !== null){
+        if ($value !== null) {
             return $value;
         }
         return self::NO_IMAGE;
