@@ -35,7 +35,6 @@
                   <th>ID</th>
                   <th>Название</th>
                   <th>Действия</th>
-                  <th>Ссылка</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,7 +55,6 @@
 {{--	                   {{Form::close()}}--}}
 
 	                   </td>
-                      <td>{{$category->slug}}</td>
 	                </tr>
                 @endforeach
                 

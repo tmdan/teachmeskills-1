@@ -14,16 +14,18 @@ class Post extends Model
 {
     use HasFactory, Sluggable;
 
-    const NO_IMAGE = 'uploads/no-image.png';
-//
-//    protected $fillable = [
-//        'title',
-//        'slug',
-//        'content',
-//        'image',
-//        'category_id',
-//        'user_id'
-//    ];
+    const NO_IMAGE = 'uploads/no-image.jpg';
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        'image',
+        'category_id',
+        'user_id',
+        'is_recommended',
+        'is_publish'
+    ];
 
     public function sluggable(): array
     {
@@ -41,7 +43,7 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function tags()
@@ -56,13 +58,13 @@ class Post extends Model
 
     public function publish()
     {
-        $this->is_published = true;
+        $this->is_publish = true;
         $this->save();
     }
 
     public function unpublish()
     {
-        $this->is_published = false;
+        $this->is_publish = false;
         $this->save();
     }
 
@@ -108,29 +110,32 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('is_published', true);
+        return $query->where('is_publish', true);
     }
 
     public function scopeUnpublished($query)
     {
-        return $query->where('is_published', false);
+        return $query->where('is_publish', false);
     }
 
     public function getImageAttribute($value)
     {
-        return $value ?? self::NO_IMAGE;
+        if($value != null){
+            return $value ;
+        }
+        return self::NO_IMAGE;
     }
 
     public function setImageAttribute($value)
     {
+
         if ($value instanceof UploadedFile) {
 
-            if ($this->image !== null && Storage::exists($this->image))
-            {
+            if ($this->image !== self::NO_IMAGE && Storage::exists($this->image)) {
                 Storage::delete($this->image);
             }
 
-            return $value->store('uploads');
+            $this->attributes['image'] = $value->store("uploads");
         }
     }
 

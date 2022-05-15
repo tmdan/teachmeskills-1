@@ -34,7 +34,9 @@
                   <th>ID</th>
                   <th>Название</th>
                   <th>Категория</th>
+                  <th>Содержание поста</th>
                   <th>Теги</th>
+                  <th>Пользователь опубликовавший пост</th>
                   <th>Картинка</th>
                   <th>Действия</th>
                 </tr>
@@ -44,20 +46,30 @@
                 <tr>
                   <td>{{$post->id}}</td>
                   <td>{{$post->title}}</td>
-                  <td>{{$post->getCategoryTitle()}}</td>
-                  <td>{{$post->getTagsTitles()}}</td>
+                  <td>{{$post->category['title']}}</td>
+                  <td>{{$post->content}}</td>
                   <td>
-                    <img src="{{$post->getImage()}}" alt="" width="100">
+                  @foreach($post->tags as $tag)
+                    {{$tag->title}}<br>
+                  @endforeach
+                  </td>
+                  <td>{{$post->author['name']}}</td>
+                  <td>
+                    <img src="{{asset('Storage/'.$post->image)}}" alt="{{asset('Storage/'.$post->image)}}" width="50">
                   </td>
                   <td>
                   <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a> 
 
-                  {{Form::open(['route'=>['posts.destroy', $post->id], 'method'=>'delete'])}}
+{{--                  {{Form::open(['route'=>['posts.destroy', $post->id], 'method'=>'delete'])}}--}}
+                    <form method="post" action="{{route('posts.destroy', $post->id)}}">
+                      @method('delete')
+                      @csrf
 	                  <button onclick="return confirm('are you sure?')" type="submit" class="delete">
 	                   <i class="fa fa-remove"></i>
 	                  </button>
 
-	                   {{Form::close()}}
+{{--	                   {{Form::close()}}--}}
+                    </form>
                   </td>
                 </tr>
                 @endforeach

@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin'], function(){
             'tags' => 'tag:slug'
         ]);
     Route::resource('users', UserController::class);
+
+    Route::resource('posts', PostController::class);
 });
 
 //Route::resource('/admin/posts',PostController::class);

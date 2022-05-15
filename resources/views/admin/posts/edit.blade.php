@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-<!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -13,100 +13,102 @@
 
     <!-- Main content -->
     <section class="content">
-	{{Form::open([
-		'route'	=>	['posts.update', $post->id],
-		'files'	=>	true,
-		'method'	=>	'put'
-	])}}
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Обновляем статью</h3>
-          @include('admin.errors')
-        </div>
-        <div class="box-body">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Название</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" value="{{$post->title}}" name="title">
-            </div>
-            
-            <div class="form-group">
-              <img src="{{$post->getImage()}}" alt="" class="img-responsive" width="200">
-              <label for="exampleInputFile">Лицевая картинка</label>
-              <input type="file" id="exampleInputFile" name="image">
+      <form action="{{route('posts.update', $post->id)}}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('put')
 
-              <p class="help-block">Какое-нибудь уведомление о форматах..</p>
-            </div>
-            <div class="form-group">
-              <label>Категория</label>
-              {{Form::select('category_id', 
-              	$categories, 
-                $post->getCategoryID(), 
-              	['class' => 'form-control select2'])
-              }}
-            </div>
-            <div class="form-group">
-              <label>Теги</label>
-              {{Form::select('tags[]', 
-              	$tags, 
-              	$selectedTags, 
-              	['class' => 'form-control select2', 'multiple'=>'multiple','data-placeholder'=>'Выберите теги'])
-              }}
-            </div>
-            <!-- Date -->
-            <div class="form-group">
-              <label>Дата:</label>
-
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right" id="datepicker" value="{{$post->date}}" name="date">
+        <!-- Default box -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Обновляем статью</h3>
+            @include('admin.errors')
+          </div>
+          <div class="box-body">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Название</label>
+                <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder=""
+                       value="{{$post->title}}">
               </div>
-              <!-- /.input group -->
-            </div>
 
-            <!-- checkbox -->
-            <div class="form-group">
-              <label>
-              {{Form::checkbox('is_featured', '1', $post->is_featured, ['class'=>'minimal'])}}
-              </label>
-              <label>
-                Рекомендовать
-              </label>
+              <div class="form-group">
+                <label for="exampleInputFile">Лицевая картинка</label>
+                <br>
+
+
+
+                <img src="{{asset("storage/". $post->image)}}" alt="" class="img-responsive" width="200">
+                <br>
+                <input type="file" id="exampleInputFile" name="image">
+              </div>
+              <div class="form-group">
+                <label>Категория</label>
+                <select name="category_id" class="form-control select2" style="width: 100%;"
+                        data-placeholder="Выберите категорию">
+                  @foreach($categories as $category)
+                    @if($category->id == $post->category_id)
+                      <option value="{{$category->id}}" selected>{{$category->title}}</option>
+                    @else
+                      <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endif
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Теги</label>
+                <select name="tags[]" class="form-control select2" multiple="multiple"
+                        data-placeholder="Выберите теги" style="width: 100%;">
+                  @foreach($tags  as $tag)
+                    @if(in_array($tag->id, $post->tags->pluck('id')->all()))
+                      <option value="{{$tag->id}}" selected>{{$tag->title}}</option>
+                    @else
+                      <option value="{{$tag->id}}">{{$tag->title}}</option>
+                    @endif
+
+                  @endforeach
+                </select>
+              </div>
+
+              <!-- checkbox -->
+              <div class="form-group">
+                <label>
+                  @if($post->is_recommended == true)
+                    <input type="checkbox" name="is_recommended"  value="1" class="minimal" checked>
+                  @else
+                    <input type="checkbox" name="is_recommended"  value="1"  class="minimal">
+                  @endif
+                </label>
+                <label>Рекомендованный</label>
+              </div>
+              <!-- checkbox -->
+              <div class="form-group">
+                <label>
+                  @if($post->is_publish)
+                    <input type="checkbox" name='is_publish'  value="1"  class="minimal" checked>
+                  @else
+                    <input type="checkbox" name='is_publish'  value="1"  class="minimal">
+                  @endif
+                </label>
+                <label>Публичный</label>
+              </div>
             </div>
-            <!-- checkbox -->
-            <div class="form-group">
-              <label>
-                {{Form::checkbox('status', '1', $post->status, ['class'=>'minimal'])}}
-              </label>
-              <label>
-                Черновик
-              </label>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Полный текст</label>
+                <textarea name="content" id="" cols="30" rows="10" class="form-control">{{$post->content}}</textarea>
+              </div>
             </div>
           </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Описание</label>
-              <textarea name="description" id="" cols="30" rows="10" class="form-control" >{{$post->description}}</textarea>
+          <!-- /.box-body -->
+
+          <div class="box-footer">
+            <button class="btn btn-warning pull-right">Изменить</button>
           </div>
+          <!-- /.box-footer-->
         </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Полный текст</label>
-              <textarea name="content" id="" cols="30" rows="10" class="form-control">{{$post->content}}</textarea>
-          </div>
-        </div>
-      </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          <button class="btn btn-warning pull-right">Изменить</button>
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-	{{Form::close()}}
+        <!-- /.box -->
+      </form>
     </section>
     <!-- /.content -->
   </div>

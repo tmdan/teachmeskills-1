@@ -13,100 +13,107 @@
 
     <!-- Main content -->
     <section class="content">
-	{{Form::open([
-		'route'	=> 'posts.store',
-		'files'	=>	true
-	])}}
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Добавляем статью</h3>
-          @include('admin.errors')
-        </div>
-        <div class="box-body">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Название</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title" value="{{old('title')}}">
-            </div>
-            
-            <div class="form-group">
-              <label for="exampleInputFile">Лицевая картинка</label>
-              <input type="file" id="exampleInputFile" name="image">
 
-              <p class="help-block">Какое-нибудь уведомление о форматах..</p>
-            </div>
-            <div class="form-group">
-              <label>Категория</label>
-              {{Form::select('category_id', 
-              	$categories, 
-              	null, 
-              	['class' => 'form-control select2'])
-              }}
-            </div>
-            <div class="form-group">
-              <label>Теги</label>
-              {{Form::select('tags[]', 
-              	$tags, 
-              	null, 
-              	['class' => 'form-control select2', 'multiple'=>'multiple','data-placeholder'=>'Выберите теги'])
-              }}
-            </div>
-            <!-- Date -->
-            <div class="form-group">
-              <label>Дата:</label>
+      <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
+        @csrf
 
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right" id="datepicker" name="date" value="{{old('date')}}">
+        <!-- Default box -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Добавляем статью</h3>
+
+            @include('admin.errors')
+
+
+          </div>
+
+          <div class="box-body">
+            <div class="col-md-6">
+
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Название</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title" value="{{old('title')}}">
               </div>
-              <!-- /.input group -->
+
+
+              <div class="form-group">
+                <label for="exampleInputFile">Картинка</label>
+                <input type="file" id="image" name="image">
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="cars">Категория</label>
+
+                <select name="category_id" class="form-control select2" id="categories">
+
+
+                  @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->title}}</option>
+                  @endforeach
+
+                </select>
+
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>Теги</label>
+
+
+                <select name="tags[]" class="form-control select2" id="cars" multiple>
+
+                  @foreach($tags as $tag)
+                    <option value="{{$tag->id}}">{{$tag->title}} </option>
+                  @endforeach
+                </select>
+
+
+              </div>
+
+
+              <!-- checkbox -->
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" class="minimal" name="is_recommended" value="1">
+                </label>
+                <label>
+                  Рекомендованный
+                </label>
+              </div>
+
+              <!-- checkbox -->
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" class="minimal" name="is_publish" value="1">
+                </label>
+                <label>
+                  Публичный
+                </label>
+              </div>
             </div>
 
-            <!-- checkbox -->
-            <div class="form-group">
-              <label>
-                <input type="checkbox" class="minimal" name="is_featured">
-              </label>
-              <label>
-                Рекомендовать
-              </label>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Контент</label>
+                <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
+              </div>
             </div>
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button class="btn btn-default">Назад</button>
+            <button class="btn btn-success pull-right">Добавить</button>
+          </div>
+          <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
 
-            <!-- checkbox -->
-            <div class="form-group">
-              <label>
-                <input type="checkbox" class="minimal" name="status">
-              </label>
-              <label>
-                Черновик
-              </label>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Описание</label>
-              <textarea name="description" id="" cols="30" rows="10" class="form-control" >{{old('description')}}</textarea>
-          </div>
-        </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Полный текст</label>
-              <textarea name="content" id="" cols="30" rows="10" class="form-control" ></textarea>
-          </div>
-        </div>
-      </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          <button class="btn btn-default">Назад</button>
-          <button class="btn btn-success pull-right">Добавить</button>
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-	{{Form::close()}}
+      </form>
     </section>
     <!-- /.content -->
   </div>

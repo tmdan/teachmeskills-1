@@ -21,10 +21,7 @@
           @include('admin.errors')
         </div>
         <div class="box-body">
-{{--        {{Form::open(['route'=>['categories.update',$category->id], 'method'=>'put'])}}--}}
-          <form action="{{route('categories.update', ['category' => $category->slug])}}" method="post">
-            @method('put')
-            @csrf
+        {{Form::open(['route'=>['categories.update',$category->id], 'method'=>'put'])}}
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Название</label>
@@ -38,8 +35,7 @@
           <button class="btn btn-warning pull-right">Изменить</button>
         </div>
         <!-- /.box-footer-->
-        </form>
-{{--        {{Form::close()}}--}}
+        {{Form::close()}}
       </div>
       <!-- /.box -->
 
