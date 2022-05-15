@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('email', 255);
-            $table->string('token', 255)->nullable();
+            $table->string('email');
+            $table->string('token')->nullable();
             $table->timestamps();
         });
     }

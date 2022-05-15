@@ -4,8 +4,7 @@
     <div class="content-wrapper">
         <section class="content-header">
             <h1>
-                Blank page
-                <small>it all starts here</small>
+               Категории
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,11 +15,11 @@
         <section class="content">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Категории</h3>
+                    <h3 class="box-title">Доступные категории</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{route("admin.categories.create")}}" class="btn btn-success">Добавить</a>
+                        <a href="{{route('admin.categories.create')}}" class="btn btn-success">Добавить</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -35,7 +34,7 @@
                             <tr>
                                 <td>{{"$category->id"}}</td>
                                 <td>{{"$category->title"}}</td>
-                                <td><a href="{{route("admin.categories.edit", $category->slug)}}" class="fa fa-pencil"></a>
+                                <td><a href="{{route('admin.categories.edit', $category->slug)}}" class="fa fa-pencil"></a>
                                     <form method="POST" action="{{route('admin.categories.delete', $category->slug)}}">
                                         @csrf
                                         @method("DELETE")

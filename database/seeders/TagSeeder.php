@@ -17,24 +17,24 @@ class TagSeeder extends Seeder
     {
         DB::table('tags')->insert([
             [
-                'title' => 'TagTitle1',
-                'slug' => 'TagSlug1',
+                'title' => 'Тэг 1',
+                'slug' => 'tag_1'
             ],
             [
-                'title' => 'TagTitle2',
-                'slug' => 'TagSlug2',
+                'title' => 'Тэг 2',
+                'slug' => 'tag_2'
             ],
             [
-                'title' => 'TagTitle3',
-                'slug' => 'TagSlug3',
+                'title' => 'Тэг 3',
+                'slug' => 'tag_3'
             ],
             [
-                'title' => 'TagTitle4',
-                'slug' => 'TagSlug4',
+                'title' => 'Тэг 4',
+                'slug' => 'tag_4'
             ],
             [
-                'title' => 'TagTitle5',
-                'slug' => 'TagSlug5',
+                'title' => 'Тэг 5',
+                'slug' => 'tag_5'
             ],
         ]);
     }

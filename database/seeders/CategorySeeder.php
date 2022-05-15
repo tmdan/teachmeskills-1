@@ -17,24 +17,23 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             [
-                'title' => 'CategoryTitle1',
-                'slug' => 'CategorySlug1',
+                'title' => 'Категория 1',
+                'slug' => 'category_1'
             ],
             [
-                'title' => 'CategoryTitle2',
-                'slug' => 'CategorySlug2',
+                'title' => 'Категория 2',
+                'slug' => 'category_2'
             ],
             [
-                'title' => 'CategoryTitle3',
-                'slug' => 'CategorySlug3',
+                'title' => 'Категория 3',
+                'slug' => 'category_3'
             ],
             [
-                'title' => 'CategoryTitle4',
-                'slug' => 'CategorySlug4',
-            ],
-            [
-                'title' => 'CategoryTitle5',
-                'slug' => 'CategorySlug5',
+                'title' => 'Категория 4',
+                'slug' => 'category_4'
+            ], [
+                'title' => 'Категория 5',
+                'slug' => 'category_5'
             ],
         ]);
     }

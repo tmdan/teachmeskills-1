@@ -19,29 +19,34 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Maksim',
-                'email' => 'maksim@mail.ru',
-                'password' => Hash::make(Str::random(48)),
+                'name' => 'Лена',
+                'email' => 'helen@mail.ru',
+                'password' => Hash::make('111111zZ'),
+                'remember_token' => Str::random(48)
             ],
             [
-                'name' => 'Ivan',
-                'email' => 'ivan@mail.ru',
-                'password' => Hash::make(Str::random(48)),
+                'name' => 'Юля',
+                'email' => 'julia@mail.ru',
+                'password' => Hash::make('222222zZ'),
+                'remember_token' => Str::random(48)
             ],
             [
-                'name' => 'Kirill',
-                'email' => 'kirill@mail.ru',
-                'password' => Hash::make(Str::random(48)),
+                'name' => 'Егор',
+                'email' => 'egor@mail.ru',
+                'password' => Hash::make('333333zZ'),
+                'remember_token' => Str::random(48)
             ],
             [
-                'name' => 'Darya',
-                'email' => 'darya@mail.ru',
-                'password' => Hash::make(Str::random(48)),
+                'name' => 'Антон',
+                'email' => 'anthony@mail.ru',
+                'password' => Hash::make('444444zZ'),
+                'remember_token' => Str::random(48)
             ],
             [
-                'name' => 'Volga',
-                'email' => 'volga@mail.ru',
-                'password' => Hash::make(Str::random(48)),
+                'name' => 'Вероника',
+                'email' => 'veronika@mail.ru',
+                'password' => Hash::make('555555zZ'),
+                'remember_token' => Str::random(48)
             ],
         ]);
     }

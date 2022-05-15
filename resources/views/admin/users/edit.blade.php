@@ -22,7 +22,7 @@
                 <div class="box-body">
                     <form method="POST" action="{{route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
                         @csrf
-                        @method("PATCH")
+                        @method("PUT")
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Имя</label>

@@ -19,23 +19,23 @@ class SubscriptionSeeder extends Seeder
         DB::table('subscriptions')->insert([
             [
                 'email' => 'email1@mail.ru',
-                'token' => Str::random(48),
+                'token' => Str::random(48)
             ],
             [
                 'email' => 'email2@mail.ru',
-                'token' => Str::random(48),
+                'token' => Str::random(48)
             ],
             [
                 'email' => 'email3@mail.ru',
-                'token' => Str::random(48),
+                'token' => Str::random(48)
             ],
             [
                 'email' => 'email4@mail.ru',
-                'token' => Str::random(48),
+                'token' => Str::random(48)
             ],
             [
                 'email' => 'email5@mail.ru',
-                'token' => Str::random(48),
+                'token' => Str::random(48)
             ],
         ]);
     }

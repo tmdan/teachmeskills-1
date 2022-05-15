@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,7 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avatar',
+        'avatar'
     ];
 
     /**
@@ -39,7 +37,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
     /**
      * The attributes that should be cast.
      *
@@ -48,45 +45,43 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
     public function posts()
     {
-        return $this -> hasMany(Post::class);
+        return $this->hasMany(Post::class);
     }
-
     public function comments()
     {
-        return $this -> hasMany(Comment::class);
+        return $this->hasMany(Comment::class);
+    }
+    public function password(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $value,
+            set: function ($value) {
+        if ($value !== null)
+            return Hash::make($value);
+    },
+        );
     }
 
-    public function setPasswordAttribute($request)
-    {
-        if ($request != null) $this->attributes['password'] = bcrypt($request);
-    }
-
-    public function getPasswordAttribute($request)
-    {
-        return $request;
-    }
-
-    public function setAvatarAttribute($request)
+    public function setAvatarAttribute($value)
     {
 
-        if ($request instanceof UploadedFile) {
+        if ($value instanceof UploadedFile) {
 
-            if ($this->avatar !== self::NO_IMAGE && Storage::exists($this->avatar)) {
+            if ($this->avatar !== null && Storage::exists($this->avatar)) {
                 Storage::delete($this->avatar);
             }
 
 
-            $this->attributes['avatar'] = $request->store("uploads");
+            $this->attributes['avatar'] = $value->store("uploads");
         }
     }
 
-    public function getAvatarAttribute($request)
+    public function getAvatarAttribute($value)
     {
-        if ($request !== null) {
-            return $request;
+        if ($value !== null){
+            return $value;
         }
         return self::NO_IMAGE;
     }

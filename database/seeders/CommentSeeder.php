@@ -17,39 +17,39 @@ class CommentSeeder extends Seeder
     {
         DB::table('comments')->insert([
             [
-                'text' => 'CommentText1',
-                'slug' => 'CommentSlug1',
-                'user_id' => 1,
-                'post_id' => 1,
-                'is_published' => 1,
+                'text' => 'рандомный комментрарий 1',
+                'slug' => 'comment_1',
+                'user_id' => '1',
+                'post_id' => '1',
+                'is_published' => true
             ],
             [
-                'text' => 'CommentText2',
-                'slug' => 'CommentSlug2',
-                'user_id' => 2,
-                'post_id' => 2,
-                'is_published' => 1,
+                'text' => 'рандомный комментрарий 2',
+                'slug' => 'comment_2',
+                'user_id' => '2',
+                'post_id' => '2',
+                'is_published' => true
             ],
             [
-                'text' => 'CommentText3',
-                'slug' => 'CommentSlug3',
-                'user_id' => 3,
-                'post_id' => 3,
-                'is_published' => 1,
+                'text' => 'рандомный комментрарий 3',
+                'slug' => 'comment_3',
+                'user_id' => '3',
+                'post_id' => '3',
+                'is_published' => true
             ],
             [
-                'text' => 'CommentText4',
-                'slug' => 'CommentSlug4',
-                'user_id' => 4,
-                'post_id' => 4,
-                'is_published' => 1,
+                'text' => 'рандомный комментрарий 4',
+                'slug' => 'comment_4',
+                'user_id' => '4',
+                'post_id' => '4',
+                'is_published' => true
             ],
             [
-                'text' => 'CommentText5',
-                'slug' => 'CommentSlug5',
-                'user_id' => 5,
-                'post_id' => 5,
-                'is_published' => 1,
+                'text' => 'рандомный комментрарий 5',
+                'slug' => 'comment_5',
+                'user_id' => '5',
+                'post_id' => '5',
+                'is_published' => true
             ],
         ]);
     }

@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->string('slug', 255);
+            $table->string('title');
+            $table->string('slug');
             $table->string('image')->nullable();
             $table->text('content');
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete();
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
-            $table->boolean('is_publish')->default(0);
+            $table->boolean('is_published')->default(0);
             $table->boolean('is_recommended')->default(0);
             $table->integer('views')->default(0);
             $table->timestamps();

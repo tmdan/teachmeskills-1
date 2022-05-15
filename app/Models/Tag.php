@@ -8,20 +8,19 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Tag extends Model
 {
-    use Sluggable;
     use HasFactory;
+    use Sluggable;
 
     protected $fillable = [
         'title'
     ];
 
-    public function posts()
-    {
+    public function posts(){
         return $this->belongsToMany(
             Post::class,
             'post_tag',
             'tag_id',
-            'post_id',
+            'post_id'
         );
     }
 
@@ -31,6 +30,6 @@ class Tag extends Model
             'slug' => [
                 'source' => 'title'
             ]
-        ]; /*привет -> privet (дубликаций нет, добавляется последующее число повтороения)*/
+        ];
     }
 }
