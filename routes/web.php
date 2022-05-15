@@ -18,6 +18,8 @@ use App\Http\Controllers\Admin\CategoryController;
 Route::get('/', function () {
     echo 'It`s alive!!!';
 });
+
+
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::group(['prefix'=>'admin'], function(){
     Route::resource("categories", CategoryController::class)->parameters([
