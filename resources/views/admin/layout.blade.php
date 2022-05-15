@@ -213,7 +213,7 @@
             </form>
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            @include('admin._sidebar')
+{{--            @include('admin._sidebar')--}}
         </section>
         <!-- /.sidebar -->
     </aside>
