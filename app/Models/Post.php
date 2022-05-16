@@ -139,5 +139,20 @@ class Post extends Model
         }
     }
 
+    public static function getPopularPosts()
+    {
+        return Post::orderBy('views', 'desc')->take(3)->get();
+    }
+
+    public static function getRecommendedPosts()
+    {
+        return Post::recommended()->get();
+    }
+
+    public static function getRecentPosts()
+    {
+        return Post::orderBy('created_at', 'desc')->take(3)->get();
+    }
+
 
 }

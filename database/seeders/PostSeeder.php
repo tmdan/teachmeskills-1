@@ -19,52 +19,63 @@ class PostSeeder extends Seeder
             [
                 'title'         => 'пост 1',
                 'slug'          => 'post-1',
-//                'image'         => null,
+                'image'         => 'img/photo1.png',
                 'content'       => 'Описание поста 1 с длинным текстом',
-                'category_id'   => 1,
+                'category_id'   => 5,
                 'user_id'       => 1,
                 'is_publish'    => true,
-                'is_recommended'=> true
+                'is_recommended'=> false,
+                'views'         => 100,
+                'created_at'    => now()
+
             ],
             [
                 'title'         => 'пост 2',
                 'slug'          => 'post-2',
-//                'image'         => null,
+                'image'         => 'img/photo2.png',
                 'content'       => 'Описание поста 2 с длинным текстом',
-                'category_id'   => 2,
+                'category_id'   => 5,
                 'user_id'       => 2,
                 'is_publish'    => true,
-                'is_recommended'=> true
+                'is_recommended'=> true,
+                'views'         => 200,
+                'created_at'    => now()->addMinute(),
             ],
             [
                 'title'         => 'пост 3',
                 'slug'          => 'post-3',
-//                'image'         => null,
+                'image'         => 'img/photo3.jpg',
                 'content'       => 'Описание поста 3 с длинным текстом',
-                'category_id'   => 3,
+                'category_id'   => 5,
                 'user_id'       => 3,
                 'is_publish'    => true,
-                'is_recommended'=> true
+                'is_recommended'=> false,
+                'views'         => 300,
+                'created_at'    => now()->addMinutes(2)
             ],
             [
                 'title'         => 'пост 4',
                 'slug'          => 'post-4',
-//                'image'         => null,
+                'image'         => 'img/photo4.jpg',
                 'content'       => 'Описание поста 4 с длинным текстом',
                 'category_id'   => 4,
                 'user_id'       => 4,
                 'is_publish'    => true,
-                'is_recommended'=> true
+                'is_recommended'=> true,
+                'views'         => 400,
+                'created_at'    => now()->addMinutes(3),
             ],
             [
                 'title'         => 'пост 5',
                 'slug'          => 'post-5',
-//                'image'         => null,
+                'image'         => 'img/photo1.png',
                 'content'       => 'Описание поста 5 с длинным текстом',
                 'category_id'   => 5,
                 'user_id'       => 5,
                 'is_publish'    => true,
-                'is_recommended'=> true
+                'is_recommended'=> false,
+                'views'         => 500,
+                'created_at'    => now()->addMinutes(4)
             ]
         ]);
 

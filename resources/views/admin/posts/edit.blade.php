@@ -37,7 +37,7 @@
 
 
 
-                <img src="{{asset("storage/". $post->image)}}" alt="" class="img-responsive" width="200">
+                <img src="{{$post->image)}}" alt="" class="img-responsive" width="200">
                 <br>
                 <input type="file" id="exampleInputFile" name="image">
               </div>
