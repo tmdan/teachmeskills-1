@@ -54,7 +54,8 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $post->update($request->validated());
-        
+
+        $post->tags()->sync($request->tags);
 
         return redirect()->route('posts.index');
     }

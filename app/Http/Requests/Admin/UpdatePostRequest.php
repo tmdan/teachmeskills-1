@@ -6,32 +6,34 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePostRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
+
     public function rules()
     {
         return [
             'content' => 'required|string',
             'title' => 'required|string|max:255',
             'category_id' => 'required|exists:categories,id',
-            'image' => 'image',
-            'tags' => 'required|array',
-            'user_id' => 'nullable',
-            'is_publish' => 'boolean|nullable',
-            'is_recommended' => 'boolean|nullable',
+            'image' => 'image:max:5000',
+            'tags' => 'array',
+            'tags.*' => 'required_with:tags|exists:tags,id',
+            'user_id' => 'required|nullable',
+            'is_publish' => 'required|boolean|nullable',
+            'is_recommended' => 'required|boolean|nullable',
         ];
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'user_id' => 1,
+            'is_publish' => $this->exists('is_publish') ? true : false,
+            'is_recommended' => $this->exists('is_recommended') ? true : false,
+        ]);
     }
 }
