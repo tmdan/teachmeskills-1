@@ -31,7 +31,7 @@ class CategoryController extends Controller
     {
         Category::create($request->validated());
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->back();
     }
 
     public function show(ShowCategoryRequest $request, Category $category)
