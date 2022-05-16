@@ -55,7 +55,7 @@
                   </td>
                   <td>{{$post->author['name']}}</td>
                   <td>
-                    <img src="{{asset($post->image)}}" alt="{{asset($post->image)}}" width="50">
+                    <img src="{{asset('storage/'.$post->image)}}" alt="{{asset('storage/'.$post->image)}}" width="50">
                   </td>
                   <td>
                   <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a> 

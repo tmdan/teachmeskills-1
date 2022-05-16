@@ -19,7 +19,7 @@ class PostSeeder extends Seeder
             [
                 'title'         => 'пост 1',
                 'slug'          => 'post-1',
-                'image'         => 'img/photo1.png',
+                'image'         => 'test-images/photo1.png',
                 'content'       => 'Описание поста 1 с длинным текстом',
                 'category_id'   => 5,
                 'user_id'       => 1,
@@ -32,7 +32,7 @@ class PostSeeder extends Seeder
             [
                 'title'         => 'пост 2',
                 'slug'          => 'post-2',
-                'image'         => 'img/photo2.png',
+                'image'         => 'test-images/photo2.png',
                 'content'       => 'Описание поста 2 с длинным текстом',
                 'category_id'   => 5,
                 'user_id'       => 2,
@@ -44,7 +44,7 @@ class PostSeeder extends Seeder
             [
                 'title'         => 'пост 3',
                 'slug'          => 'post-3',
-                'image'         => 'img/photo3.jpg',
+                'image'         => 'test-images/photo3.jpg',
                 'content'       => 'Описание поста 3 с длинным текстом',
                 'category_id'   => 5,
                 'user_id'       => 3,
@@ -56,7 +56,7 @@ class PostSeeder extends Seeder
             [
                 'title'         => 'пост 4',
                 'slug'          => 'post-4',
-                'image'         => 'img/photo4.jpg',
+                'image'         => 'test-images/photo4.jpg',
                 'content'       => 'Описание поста 4 с длинным текстом',
                 'category_id'   => 4,
                 'user_id'       => 4,
@@ -68,7 +68,7 @@ class PostSeeder extends Seeder
             [
                 'title'         => 'пост 5',
                 'slug'          => 'post-5',
-                'image'         => 'img/photo1.png',
+                'image'         => 'test-images/photo1.png',
                 'content'       => 'Описание поста 5 с длинным текстом',
                 'category_id'   => 5,
                 'user_id'       => 5,
