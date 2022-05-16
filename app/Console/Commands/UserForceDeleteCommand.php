@@ -24,7 +24,6 @@ class UserForceDeleteCommand extends Command
      */
     public function handle()
     {
-        User::onlyTrashed()->forceDelete();
         $users = User::onlyTrashed()->get();
         foreach ($users as $user){
             $user->forceDelete();
