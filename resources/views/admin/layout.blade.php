@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -431,14 +430,14 @@
 
 <script src="{{asset('js/admin.js')}}"></script>
 
-<script src="/plugins/ckeditor/ckeditor.js"></script>
-<script src="/plugins/ckfinder/ckfinder.js"></script>
-<script>
-    $(document).ready(function (){
-        var editor = CKEDITOR.replaceAll();
-        CKFinder.setupCKEditor(editor);
-    })
-</script>
+{{--<script src="/plugins/ckeditor/ckeditor.js"></script>--}}
+{{--<script src="/plugins/ckfinder/ckfinder.js"></script>--}}
+{{--<script>--}}
+{{--    // $(document).ready(function (){--}}
+{{--    //     var editor = CKEDITOR.replaceAll();--}}
+{{--    //     CKFinder.setupCKEditor(editor);--}}
+{{--    // })--}}
+{{--</script>--}}
 
 </body>
 

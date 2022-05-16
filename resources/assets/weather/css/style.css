@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.weather-wrapper {
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.weather-main {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.weather-main-info h1{
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: #333333;
+}
+
+.weather-date {
+    text-align: center;
+}
