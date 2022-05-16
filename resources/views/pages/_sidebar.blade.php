@@ -19,7 +19,7 @@
 
                         <div class="popular-post">
 
-                            <a href="#" class="popular-img"><img src="{{$post->image}}" alt="">
+                            <a href="#" class="popular-img"><img src="{{asset('storage/'.$post->image)}}" alt="">
                                 <div class="p-overlay"></div>
                             </a>
 
@@ -40,7 +40,7 @@
                         @foreach($recommendedPosts as $post)
                             <div class="item">
                                 <div class="feature-content">
-                                    <img src="{{$post->image}}" alt="">
+                                    <img src="{{asset('storage/'.$post->image)}}" alt="">
 
                                     <a href="#" class="overlay-text text-center">
                                         <h5 class="text-uppercase">{{$post->title}}</h5>
@@ -60,7 +60,7 @@
 
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="{{$post->image}}" alt="">
+                                    <a href="#" class="popular-img"><img src="{{asset('storage/'.$post->image)}}" alt="">
                                         <div class="p-overlay"></div>
                                     </a>
                                 </div>

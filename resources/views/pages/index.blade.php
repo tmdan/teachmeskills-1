@@ -9,7 +9,7 @@
                 @foreach($posts as $post)
                 <article class="post">
                     <div class="post-thumb">
-                        <a href=" "><img src="{{asset($post->image)}}" alt="{{asset($post->image)}}"></a>
+                        <a href=" "><img src="{{asset('storage/'.$post->image)}}" alt="{{asset('storage/'.$post->image)}}"></a>
 
                         <a href=" " class="post-thumb-overlay text-center">
                             <div class="text-uppercase text-center">View Post</div>
@@ -25,7 +25,7 @@
 
                         </header>
                         <div class="entry-content">
-                            {!!$post->description!!}
+                            {!!$post->content!!}
 
                             <div class="btn-continue-reading text-center text-uppercase">
                                 <a href="" class="more-link">Continue Reading</a>
