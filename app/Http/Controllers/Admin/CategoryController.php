@@ -31,7 +31,7 @@ class CategoryController extends Controller
     {
         Category::create($request->validated());
 
-        return redirect()->back();
+        return redirect()->route('admin.categories.index');
     }
 
     public function show(ShowCategoryRequest $request, Category $category)
@@ -49,7 +49,7 @@ class CategoryController extends Controller
     {
         $category->update($request->validated());
 
-        return redirect()->back();
+        return redirect()->route('admin.categories.index');
     }
 
     public function destroy(DestroyCategoryRequest $request, Category $category)
