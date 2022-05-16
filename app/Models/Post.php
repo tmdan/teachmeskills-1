@@ -28,7 +28,7 @@ class Post extends Model
     ];
 
     protected $casts = [
-        'created_at' => 'datetime:Y-m-d',
+        'created_at' => 'datetime',
     ];
 
     public function sluggable(): array
