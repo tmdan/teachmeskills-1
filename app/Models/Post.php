@@ -27,6 +27,10 @@ class Post extends Model
         'is_publish'
     ];
 
+    protected $casts = [
+        'created_at' => "date"
+    ];
+
     public function sluggable(): array
     {
         return [
