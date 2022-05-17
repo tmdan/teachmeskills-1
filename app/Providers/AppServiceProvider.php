@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
             return new OpenWeatherService();
         });
 
-        
+
 //        //Атач сервиса к интерфейсу
         $this->app->bind(WeatherServiceInterface::class, function ($app){
             return new OpenWeatherService();

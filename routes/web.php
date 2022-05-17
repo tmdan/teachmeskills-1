@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get("weather", function (){
+Route::get("weather", function () {
 
 
     dd(\App\Facade\Weather::temperature()->getFeelsLikeTemperature());
@@ -68,7 +68,6 @@ Route::resource("categories", CategoryController::class)
     ]);
 
 
-
 Route::group(['prefix' => 'admin'], function () {
 
 
@@ -98,20 +97,26 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
 
-    Route::resource("posts", PostController::class)->parameters([
-        'post' => "post:id"
-    ])->names([
-        'edit' => 'admin.posts.edit',
-        'create' => 'admin.posts.create',
-        'show' => 'admin.posts.show',
-        'index' => 'admin.posts.index',
-        'store' => 'admin.posts.store',
-        'update' => 'admin.posts.update',
-        'destroy' => 'admin.posts.delete',
-    ]);
+    Route::resource("posts", PostController::class)
+        ->parameters([
+            'post' => "post:id"
+        ])
+        ->names([
+            'edit' => 'admin.posts.edit',
+            'create' => 'admin.posts.create',
+            'show' => 'admin.posts.show',
+            'index' => 'admin.posts.index',
+            'store' => 'admin.posts.store',
+            'update' => 'admin.posts.update',
+            'destroy' => 'admin.posts.delete',
+        ]);
 
 
-    Route::resource("users", UserController::class)->names([
+    Route::resource("users", UserController::class)
+        ->parameters([
+            'user' => "user:id"
+        ])
+        ->names([
         'edit' => 'admin.users.edit',
         'create' => 'admin.users.create',
         'show' => 'admin.users.show',

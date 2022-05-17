@@ -15,7 +15,7 @@
                     </aside>
                     <aside class="widget">
                         <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
-                        @foreach($popularPosts as $post)
+                        @foreach($posts as $post)
                         <div class="popular-post">
 
 
@@ -40,12 +40,12 @@
                         @foreach($featuredPosts as $post)
                             <div class="item">
                                 <div class="feature-content">
-                                    <img src="{{$post->getImage()}}" alt="">
+                                    <img src="{{$post->image}}" alt="">
 
                                     <a href="#" class="overlay-text text-center">
                                         <h5 class="text-uppercase">{{$post->title}}</h5>
 
-                                        <p>{!!$post->description!!}</p>
+                                        <p>{!!$post->title!!}</p>
                                     </a>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                     </aside>
                     <aside class="widget pos-padding">
                         <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
-                        @foreach($recentPosts as $post)
+                        @foreach($posts as $post)
                         <div class="thumb-latest-posts">
 
 

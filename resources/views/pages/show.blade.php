@@ -30,7 +30,7 @@
 
                         <div class="social-share">
 							<span
-                                    class="social-share-title pull-left text-capitalize">By {{$post->author->name}} On {{$post->getDate()}}</span>
+                                    class="social-share-title pull-left text-capitalize">By {{$post->user->name}} On {{$post->getDate()}}</span>
                             <ul class="text-center pull-right">
                                 <li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -107,11 +107,11 @@
                     @foreach($post->getComments() as $comment)
                         <div class="bottom-comment"><!--bottom comment-->
                             <div class="comment-img">
-                                <img class="img-circle" src="{{$comment->author->getImage()}}" alt="" width="75" height="75">
+                                <img class="img-circle" src="{{$comment->user->avatar}}" alt="" width="75" height="75">
                             </div>
 
                             <div class="comment-text">
-                                <h5>{{$comment->author->name}}</h5>
+                                <h5>{{$comment->user->name}}</h5>
 
                                 <p class="comment-date">
                                     {{$comment->created_at->diffForHumans()}}

@@ -69,7 +69,7 @@ class Post extends Model
      * Автор поста
      * @return BelongsToAlias
      */
-    public function user()
+    public function author()
     {
         return $this->belongsTo(User::class);
     }
