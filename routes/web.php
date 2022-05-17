@@ -26,7 +26,7 @@ Route::get('/weather', function (){
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/posts/{post:slug}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+Route::get('/posts/{post:slug}', [\App\Http\Controllers\HomeController::class, 'show'])->name('post.show');
 Route::get('/tags/{tag:slug}', [\App\Http\Controllers\HomeController::class, 'tag'])->name('tag.show');
 Route::get('/categories/{category:slug}', [\App\Http\Controllers\HomeController::class, 'category'])
     ->name('category.show');

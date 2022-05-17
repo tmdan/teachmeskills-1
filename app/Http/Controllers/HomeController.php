@@ -37,4 +37,9 @@ class HomeController extends Controller
 
         return view('pages.list', ['posts' => $posts]);
     }
+
+    public function show(Post $post)
+    {
+        return view('pages.show', ['post' => $post]);
+    }
 }
