@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\Weather\OpenWeather\OpenWeatherService;
 use App\Services\Weather\Template\WeatherServiceInterface;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -17,14 +18,14 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //Атач сервиса к фасаду
-//        $this->app->bind('weather', function ($app){
-//            return new OpenWeatherService();
-//        });
+        $this->app->bind('weather', function ($app){
+            return new OpenWeatherService();
+        });
 
 //        //Атач сервиса к интерфейсу
-//        $this->app->bind(WeatherServiceInterface::class, function ($app){
-//            return new OpenWeatherService();
-//        });
+        $this->app->bind(WeatherServiceInterface::class, function ($app){
+            return new OpenWeatherService();
+        });
     }
 
     /**
@@ -37,6 +38,6 @@ class AppServiceProvider extends ServiceProvider
 
         //$this->app->singleton('weather', OpenWeatherService::class);
 
-//        Paginator::useBootstrapFour();
+        Paginator::useBootstrapFour();
     }
 }

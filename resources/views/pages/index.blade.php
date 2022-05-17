@@ -10,7 +10,7 @@
                         <article class="post">
                             <div class="post-thumb">
                                 <a href="{{route('posts.show', $post->slug)}}"><img
-                                            src="{{asset('storage/'.$post->image)}}" alt=""></a>
+                                            src="{{asset('storage/'. $post->image)}}" alt=""></a>
                                 <a href="{{route('posts.show', $post->slug)}}" class="post-thumb-overlay text-center">
                                     <div class="text-uppercase text-center">View Post</div>
                                 </a>
