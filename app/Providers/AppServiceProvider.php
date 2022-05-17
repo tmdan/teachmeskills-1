@@ -25,11 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('pages._sidebar', function ($view){
+        /*view()->composer('pages._sidebar', function ($view){
             $view->with('popularPost', Post::orderBy('views', 'desc')->take(3)->get());
             $view->with('recommendedPost', Post::where('is_recommended', true)->take(3)->get());
             $view->with('recentPost', Post::orderBy('date', 'desc')->take(4)->get());
             $view->with('categories', Category::all());
-        });
+        });*/
     }
 }

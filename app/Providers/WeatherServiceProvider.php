@@ -12,9 +12,9 @@ class WeatherServiceProvider extends ServiceProvider
     public function register()
     {
         // для сервисов и провайдеров
-        /*$this->app->bind(WeatherServiceContract::class, function (){
+        $this->app->bind(WeatherServiceContract::class, function (){
             return new OpenWeatherService();
-        });*/
+        });
     }
 
     /**
@@ -25,6 +25,6 @@ class WeatherServiceProvider extends ServiceProvider
     public function boot()
     {
         // для фасадов
-        $this->app->bind('weather', OpenWeatherService::class);
+        //$this->app->bind('weather', OpenWeatherService::class);
     }
 }

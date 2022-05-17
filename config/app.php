@@ -167,7 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
-        //\App\Providers\WeatherServiceProvider::class,
+        App\Providers\WeatherServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
         /*
          * Application Service Providers...

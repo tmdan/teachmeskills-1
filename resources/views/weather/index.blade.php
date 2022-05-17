@@ -12,19 +12,19 @@
 <div class="weather-wrapper">
     <div class="weather-main">
         <div class="weather-main-image">
-            <img src="{{asset("storage/weather-icons/". \App\Facade\Weather::generalInformation()->getIcon().'.png')}}"
+            <img src="{{asset("storage/weather-icons/". $weatherService->generalInformation()->getIcon().'.png')}}"
                  alt="weather-icon">
         </div>
         <div class="weather-main-info">
-            <h1>{{\App\Facade\Weather::generalInformation()->getNameCity()}}</h1>
-            <p>{{\App\Facade\Weather::generalInformation()->getDescription()}}</p>
+            <h1>{{$weatherService->generalInformation()->getNameCity()}}</h1>
+            <p>{{$weatherService->generalInformation()->getDescription()}}</p>
         </div>
     </div>
     <div class="weather-date">
-        <p>температура {{\App\Facade\Weather::temperatures()->getTemperature()}} °C, ощущается
-            как {{\App\Facade\Weather::temperatures()->getFeelsLikeTemperature()}} °C</p>
-        <p>давление {{\App\Facade\Weather::pressure()->getPressure()}},
-            влажность {{\App\Facade\Weather::pressure()->getHumidity()}} %</p>
+        <p>температура {{$weatherService->temperatures()->getTemperature()}} °C, ощущается
+            как {{$weatherService->temperatures()->getFeelsLikeTemperature()}} °C</p>
+        <p>давление {{$weatherService->pressure()->getPressure()}},
+            влажность {{$weatherService->pressure()->getHumidity()}} %</p>
 
     </div>
 </div>
