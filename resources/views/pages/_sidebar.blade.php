@@ -1,6 +1,9 @@
 <div class="col-md-4" data-sticky_column>
                 <div class="primary-sidebar">
-                    
+
+                    @include('weather.widget')
+
+
                     <aside class="widget news-letter">
                         <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
                         @include('admin.errors')

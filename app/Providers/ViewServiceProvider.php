@@ -16,6 +16,6 @@ class ViewServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        View::composer(["pages._sidebar", "admin.*"], BlogViewComposer::class);
+        View::composer(["pages._sidebar"], BlogViewComposer::class);
     }
 }
