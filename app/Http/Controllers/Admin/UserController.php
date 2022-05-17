@@ -17,9 +17,9 @@ class UserController extends Controller
 {
     public function index(IndexUserRequest $request)
     {
-        $users = User::all();
+//        $users = User::all();
 
-        return view('admin.users.index', ['users' => $users]);
+        return view('admin.users.index');
     }
 
     public function create(CreateUserRequest $request)
