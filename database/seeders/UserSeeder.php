@@ -19,34 +19,53 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name' => 'Лена',
-                'email' => 'helen@mail.ru',
+                'name' => 'Максим',
+                'email' => 'maksim@mail.ru',
                 'password' => Hash::make('111111zZ'),
-                'remember_token' => Str::random(48)
+                'remember_token' => Str::random(48),
+                'is_admin' => false
             ],
             [
-                'name' => 'Юля',
-                'email' => 'julia@mail.ru',
+                'name' => 'Оля',
+                'email' => 'volha@mail.ru',
                 'password' => Hash::make('222222zZ'),
-                'remember_token' => Str::random(48)
+                'remember_token' => Str::random(48),
+                'is_admin' => false
             ],
             [
-                'name' => 'Егор',
-                'email' => 'egor@mail.ru',
+                'name' => 'Иван',
+                'email' => 'ivan@mail.ru',
                 'password' => Hash::make('333333zZ'),
-                'remember_token' => Str::random(48)
+                'remember_token' => Str::random(48),
+                'is_admin' => false
             ],
             [
-                'name' => 'Антон',
-                'email' => 'anthony@mail.ru',
+                'name' => 'Даша',
+                'email' => 'darya@mail.ru',
                 'password' => Hash::make('444444zZ'),
-                'remember_token' => Str::random(48)
+                'remember_token' => Str::random(48),
+                'is_admin' => false
             ],
             [
-                'name' => 'Вероника',
-                'email' => 'veronika@mail.ru',
+                'name' => 'Кирилл',
+                'email' => 'Kirill@mail.ru',
                 'password' => Hash::make('555555zZ'),
-                'remember_token' => Str::random(48)
+                'remember_token' => Str::random(48),
+                'is_admin' => false
+            ],
+            [
+                'name' => 'Admin',
+                'email' => 'admin@mail.ru',
+                'password' => Hash::make('666666zZ'),
+                'remember_token' => Str::random(48),
+                'is_admin' => true
+            ],
+            [
+                'name' => 'Administrator',
+                'email' => 'administrator@mail.ru',
+                'password' => Hash::make('777777zZ'),
+                'remember_token' => Str::random(48),
+                'is_admin' => true
             ],
         ]);
     }

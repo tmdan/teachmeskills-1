@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\User;
+use App\Notifications\SignUpNotification;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -16,7 +18,7 @@ use App\Http\Controllers\Admin\CategoryController;
 |
 */
 Route::get('/', function () {
-    echo 'It`s alive!!!';
+    //User::first()->notify(new SingUpNotification());
 });
 
 

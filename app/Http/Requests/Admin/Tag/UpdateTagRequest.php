@@ -27,4 +27,11 @@ class UpdateTagRequest extends FormRequest
             'title' => 'required|string|max:255'
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'название тэга'
+        ];
+    }
 }
