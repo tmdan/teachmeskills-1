@@ -50,8 +50,7 @@ class UserObserver
          */
         public function restored(User $user)
         {
-            // if ($user->trashed() && $user->avatar != User::NO_IMAGE && Storage::exists($user->avatar)) {
-            //            Storage::delete($user->avatar);
+            //
         }
 
         /**
