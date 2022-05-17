@@ -24,8 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource("posts", PostController::class)->parameters([
     'post' => "post:id"
 ])->names([
-    'edit' => 'api.posts.edit',
-    'create' => 'api.posts.create',
     'show' => 'api.posts.show',
     'index' => 'api.posts.index',
     'store' => 'api.posts.store',

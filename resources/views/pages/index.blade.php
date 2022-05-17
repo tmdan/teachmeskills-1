@@ -21,7 +21,7 @@
 
                                     @isset($post->category)
                                         <h6>
-                                            <a href="{{route('categories.show', $post->category->slug)}}"> {{$post->category->title}}</a>
+                                            <a href="{{route('categories.show', $post->tags)}}"> {{$post->category->title}}</a>
                                         </h6>
                                     @else
                                         <h1 class="entry-title"><a
