@@ -210,4 +210,51 @@ class Post extends Model
     {
         return $value ?? self::NO_IMAGE;
     }
+
+    public function hasPrevious()
+    {
+        return self::where("id", "<", $this->id)->max("id");
+    }
+
+    public function getPrevious()
+    {
+        $postID = $this->hasPrevious();
+        return self::find("$postID");
+    }
+
+    public function hasNext()
+    {
+        return self::where("id", ">", $this->id)->min("id");
+    }
+
+    public function getNext()
+    {
+        $postID = $this->hasNext();
+        return self::find("$postID");
+    }
+
+    public function related()
+    {
+        return self::all()->except($this->id);
+    }
+
+    public function hasCategory()
+    {
+        return $this->category != null ? true : false;
+    }
+
+    public static function getPopularPosts()
+    {
+        return self::orderBy("views", "desc")->take(3)->get();
+    }
+
+    public static function getFeaturedPosts()
+    {
+        return self::where("is_recommended", 1)->take(3)->get();
+    }
+
+    public static function getRecentPosts()
+    {
+        return self::orderBy("created_at", "desc")->take(4)->get();
+    }
 }

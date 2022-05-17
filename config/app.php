@@ -176,7 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\ViewServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
 
     ],
@@ -193,7 +193,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-       'Weather' => \App\Facade\Weather::class
+        // ...
     ])->toArray(),
 
 ];
