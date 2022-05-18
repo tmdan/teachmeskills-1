@@ -44,7 +44,7 @@
 <div class="notfound">
     <div class="404">404</div>
     страница не найдена<br>
-    <a href="{{route('index')}}"> перейти на главную страницу..</a>
+    <a href="#"> перейти на главную страницу..</a>
 </div>
 </body>
 </html>
