@@ -33,7 +33,7 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request, Post $post)
     {
-        $post = Post::create($request->validated() + ['users_id' => 1]);
+        $post = Post::create($request->validated());
         $post->setCategory($request->get('category_id'));
         $post->setTags($request->get('tags'));
         return redirect()->route('admin.posts.index');

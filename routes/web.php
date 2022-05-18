@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use App\Notifications\SingUpNotification;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,8 @@ Route::group(['middleware' => 'guest'], function (){
 
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/profile',[ProfileController::class, 'index'])->name('profile');
+    Route::put('/profile',[ProfileController::class, 'update'])->name('profileUpdate');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
