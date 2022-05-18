@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\AuthController;
 use App\Models\User;
 use App\Notifications\SingUpNotification;
 use Illuminate\Support\Facades\Route;
@@ -22,12 +23,18 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/post/{slug}',[HomeController::class, 'show'])->name('post.show');
-Route::get('/tag/{slug}',[HomeController::class, 'tag'])->name('tag.show');
-Route::get('/category/{slug}',[HomeController::class, 'category'])->name('category.show');
+
+Route::get('/post/{slug}', [HomeController::class, 'show'])->name('post.show');
+Route::get('/tag/{slug}', [HomeController::class, 'tag'])->name('tag.show');
+Route::get('/category/{slug}', [HomeController::class, 'category'])->name('category.show');
+
+Route::get('/register', [AuthController::class, 'registerForm'])->name('registerForm');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix' => 'admin'], function () {
 
     Route::resource("categories", CategoryController::class)->parameters([
         'categories' => "category:slug"
