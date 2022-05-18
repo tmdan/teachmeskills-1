@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\LoginAuthRequest;
 use App\Http\Requests\Auth\RegisterAuthRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,9 +28,18 @@ class AuthController extends Controller
         return view('pages.login');
     }
 
-    public function login(Request $request)
+    public function login(LoginAuthRequest $request)
     {
+        if (Auth::attempt($request->validated())) {
+            return redirect('/');
+        }
+        return redirect()->back()->with('status', 'Неправильный логин или пароль');
+    }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 
 }

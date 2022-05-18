@@ -22,7 +22,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/post/{slug}', [HomeController::class, 'show'])->name('post.show');
 Route::get('/tag/{slug}', [HomeController::class, 'tag'])->name('tag.show');
@@ -32,6 +32,9 @@ Route::get('/register', [AuthController::class, 'registerForm'])->name('register
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::get('/logout',[AuthController::class, 'logout'])->name('logout');
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 Route::group(['prefix' => 'admin'], function () {
