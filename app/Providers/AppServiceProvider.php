@@ -33,10 +33,11 @@ class AppServiceProvider extends ServiceProvider
              $view->with('recentPosts', Post::orderBy('id', 'desc')->take(2)->get());
              $view->with('categories', Category::all());
          });*/
-        if (Gate::define('admin_panel', function (User $user) {
+
+        /*/if (Gate::define('admin_panel', function (User $user) {
             return $user->is_admin == 1;
         })) {
            abort(404);
-        }
+        }*/
     }
 }

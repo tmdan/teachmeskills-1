@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'can:admin_panel'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::resource("categories", CategoryController::class)->parameters([
