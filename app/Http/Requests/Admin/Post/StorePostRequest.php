@@ -41,7 +41,7 @@ class StorePostRequest extends FormRequest
     public function prepareForValidation()
     {
         $this->merge([
-            'user_id' => 1,
+            'user_id' => $this->user()->id,
             'is_published' => $this->exists('is_published') ? true : false,
             'is_recommended' => $this->exists('is_recommended') ? true : false,
         ]);
