@@ -35,6 +35,8 @@ Route::get('/categories/{category:slug}', [\App\Http\Controllers\HomeController:
 // здесь только доступ для тех пользователей, которые прошли аутентификацию и авторизацию
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+    Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index']);
+    Route::post('/profile', [\App\Http\Controllers\ProfileController::class, 'store'])->name('profile');
 });
 
 // страницы, доступные для гостей
