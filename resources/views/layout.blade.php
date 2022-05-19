@@ -48,6 +48,9 @@
                     <li><a href="/">Homepage</a></li>
                     <li><a href="about-me.html">ABOUT ME </a></li>
                     <li><a href="contact.html">CONTACT</a></li>
+                    @can('admin_panel')
+                        <li><a href="{{route('adminpanel')}}">ADMIN PANEL</a></li>
+                    @endcan
                 </ul>
 
                 <ul class="nav navbar-nav text-uppercase pull-right">

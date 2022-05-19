@@ -38,8 +38,8 @@ Route::get('/tags/{tag:slug}', [\App\Http\Controllers\HomeController::class, 'ta
 Route::get('/categories/{category:slug}', [\App\Http\Controllers\HomeController::class, 'category'])
     ->name('category.show');
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index']);
+Route::group(['prefix' => 'admin', 'middleware' => ['can:admin_panel']], function () {
+    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('adminpanel');
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->parameters([
         'categories' => 'category:slug'
