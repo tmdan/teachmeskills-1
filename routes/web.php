@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/weather', function (){
+Route::get('/weather', function () {
 
     //dd(\App\Facade\Weather::generalInformation()->getNameCity());
     return view('weather.index');
@@ -27,18 +27,25 @@ Route::get('/weather', function (){
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/register', [\App\Http\Controllers\AuthController::class, 'registerForm'])->name('registerForm');
-Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register'])->name('register');
-Route::get('/login', [\App\Http\Controllers\AuthController::class, 'loginForm'])->name('loginForm');
-Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
-Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
-
 Route::get('/posts/{post:slug}', [\App\Http\Controllers\HomeController::class, 'show'])->name('post.show');
 Route::get('/tags/{tag:slug}', [\App\Http\Controllers\HomeController::class, 'tag'])->name('tag.show');
 Route::get('/categories/{category:slug}', [\App\Http\Controllers\HomeController::class, 'category'])
     ->name('category.show');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['can:admin_panel']], function () {
+// здесь только доступ для тех пользователей, которые прошли аутентификацию и авторизацию
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+});
+
+// страницы, доступные для гостей
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [\App\Http\Controllers\AuthController::class, 'registerForm'])->name('registerForm');
+    Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register'])->name('register');
+    Route::get('/login', [\App\Http\Controllers\AuthController::class, 'loginForm'])->name('loginForm');
+    Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('adminpanel');
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->parameters([

@@ -27,9 +27,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Gate::define('admin_panel', function(User $user) {
+        /*Gate::define('admin_panel', function(User $user) {
             return $user->is_admin == 1;
-        });
+        });*/
 
         /* у марлина так было
          * view()->composer('pages._sidebar', function ($view){

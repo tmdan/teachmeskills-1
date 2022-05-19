@@ -48,9 +48,12 @@
                     <li><a href="/">Homepage</a></li>
                     <li><a href="about-me.html">ABOUT ME </a></li>
                     <li><a href="contact.html">CONTACT</a></li>
-                    @can('admin_panel')
+                   {{-- @can('admin_panel') --}}
+                    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->is_admin)
                         <li><a href="{{route('adminpanel')}}">ADMIN PANEL</a></li>
-                    @endcan
+                    @endif
+                    {{-- @endcan --}}
+
                 </ul>
 
                 <ul class="nav navbar-nav text-uppercase pull-right">
