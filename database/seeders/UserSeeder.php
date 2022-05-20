@@ -55,14 +55,14 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Admin',
-                'email' => 'admin@mail.ru',
+                'email' => 'schuca120@mail.ru',
                 'password' => Hash::make('666666zZ'),
                 'remember_token' => Str::random(48),
                 'is_admin' => true
             ],
             [
                 'name' => 'Administrator',
-                'email' => 'administrator@mail.ru',
+                'email' => '1111@maaa.ru',
                 'password' => Hash::make('777777zZ'),
                 'remember_token' => Str::random(48),
                 'is_admin' => true
