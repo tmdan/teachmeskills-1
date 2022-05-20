@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
     Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index']);
     Route::post('/profile', [\App\Http\Controllers\ProfileController::class, 'store'])->name('profile');
+    Route::post('/comment', [\App\Http\Controllers\CommentController::class, 'store'])->name('comment');
 });
 
 // страницы, доступные для гостей
@@ -93,4 +94,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
         'update' => 'admin.posts.update',
         'destroy' => 'admin.posts.delete'
     ]);
+
+    Route::get('/comments', [\App\Http\Controllers\Admin\CommentController::class, 'index'])
+        ->name('admin.comments.index');
+    Route::get('/comments/toggle/{id}', [\App\Http\Controllers\Admin\CommentController::class, 'toggle']);
+    Route::delete('/comments/{id}', [\App\Http\Controllers\Admin\CommentController::class, 'destroy'])
+        ->name('admin.comments.delete');
 });

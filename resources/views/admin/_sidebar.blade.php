@@ -9,10 +9,11 @@
     <li><a href="{{route('admin.categories.index')}}"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
     <li><a href="{{route('admin.tags.index')}}"><i class="fa fa-tags"></i> <span>Теги</span></a></li>
     <li>
-        <a href="#">
+        <a href="{{route('admin.comments.index')}}">
             <i class="fa fa-commenting"></i> <span>Комментарии</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">5</small>
+              <small
+                  class="label pull-right bg-green">{{$newCommentsCount}} </small>
             </span>
         </a>
     </li>

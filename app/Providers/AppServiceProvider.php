@@ -38,5 +38,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('recentPost', Post::orderBy('date', 'desc')->take(4)->get());
             $view->with('categories', Category::all());
         });*/
+
     }
 }

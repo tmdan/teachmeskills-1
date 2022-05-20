@@ -29,5 +29,9 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(["pages._sidebar", 'weather.index'], BlogViewComposer::class);
+
+        view()->composer('admin._sidebar', function ($view){
+            $view->with('newCommentsCount', \App\Models\Comment::where('is_publish', false)->count());
+        });
     }
 }
