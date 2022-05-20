@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\User\IndexUserRequest;
 use App\Http\Requests\Admin\User\StoreUserRequest;
 use App\Http\Requests\Admin\User\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -29,7 +30,8 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        User::create($request->validated());
+        $user = User::create($request->validated());
+        event(new Registered($user));
         return redirect()->route('admin.users.index');
     }
 
