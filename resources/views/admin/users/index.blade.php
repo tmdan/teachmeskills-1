@@ -47,7 +47,8 @@
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>
-                                    <img src="{{asset("storage/". $user->avatar)}}" alt="avatar-image" class="img-responsive" width="150">
+                                    <img src="{{asset("storage/". $user->avatar)}}" alt="avatar-image"
+                                         class="img-responsive" width="150">
                                 </td>
                                 <td><a href="{{route("admin.users.edit", $user->id)}}" class="fa fa-pencil"></a>
                                     <form method="POST" action="{{route("admin.users.delete", $user->id)}}">
@@ -62,6 +63,18 @@
                         @endforeach
                         </tfoot>
                     </table>
+                </div>
+                <div
+                    style="color: #0d6aad; background-color: cornsilk; border: ridge; max-width: 35%; margin: 10px; padding: 10px">
+                    <p>Погода:
+                        г. {{$weather->coordinates()->getCityName()}} {{round($weather->temperature()->getCurrentTemperature(),1)}}
+                        &deg C.
+                        <br>
+                        Ощущается как {{round($weather->temperature()->getFeelsLikeTemperature(),1)}}&deg C.
+                        <br>
+                        Влажность {{$weather->temperature()->getHumidity()}} %.
+                        <br>
+                        Давление {{round($weather->temperature()->getPressure() * 0.75006375541921, 0)}} мм.рт.ст. </p>
                 </div>
                 <!-- /.box-body -->
             </div>

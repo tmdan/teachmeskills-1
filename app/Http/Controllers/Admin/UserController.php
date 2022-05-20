@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\StoreUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Services\Weather\Interfaces\WeatherServiceContract;
 
 class UserController extends Controller
 {
@@ -17,11 +18,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(IndexUserRequest $request)
+    public function index(WeatherServiceContract $weather)
     {
         $users = User::all();
 
-        return view('admin.users.index', ['users'=>$users]);
+        return view("admin.users.index", ["users" => $users, "weather" => $weather]);
     }
 
     /**

@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'user_name4',
-                'email' => 'user4@gmail.com',
+                'email' => 'panymari84@gmail.com',
                 'password' => 'password4545',
                 "avatar" => "uploads/user5-128x128.jpg",
             ],
