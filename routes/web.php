@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use App\Notifications\SingUpNotification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -22,7 +23,7 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes(['verify' => true]);
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/post/{slug}', [HomeController::class, 'show'])->name('post.show');
