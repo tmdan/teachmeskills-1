@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\posts;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StorePostRequest extends FormRequest
 {
@@ -36,8 +37,8 @@ class StorePostRequest extends FormRequest
         $this->merge([
             //'is_recommended' => $is_recommended,
             //'is_publish' => $is_publish,
-            'user_id' => 1,
-            'is_publish' => $this->exists('is_publish') ? true : false,
+            'user_id' => Auth::user()->id,
+            'is_publish' => $this->exists('is_publish') ? false : true,
             'is_recommended' => $this->exists('is_recommended') ? true : false,
             //'category_id' => $this->request->get('category_id'),
         ]);

@@ -185,12 +185,12 @@ class Post extends Model
 
     public function hasPrevious()
     {
-        return self::where('id', '<', $this->id)->max('id');
+        return self::where('id', '<', $this->id)->published()->max('id');
     }
 
     public function hasNext()
     {
-        return self::where('id', '>', $this->id)->min('id');
+        return self::where('id', '>', $this->id)->published()->min('id');
     }
 
     public function getPrevious()
@@ -208,7 +208,7 @@ class Post extends Model
     public function related()
     {
 
-        return self::all()->except($this->id);
+        return self::published()->get()->except($this->id);
     }
 
     /* public function add($fields)

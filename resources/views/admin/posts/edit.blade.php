@@ -97,9 +97,9 @@
                             <div class="form-group">
                                 <label>
                                     @if($post->is_publish)
-                                        <input type="checkbox" name='is_publish' class="minimal" checked>
+                                        <input type="checkbox" name='is_publish' class="minimal" >
                                     @else
-                                        <input type="checkbox" name='is_publish' class="minimal">
+                                        <input type="checkbox" name='is_publish' class="minimal" checked>
                                     @endif
                                 </label>
                                 <label>Черновик</label>

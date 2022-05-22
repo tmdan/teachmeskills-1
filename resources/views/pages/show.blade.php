@@ -6,9 +6,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    @if(session('status'))
-                        <div class="alert alert-success">{{session('status')}}</div>
-                    @endif
+                    {{-- @if(session('status'))
+                         <div class="alert alert-success">{{session('status')}}</div>
+                     @endif --}}
                     <article class="post">
                         <div class="post-thumb">
                             <a href="{{route('post.show', $post->slug)}}"><img src="{{asset("storage/". $post->image)}}"
@@ -54,8 +54,7 @@
                              style="max-width: 110px" alt="">
                         <h4>{{$post->author->name}}</h4>
 
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor
-                            invidunt ut labore et dolore magna aliquyam erat.</p>
+                        <p>{{$post->author->status}}</p>
                     </div><!--top comment end-->
                     <div class="row"><!--blog next previous-->
                         <div class="col-md-6">

@@ -19,7 +19,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <form action="{{route('admin.posts.store')}}" enctype="multipart/form-data" method="POST">
+            {{--<form action="{{route('admin.posts.store')}}" enctype="multipart/form-data" method="POST">--}}
 
             <!-- Default box -->
             <div class="box">
@@ -80,7 +80,7 @@
             </div>
             <!-- /.box -->
 
-            </form>
+           {{--</form>--}}
 
         </section>
         <!-- /.content -->

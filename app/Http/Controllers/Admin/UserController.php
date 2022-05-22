@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\users\StoreUserRequest;
 use App\Http\Requests\Admin\users\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -43,7 +45,12 @@ class UserController extends Controller
     {
         //$request->validated();
 
-        User::create($request->validated());
+       $user = User::create($request->validated() );
+
+        //$user->sendEmailVerificationNotification();
+
+
+        //event(new Registered($user));
 
         return redirect()->route('admin.users.index');
     }

@@ -5,9 +5,10 @@
 
         <aside class="widget news-letter">
             <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
-
-            <form action="#">
-                <input type="email" placeholder="Your email address">
+            @include('admin.errors')
+            <form action="{{route('subscribe')}}" method="post">
+                @csrf
+                <input type="text" placeholder="Your email address" name="email">
                 <input type="submit" value="Subscribe Now"
                        class="text-uppercase text-center btn btn-subscribe">
             </form>
@@ -81,7 +82,7 @@
                 @foreach($categories as $category)
                     <li>
                         <a href="{{route('category.show', $category->slug)}}">{{$category->title}}</a>
-                        <span class="post-count pull-right"> ({{$category->posts()->count()}})</span>
+                        <span class="post-count pull-right"> ({{$category->posts()->published()->count()}})</span>
                     </li>
                 @endforeach
             </ul>

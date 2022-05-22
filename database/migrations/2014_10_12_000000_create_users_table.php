@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar', 255)->nullable();
             $table->boolean('is_admin')->default(false);
+            $table->string('status', 255)->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

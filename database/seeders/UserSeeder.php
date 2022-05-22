@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('123'),
                 'is_admin' => true,
                 'email_verified_at' => now(),
+                'status' => 'I am admin',
             ],
         ]);
     }
