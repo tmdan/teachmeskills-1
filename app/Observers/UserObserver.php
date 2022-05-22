@@ -16,7 +16,11 @@ class UserObserver
      */
     public function created(User $user)
     {
-        //
+        $admins = User::where('is_admin', true)->get();
+
+        foreach ($admins as $admin){
+            $admin->notify(new SingUpNotification($user));
+        }
     }
 
     /**

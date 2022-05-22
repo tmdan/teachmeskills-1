@@ -7,9 +7,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class SingUpNotification extends Notification
+class SingUpNotification extends Notification implements ShouldQueue
 {
     use Queueable;
+
+    private $user;
 
     /**
      * Create a new notification instance.
@@ -41,10 +43,10 @@ class SingUpNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->view('admin.mail', ['admin'=>$notifiable, 'user' => $this->user])
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->view('admin.mail', ['admin'=>$notifiable, 'user' => $this->user]);
+//                    ->line('The introduction to the notification.')
+//                    ->action('Notification Action', url('/'))
+//                    ->line('Thank you for using our application!');
     }
 
     /**
