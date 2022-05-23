@@ -31,8 +31,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = User::create($request->validated());
-        $user->sendEmailVerificationNotification();
-        //event(new Registered($user));
+        event(new Registered($user));
         return redirect()->route('admin.users.index');
     }
 
