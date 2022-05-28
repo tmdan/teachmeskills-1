@@ -38,4 +38,4 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('posts', PostController::class);
 });
 
-//Route::resource('/admin/posts',PostController::class);
+//Route::get('/',);
