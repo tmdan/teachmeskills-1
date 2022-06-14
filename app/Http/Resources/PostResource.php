@@ -14,7 +14,7 @@ class PostResource extends JsonResource
      */
     public function toArray($request)
     {
-        return array(
+        return [
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
@@ -26,10 +26,10 @@ class PostResource extends JsonResource
             'date' => $this->date,
             //'author' => PostUserResource::collection($this->author) ,
             'author' => $this->author,
-            //'author' => UserResource::collection($this->author),
+            //'author' => PostAuthorResource::collection($this->author),
             'category' => $this->category,
             'comments' => PostCommentResource::collection($this->comments) ,
-        );
+        ];
         /*
             "slug": "slag_posta_1",
             "category_id": 1,
